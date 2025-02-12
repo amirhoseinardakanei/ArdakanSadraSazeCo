@@ -1,0 +1,45 @@
+{% extends 'Base/index.html' %}
+
+
+{% block body %}
+    <!-- FAQ Section Start -->
+    <div class="faq-section pt-100 pb-100">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>سوالات متداول</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="faq-accordian">
+                        <div class="accordions">
+                            {% for foo in project %}
+                                <div class="accordion-item">
+                                <div class="accordion-title" data-tab="item{{ foo.id }}">
+                                    <i class="icofont-fast-delivery"></i>
+                                    <h2>{{ foo.name }}<i class='bx bx-chevron-right down-arrow'></i></h2>
+                                </div>
+                                <div class="accordion-content" id="item{{ foo.id }}">
+                                    <ul>
+                                        <li>کارفرما : {{ foo.ceo }}</li>
+                                        <li>تاریخ شروع : {{ foo.calendar }}</li>
+                                        <li>دسته بندی : {{ foo.category }}</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- FAQ Section End -->
+{% endblock %}

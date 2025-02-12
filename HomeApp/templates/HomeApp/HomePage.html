@@ -1,0 +1,373 @@
+{% extends 'Base/index.html' %}
+
+{% block body %}
+{#        <!-- Banner Section Start -->#}
+{#        <div class="banner-section banner-style-two" style="height: 52.8rem; background-image: url({{ setting_web.banner.url }})">#}
+{##}
+{#            <div class="d-table">#}
+{#                <div class="d-table-cell">#}
+{#                    <div class="container">#}
+{#                        <div class="banner-text">#}
+{#                            <h1 style="font-size: 23.2px; color: white">شرکت فنی و مهندسی <span style="color: #ffea00">صدرا سازه</span> اردکان</h1>#}
+{#                            <p style="color: white">شرکت فنی و مهندسی صدرا سازه با تخصص و تعهد خود، پروژه‌های شگفت‌انگیز را به واقعیت تبدیل می‌کند.</p>#}
+{##}
+{#                            <div class="theme-btn">#}
+{#                                <a href="{% url 'HomePage' %}#service" class="default-btn active">خدمات ما</a>#}
+{#                                <a href="{% url 'HomePage' %}#project" class="default-btn">پروژه ها</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- Banner Section End -->#}
+
+        <!-- Banner Section Start -->
+        <div class="banner-slider owl-carousel owl-theme">
+            <div class="slider-items slider-bg1" style="background-image: url({{ setting_web.banner.url }});">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="slider-text">
+                                <h1 class="txt-header" style=" color: white">شرکت فنی و مهندسی <span style="color: #ffea00">صدرا سازه</span> اردکان</h1>
+                                <p>شرکت فنی و مهندسی صدرا سازه با تخصص و تعهد خود، پروژه‌های شگفت‌انگیز را به واقعیت تبدیل می‌کند.</p>
+
+                                <div class="theme-btn">
+                                    <a href="{% url 'HomePage' %}#service" class="default-btn active">خدمات ما</a>
+                                    <a href="{% url 'cooperate-view' %}" class="default-btn">درخواست نقل و قول</a>
+                                    <a href="https://www.youtube.com/watch?v=6gUOzbhtVd4" class="video-btn popup-youtube">
+                                        <i class='bx bx-play'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-items slider-bg2" style="background-image: url({{ setting_web.banner4.url }})">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="slider-text">
+                                <h1 style="font-size: 23.2px; color: white">شرکت فنی و مهندسی <span style="color: #ffea00">صدرا سازه</span> اردکان</h1>
+                                <p>شرکت فنی و مهندسی صدرا سازه با تخصص و تعهد خود، پروژه‌های شگفت‌انگیز را به واقعیت تبدیل می‌کند.</p></p>
+
+                                <div class="theme-btn">
+                                    <a href="{% url 'HomePage' %}#service" class="default-btn active">خدمات ما</a>
+                                    <a href="https://www.youtube.com/watch?v=6gUOzbhtVd4" class="video-btn popup-youtube">
+                                        <i class='bx bx-play'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-items slider-bg2" style="background-image: url({{ setting_web.banner3.url }})">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="slider-text">
+                                <h1 style="font-size: 23.2px; color: white">شرکت فنی و مهندسی <span style="color: #ffea00">صدرا سازه</span> اردکان</h1>
+                                <p>شرکت فنی و مهندسی صدرا سازه با تخصص و تعهد خود، پروژه‌های شگفت‌انگیز را به واقعیت تبدیل می‌کند.</p></p>
+
+                                <div class="theme-btn">
+                                    <a href="{% url 'HomePage' %}#service" class="default-btn active">خدمات ما</a>
+                                    <a href="https://www.youtube.com/watch?v=6gUOzbhtVd4" class="video-btn popup-youtube">
+                                        <i class='bx bx-play'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Section End -->
+
+        <!-- Company Section Start -->
+        <div class="company-section pt-100 pb-100" >
+            <div class="container">
+                <div class="company-slider owl-carousel owl-theme">
+                    {% for logo in logo_compani %}
+                          <div class="company-logo">
+                              <a href="#"><img src="{{ logo.img_co.url }}" alt="logo"></a>
+                          </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Company Section End -->
+
+        <!-- About Section Start -->
+        <section class="about-style-two pt-100 pb-70" id="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="about-img">
+                            <img src="{{ setting_web.bannerUS1.url }}" alt="about image">
+                            <img src="{{ setting_web.bannerUS2.url }}" alt="about image">
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="about-text">
+                            <div class="section-title">
+                                <span>درباره ما</span>
+                                <h2>شرکت فنی و مهندسی صدرا سازه اردکان</h2>
+                            </div>
+
+                            <p>{{ setting_web.aboutUS1 }}</p>
+                            <p>{{ setting_web.aboutUS2 }}</p>
+                            <p>{{ setting_web.aboutUS3 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section End -->
+
+
+        <!-- Counter Section Start -->
+        <section class="counter-section counter-style-two pt-100 pb-70" id="co">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span>تجربه شرکت</span>
+                    <h2>شرکت فنی و مهندسی صدرا سازه</h2>
+                    <p>بازوی قدرت هر شرکتی مشتریان هستند و اهمیت بالایی دارند؛ بنابراین بهبود روابط با مشتریان و ارائه خدمات در جهت جلب رضایت و حفظ آن‌ها، اولویت‌ اصلی تمامی کارکنان و مدیریت شرکت فنی و مهندسی صدرا سازه اردکان می‌باشد.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-text">
+                            <i class='flaticon-team'></i>
+                            <h3><span>{{ setting_web.m1 }}</span></h3>
+                            <p>سال تجربه</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-text">
+                            <i class='flaticon-project'></i>
+                            <h3><span>{{ setting_web.m2 }}</span></h3>
+                            <p>پروژه تکمیل شده</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-text">
+                            <i class='flaticon-customer-review'></i>
+                            <h3><span>{{ setting_web.m3 }}</span></h3>
+                            <p>مشتری</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-text">
+                            <i class='flaticon-Construction-and-tools'></i>
+                            <h3><span>{{ setting_web.m4 }}</span></h3>
+                            <p>کارگر با تجربه</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Counter Section End -->
+
+
+        <!-- Service Section Start -->
+        <section class="service-style-three pb-70" style="margin-top: 50px" id="service">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span>خدمات ما</span>
+                    <h2>خدماتی که شرکت ما ارائه می دهد</h2>
+                    <p>انجام كليه فعاليتهاي مطالعاتي، حمل و نقل صنعتی، معدن، خدمات فني و مهندسي مشاوره اي، طراحي، اجرايي، طرح و ساخت، مديريت پيمان، نظارت بر طرحهاي عمراني در كشور از جمله خدمات این شرکت می باشد.</p>
+                </div>
+
+                <div class="row">
+
+                    {% for service in service_web %}
+                        <div class="col-lg-4 col-sm-6">
+                        <div class="service-card text-center">
+                            <i class='flaticon-maintenance'></i>
+                            <h3>{{ service.name }}</h3>
+<!--                            <p>در برگيرنده امور مربوط به ساخت راهها، نظير جاده هاي اصلي و فرعي، بزرگراهها، راههاي ريلي، باند فرودگاه، تونلها، پلها، راههاي زيرزميني، عمليات آسفالتي و نظاير آن.</script></p>-->
+
+                            <a href="{% url 'ServiceDetail' slug=service.slug %}" class="service-btn">
+                                بیشتر بخوانید
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- Service Section End -->
+
+        <!-- About Section Start -->
+        <section class="about-style-two pt-100 pb-70" id="modir">
+            <div class="container">
+                <div class="row align-items-center">
+
+
+                    <div class="col-lg-7">
+                        <div class="about-text">
+                            <div class="section-title">
+                                <span>سخن مدیرعامل</span>
+                                <h2>سید مجتبی هاشمی نسب</h2>
+                            </div>
+
+                            <p>{{ ceo_speech.speech1 }}</p>
+                            <p>{{ ceo_speech.speech2 }}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="about-img">
+                            <img src="{{ ceo_speech.banner.url }}" alt="about image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section End -->
+
+
+
+        <!-- Project Section Start -->
+        <section class="blog-section pb-100 pt-100" id="project">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span>پروژه ها</span>
+                    <h2>پروژه های درحال اجرا</h2>
+                    <p>پروژه‌های شرکت صدرا سازه با رعایت اصول ایمنی، مهندسی و استاندارد، با استفاده از ماشین آلات و مواد با کیفیت و فناوری‌های پیشرفته اجرا می‌شوند. از مرحله برنامه‌ریزی تا اجرا، هر مرحله را با دقت و به طور اصولی پیش می‌بریم. همکاری تیم‌های متخصص و مجرب ما در طراحی، مهندسی و اجرا، نتایج ویژه‌ای ایجاد کرده است. پروژه‌های ما از جمله حمل و نقل مواد صنعتی ، سرباره ذوب فولاد، راه سازی، معدنی، سد سازی، ساختمان‌های بزرگ، پل‌ها، جاده‌ها و تأسیسات صنعتی هستند که با ارائه کیفیت برتر، ایمنی و پایداری، طراحی و اجرا شده‌اند. </p>
+                </div>
+
+                <div class="row">
+                    {% for proj in projects %}
+                        <div class="col-lg-4 col-sm-6">
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <a href="{% url 'ProjectsOpenDetail' slug=proj.slug %}">
+                                    <img src="{{ proj.img_1.url }}" alt="blog image">
+                                </a>
+                                <span>{{ proj.category }}</span>
+                            </div>
+
+                            <div class="blog-text">
+                                <h3>
+                                    <a href="{% url 'ProjectsOpenDetail' slug=proj.slug %}">{{ proj.name }}</a>
+                                </h3>
+                                <p>{{ proj.description_1 }}</p>
+                                <a href="{% url 'ProjectsOpenDetail' slug=proj.slug %}" class="blog-btn">
+                                    بیشتر بخوانید
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+                </div>
+
+                <div class="blog-link text-center">
+                    <p>بازدید از پروژه های در حال اجرا. <a href="{% url 'ProjectsOpenView' %}">مشاهده بیشتر</a></p>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section End -->
+
+        <!-- Video Section Start -->
+        <div class="video-section pt-100 pb-100">
+            <div class="container">
+                <div class="d-table">
+                    <div class="d-tabel-cell">
+                        <div class="video-text text-center">
+                            <a href="/static/MAFM8772.MP4" class="popup-youtube">
+                                <i class='bx bx-play' ></i>
+                            </a>
+                            <h2>شرکت فنی و مهندسی صدرا سازه اردکان</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Video Section End -->
+
+        <!-- Team Section Start -->
+        <section class="team-section pt-100 pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span>تیم ما</span>
+                    <h2>کارشناسان با تجربه ما</h2>
+                </div>
+
+                <div class="row">
+                    {% for team in team_co %}
+                        <div class="col-lg-3 col-sm-6">
+                        <div class="team-card">
+                            <div class="team-img">
+                                <img src="{{ team.img_pr }}" alt="team member">
+                            </div>
+                            <div class="team-text">
+                                <h3>{{ team.name_pr }}</h3>
+{#                                <p>مدیر روابط عمومی</p>#}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- Team Section End -->
+
+        <!-- About Section Start -->
+        <section class="about-section pt-100">
+            <div class="container-fluid">
+                <div class="section-title text-center">
+                    <span>شرکت فنی و مهندسی صدرا سازه</span>
+                    <h2>چرا شرکت صدرا سازه ؟</h2>
+                    <p>برتری در کیفیت، تخصص فراگیر، قابلیت اجرا با دقت بالا و رضایتمندی مشتریان از ویژگی‌های شرکت فنی و مهندسی صدرا سازه است.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 p-0">
+                        <div class="about-image" style="background-image: url({{ setting_web.banner2.url }})">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-0">
+                        <div class="about-text">
+                            <h2>حرفه‌ای، قابل اعتماد، نوآورانه</h2>
+                            <p>شرکت فنی و مهندسی صدرا سازه انتخاب مناسبی برای شماست. ما با بیش از دو دهه تجربه، تخصص و توانمندی‌های برتر خود، بهترین خدمات در حوزه  معدن، راهسازی، ترابری و حمل و نقل صنعتی، ساخت و عمران را ارائه می‌دهیم.
+                                وجه تمایز ما در تعداد و کیفیت بالا ماشین آلات، تجهیزات، دقت در جزئیات و  کنترل بودجه است. تیم ما از افراد مجرب و متعهد تشکیل شده است که از فناوری‌های پیشرفته و مدرن استفاده می‌کنند.
+                            </p>
+
+                            <ul>
+                                <li>رشد پایدار و بهبود مداوم در همه جنبه‌های فعالیت‌هایمان.</li>
+                                <li>همکاری مستمر با مشتریان به جهت تأمین نیازها و خواسته‌های آن‌ها. </li>
+                                <li>استفاده از تجهیزات پیشرفته و  بهره‌گیری از فناوری به رشد پایدار.</li>
+                                <li>رعایت استانداردهای بین‌المللی کیفیت در تمامی فعالیت‌هایمان.</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section End -->
+{% endblock %}
+
+

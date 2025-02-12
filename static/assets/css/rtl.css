@@ -1,0 +1,624 @@
+body {
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+.navbar-area .main-nav .navbar .navbar-nav .nav-item .nav-link.dropdown-toggle::after {
+  content: '\eceb';
+}
+.navbar-area .main-nav .navbar .navbar-nav .nav-item .nav-link:hover.dropdown-toggle::after {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+.footer-area .footer-widget .newsletter-area .newsletter-form .subscribe-btn {
+  right: auto;
+  left: 0;
+}
+.blog-details-area .blog-sidebar .blog-widget.search-bar form button i {
+  right: auto;
+  left: 0;
+}
+.service-details-area .service-sidebar .search-bar form button i {
+  right: auto;
+  left: 0;
+}
+.section-title span::before {
+  left: auto;
+  right: -10px;
+}
+.contact-section .contact-area .text-danger {
+  padding-left: auto;
+  padding-right: 20px;
+}
+.contact-section .contact-area .form-group .list-unstyled {
+  padding-left: auto;
+  padding-right: 20px;
+}
+.facilities-section .facililties-text .section-title span::before {
+  left: auto;
+  right: 0;
+}
+.facilities-section .facililties-text .section-title span {
+  padding-left: auto;
+  padding-right: 10px;
+}
+.about-style-two .about-text .section-title span {
+  margin-left: auto;
+  margin-right: 10px;
+}
+.service-details-area .service-sidebar .sidebar-widget ul li a i {
+  right: auto;
+  left: 10px;
+}
+.project-style-three .project-menu ul li {
+  margin-right: auto;
+  margin-left: 10px;
+}
+.project-style-three .project-menu ul {
+  padding-left: auto;
+  padding-right: 0;
+}
+.project-details-area .project-sidebar .project-info span {
+  left: auto;
+  right: 60%;
+}
+.blog-details-area .blog-sidebar .blog-widget.tags ul li a {
+  margin-right: auto;
+  margin-left: 4px;
+}
+.blog-details-area .blog-sidebar .blog-widget.tags ul li {
+  padding-left: auto;
+  padding-right: 0;
+}
+
+
+
+
+
+
+/* Home Page One Start */
+.header-area .header-right {
+  text-align: left;
+}
+
+.header-area .header-right ul {
+  padding-right: 0;
+}
+
+.header-area .header-right ul li {
+  margin-left: 0;
+  margin-right: 35px;
+}
+
+.header-area .header-right ul li::before {
+  left: inherit;
+  right: -18px;
+}
+
+.header-area .header-right ul li i {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.header-area .header-left a i {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.navbar-area .main-nav .navbar .navbar-brand {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+.navbar-area .main-nav .navbar .navbar-nav .nav-item .nav-link {
+  margin-right: 25px;
+  margin-left: 0;
+}
+
+.navbar-area .main-nav .navbar .navbar-nav .nav-item .dropdown-menu {
+  text-align: right;
+  right: 0;
+  left: auto;
+}
+
+.navbar-area .main-nav .navbar .navbar-nav .nav-item .dropdown-menu .nav-item .nav-link {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navbar-area .main-nav .navbar .navbar-nav .nav-item .dropdown-menu .nav-item .dropdown-menu {
+  right: -100%;
+}
+
+.banner-section .banner-img {
+  left: 10%;
+  right: inherit;
+}
+
+.banner-section .banner-text .theme-btn .default-btn {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.about-section .about-text ul {
+  padding-right: 0;
+}
+
+.about-section .about-text ul li {
+  padding-right: 30px;
+  padding-left: 0;
+}
+
+.about-section .about-text ul li::before {
+  right: 2px;
+}
+
+.about-section .about-text ul li::after {
+  right: 0;
+}
+
+.project-section .project-slider .project-item .project-link {
+  text-align: right;
+}
+
+.project-section .project-slider .project-item .project-link p {
+  padding-left: 50px;
+}
+
+.project-section .project-slider .project-item .project-link a i {
+  left: 0;
+  right: inherit;
+}
+
+.blog-section .blog-card .blog-img span {
+  right: -10px;
+  left: inherit;
+  border-right: double;
+  border-left: 0;
+}
+
+.blog-section .blog-card .blog-img .author-img {
+  right: 25px;
+  left: inherit;
+}
+
+.footer-area .footer-widget h3 {
+  padding-right: 15px;
+  padding-left: 0;
+}
+
+.footer-area .footer-widget h3::before {
+  left: inherit;
+  right: 0;
+}
+
+.footer-area .footer-widget ul {
+  padding-right: 0;
+}
+
+.footer-area .footer-widget ul li a i {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.footer-area .footer-widget ul li i {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.footer-area .footer-widget .newsletter-area .newsletter-form .form-control {
+text-align: right;
+}
+
+.footer-area .footer-widget .footer-social a i {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.footer-area .footer-bottom ul {
+  padding-right: 0;
+}
+
+.footer-area .footer-bottom ul li {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.footer-area .footer-bottom .copyright-text {
+  text-align: left;
+}
+
+.footer-area .pl-35 {
+
+}
+
+/* Home Page One End */
+/* Home Page Two Start */
+.banner-slider .slider-items .slider-text .video-btn i {
+  left: inherit;
+right: 22px;
+}
+
+.service-style-three .service-card .service-btn {
+  display: inline-block;
+}
+
+.facilities-section .offset-lg-1 {
+  margin-right: 8.333333%;
+  margin-left: 0;
+}
+
+.facilities-section .facililties-text ul {
+  padding-right: 0;
+}
+
+.facilities-section .facililties-text ul li {
+  padding-right: 15px;
+  padding-left: 0;
+}
+
+.facilities-section .facililties-text ul li::before {
+  right: 0px;
+  left: inherit;
+}
+
+.facilities-section .facililties-text .section-title p {
+  margin: 0 0 auto 0;
+}
+
+.contact-section .offset-lg-1 {
+  margin-right: 8.333333%;
+  margin-left: 0;
+}
+
+/* Home Page Two End */
+/* Home Page Three Start */
+.join-section .join-text ul {
+  padding-right: 0;
+}
+
+.join-section .join-text ul li {
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+.join-section .join-text ul li::before {
+  left: inherit;
+  right: 0;
+}
+
+/* Home Page Three End */
+/* Service Page Start */
+.page-title .text-left {
+  text-align: right !important;
+}
+
+.page-title .text-right {
+  text-align: left !important;
+}
+
+.page-title ul {
+  padding-right: 0;
+}
+
+.page-title ul li {
+  margin-right: 25px;
+  margin-left: 0;
+}
+
+.page-title ul li a::before {
+  left: -18px;
+  right: inherit;
+}
+
+.service-style-two .service-items .service-img .service-text a i {
+  left: 0;
+  right: inherit;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* Service Page End */
+/* Service Page Two Start */
+.about-style-two .about-text {
+  padding-right: 45px;
+}
+
+/* Service Page Two End */
+/* Service  Details Page Start */
+.service-details-area .service-sidebar .search-bar form .form-group .form-control {
+text-align: right;
+}
+
+.service-details-area .service-sidebar .search-bar h3::before {
+  right: 0;
+  left: auto;
+}
+
+.service-details-area .service-sidebar .sidebar-widget ul {
+  padding-right: 0;
+}
+
+.service-details-area .service-sidebar .sidebar-widget ul li a {
+
+}
+
+.service-details-area .service-sidebar .sidebar-widget h3::before {
+  right: 0;
+  left: auto;
+}
+
+.service-details-area .service-details-text .accordions .accordion-item .accordion-title h2 i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* Service Details Page End */
+/* Project Details Page Start */
+.project-details-area .project-sidebar .project-info span {
+
+}
+
+/* Project Details Page End */
+/* FAQ Page Start */
+.faq-section .faq-accordian .accordions .accordion-item .accordion-title h2 i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* FAQ Page End */
+/* Signin Page Start */
+.signin-section .offset-lg-3 {
+  margin-right: 25%;
+  margin-left: 0;
+}
+
+.signin-section .form-check-input {
+  margin-left: 0;
+}
+
+/* Signin Page End */
+/* Signup Page Start */
+.signup-section .offset-lg-3 {
+  margin-right: 25%;
+  margin-left: 0;
+}
+
+.signup-section .form-check-input {
+  margin-left: 0;
+}
+
+/* Signup Page End */
+/* Blog Details Page Start */
+.blog-details-area .blog-sidebar .blog-widget h3::before {
+  left: inherit;
+  right: 0;
+}
+
+.blog-details-area .blog-sidebar .blog-widget.search-bar form .form-group .form-control {
+text-align: right;
+}
+
+.blog-details-area .blog-sidebar .blog-widget .popular-post .thumb {
+  float: right;
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.blog-details-area .blog-sidebar .blog-widget .popular-post .info {
+  padding-right: 100px;
+  padding-left: 0;
+}
+
+.blog-details-area .blog-sidebar .blog-widget ul {
+  padding-right: 0;
+}
+
+.blog-details-area .blog-sidebar .blog-widget ul li {
+  padding-right: 15px;
+  padding-left: 0;
+}
+
+.blog-details-area .blog-sidebar .blog-widget ul li::before {
+  right: 0;
+  left: inherit;
+}
+
+.blog-details-area .blog-sidebar .blog-widget.tags ul li {
+  padding-right: 0;
+  padding-left: 15px;
+}
+
+.blog-details-area .blog-details-text .post-navigation .text-left {
+  text-align: right !important;
+}
+
+.blog-details-area .blog-details-text .post-navigation .text-right {
+  text-align: left !important;
+}
+
+.blog-details-area .blog-details-text .post-navigation .prev a i, .blog-details-area .blog-details-text .post-navigation .next a i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* Blog Details Page End */
+/* Contact Page Start */
+.contact-section .contact-card ul {
+  padding-right: 0;
+}
+
+/* Contact Page End */
+.top-btn i {
+  right: inherit;
+  left: 15px;
+}
+
+@media (max-width: 767px) {
+  /* Home Page One Start */
+  .header-area .header-right {
+    text-align: center;
+  }
+  .header-area .header-right ul li {
+    margin-right: 0;
+  }
+  .banner-section .banner-img {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .banner-section .banner-text .theme-btn .default-btn {
+    margin: 0 5px;
+  }
+  .blog-section .offset-sm-3 {
+    margin-left: 0;
+    margin-right: 25%;
+  }
+  .footer-area .footer-bottom ul li {
+    margin: 0 5px;
+  }
+  .footer-area .footer-bottom .copyright-text {
+    text-align: center;
+  }
+  /* Home Page One End */
+  /* Home Page Two End */
+  .blog-section .offset-sm-3 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .contact-section .offset-lg-1 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  /* Home Page Two End */
+  /* Service Page Start */
+  .page-title h2 {
+    text-align: center;
+  }
+  .page-title ul {
+    text-align: center;
+  }
+  .page-title ul li {
+    margin: 0 12px;
+  }
+  /* Service Page End */
+  /* Service Page Two Start */
+  .about-style-two .about-text {
+    padding-right: 0;
+  }
+  /* Service Page Two End */
+  /* Signin Page Strat */
+  .signin-section .offset-lg-3 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  /* SignIn Page End */
+  /* Signin Page Strat */
+  .signup-section .offset-lg-3 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  /* SignIn Page End */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Home Page One Start */
+  .header-area .header-right {
+    text-align: center;
+  }
+  .banner-section .banner-img {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .banner-section .banner-text .theme-btn .default-btn {
+    margin: 0 5px;
+  }
+  .blog-section .offset-sm-3 {
+    margin-right: 25%;
+    margin-left: 0;
+  }
+  .footer-area .footer-bottom .copyright-text {
+    text-align: center;
+  }
+  /* Home Page One End */
+  /* Home Page Two Start */
+  .header-area .header-left a i {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .about-style-two .about-text .section-title h2 {
+    margin: 0 0 20px 0;
+  }
+  .facilities-section .section-title h2 {
+    margin: 0 0 20px 0;
+  }
+  .facilities-section .section-title p {
+    margin: 0 0 0 0;
+  }
+  .contact-section .offset-lg-1 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  /* Home Page Two End */
+  /* Home Page Three Start */
+  .join-section .section-title h2 {
+    margin: 0 0 20px 0;
+  }
+  .join-section .section-title p {
+    margin: 0 0 0 0;
+  }
+  /* Home Page Three End */
+  /* Service Page Two Start */
+  .about-style-two .about-text {
+    padding-right: 0;
+  }
+  /* Service Page Two End */
+  /* Signin Page Start */
+  .signin-section .offset-md-2 {
+    margin-right: 16.666667%;
+    margin-left: 0;
+  }
+  /* Signin Page End */
+  /* Signup Page Start */
+  .signup-section .offset-md-2 {
+    margin-right: 16.666667%;
+    margin-left: 0;
+  }
+  /* Signup Page End */
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header-area .header-right ul li {
+    margin-left: 0;
+    margin-right: 25px;
+  }
+  .footer-area .footer-bottom ul li {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 991px) {
+
+.facilities-section .offset-lg-1 {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+}
+
+
+/*# sourceMappingURL=rtl.css.map */

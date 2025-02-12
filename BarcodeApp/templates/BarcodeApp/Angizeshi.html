@@ -1,0 +1,39 @@
+{% extends 'Base/index.html' %}
+
+{% block body %}
+    <!-- Page Title Start -->
+    <div class="page-title privacy-title-bg" style="background-image: url(/static/assets/index.jpg)">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-left">
+                            <h2>تالع بینی</h2>
+                        </div>
+
+                        <div class="col-md-6 text-right">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'HomePage' %}">صفحه اصلی</a>
+                                </li>
+                                <li>انگیزشی</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Title End -->
+
+    <!-- Privacy Section Start -->
+    <div class="privacy-section pt-100 pb-100">
+        <div class="container">
+            <div class="privacy-text">
+                <h2>متن انگیزشی شما (:</h2>
+                <P>{{ angizeshi }}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Privacy Section End -->
+{% endblock %}

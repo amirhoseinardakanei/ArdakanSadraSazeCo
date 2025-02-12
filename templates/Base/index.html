@@ -1,0 +1,170 @@
+{% load render_partial %}
+
+
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Xpat - Construction & Renovation Company HTML Template" >
+        <meta name="description" content="Xpat - Construction & Renovation Company HTML Template">
+        <meta name="author" content="Barat Hadian">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+        <!-- Boxicon CSS -->
+        <link rel="stylesheet" href="/static/assets/css/boxicon.min.css">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="/static/assets/fonts/flaticon/flaticon.css">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="/static/assets/css/animate.css">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="/static/assets/css/owl.carousel.min.css">
+        <!-- Owl Carousel Theme CSS -->
+        <link rel="stylesheet" href="/static/assets/css/owl.theme.default.min.css">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="/static/assets/css/magnific-popup.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="/static/assets/css/meanmenu.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="/static/assets/css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="/static/assets/css/responsive.css">
+        <!-- RTL CSS -->
+        <link rel="stylesheet" href="/static/assets/css/rtl.css">
+        <!-- Title -->
+        <title>{% block title %}شرکت فنی و مهندسی صدرا سازه اردکان{% endblock %}</title>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/static/assets/logo.png">
+        <style>
+            .step {
+                display: none;
+            }
+            .step.active {
+                display: block;
+            }
+        </style>
+
+        <style>
+
+            .file-upload {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                padding: 12px;
+                border-radius: 26px;
+                border: 1px solid #c9c8c8;
+                background-color: #ffea000f;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                text-align: left;
+            }
+            .file-upload:hover {
+                border-color: #d5c402;
+                background-color: #ffea000f;
+            }
+            .file-upload input {
+                display: none;
+            }
+            .upload-icon {
+                font-size: 24px;
+                margin-right: 10px;
+                color: #007bff;
+            }
+
+            .file-upload-label {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                display: block;
+                color: #333;
+            }
+            .selected-file {
+                margin-right: 1%;
+                font-size: 15px;
+                color: rgb(31 28 12);
+
+            }
+
+
+        </style>
+
+        <link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
+    <script src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Preloader Start -->
+        <div class="loader-content">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="sk-folding-cube">
+                        <div class="sk-cube1 sk-cube"></div>
+                        <div class="sk-cube2 sk-cube"></div>
+                        <div class="sk-cube4 sk-cube"></div>
+                        <div class="sk-cube3 sk-cube"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+
+
+
+
+
+
+
+        {% render_partial 'HomeApp.views.SiteNavbar' %}
+
+        {% block body %}
+
+        {% endblock %}
+
+        {% render_partial 'HomeApp.views.SiteFooter' %}
+
+
+
+
+
+
+
+
+        <!-- Back Top Section Start -->
+        <div class="top-btn">
+            <i class='bx bx-up-arrow'></i>
+        </div>
+        <!-- Back Top Section End -->
+
+
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+        <!-- JQuery First, then Popper Js, then Bootstrap JS -->
+        <script src="/static/assets/js/jquery-3.5.0.min.js"></script>
+        <script src="/static/assets/js/popper.min.js"></script>
+        <script src="/static/assets/js/bootstrap.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="/static/assets/js/owl.carousel.min.js"></script>
+        <!-- Magnific Popup Js -->
+        <script src="/static/assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- Mixitup JS -->
+        <script src="/static/assets/js/jquery.mixitup.min.js"></script>
+        <!-- Subscribe Form JS -->
+        <script src="/static/assets/js/jquery.ajaxchimp.min.js"></script>
+        <!-- Form Velidation JS -->
+        <script src="/static/assets/js/form-validator.min.js"></script>
+        <!-- Contact Form JS -->
+        <script src="/static/assets/js/contact-form-script.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="/static/assets/js/meanmenu.js"></script>
+        <!-- Custom JS -->
+        <script src="/static/assets/js/custom.js"></script>
+    </body>
+</html>

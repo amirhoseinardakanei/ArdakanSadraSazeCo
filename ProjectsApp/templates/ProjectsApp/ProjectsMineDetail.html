@@ -1,0 +1,101 @@
+{%  extends 'Base/index.html' %}
+
+{% block body %}
+    <!-- Page Title Start -->
+    <div class="page-title project-title-bg4" style="background-image: url(/static/assets/index.jpg)">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-left">
+                            <h2>جزئیات پروژه {{ projectsopenmine.name }}</h2>
+                        </div>
+
+                        <div class="col-md-6 text-right">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'HomePage' %}">صفحه اصلی</a>
+                                </li>
+                                <li>{{ projectsopenmine.name }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Title End -->
+
+    <!-- Project Details Section Start -->
+    <section class="project-details-area pt-100 pb-100">
+        <div class="container">
+            <div class="project-img-slider owl-carousel owl-theme">
+
+                 {% if projectsopenmine.img_1 %}
+                    <div class="project-item">
+                        <img src="{{ projectsopenmine.img_1.url }}"  alt="project image">
+                    </div>
+                 {% endif %}
+                {% if projectsopenmine.img_2 %}
+                    <div class="project-item">
+                        <img src="{{ projectsopenmine.img_2.url }}"  alt="project image">
+                    </div>
+                 {% endif %}
+                {% if projectsopenmine.img_3 %}
+                    <div class="project-item">
+                        <img src="{{ projectsopenmine.img_3.url }}"  alt="project image">
+                    </div>
+                 {% endif %}
+                {% if projectsopenmine.img_4 %}
+                    <div class="project-item">
+                        <img src="{{ projectsopenmine.img_4.url }}"  alt="project image">
+                    </div>
+                 {% endif %}
+                {% if projectsopenmine.img_5 %}
+                    <div class="project-item">
+                        <img src="{{ projectsopenmine.img_5.url }}"  alt="project image">
+                    </div>
+                 {% endif %}
+
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="project-description">
+                        <h2>{{ projectsopenmine.name }}</h2>
+                        <p>{{ projectsopenmine.description_1 }}</p>
+                        <p>{{ projectsopenmine.description_2 }}</p>
+                        <p>{{ projectsopenmine.description_3 }}</p>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="project-sidebar">
+{#                        <div class="project-info">#}
+{#                            <h6>موقعیت:</h6>#}
+{#                            <span>تهران</span>#}
+{#                        </div>#}
+                        <div class="project-info">
+                            <h6>مالکیت:</h6>
+                            <span>{{ projectsopenmine.ceo }}</span>
+                        </div>
+                        <div class="project-info">
+                            <h6>تاریخ شروع پروژه:</h6>
+                            <span>{{ projectsopenmine.calendar }}</span>
+                        </div>
+
+                        <div class="project-info">
+                            <h6>دسته بندی:</h6>
+                            <span>{{ projectsopenmine.category }}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Project Details Section End -->
+{% endblock %}

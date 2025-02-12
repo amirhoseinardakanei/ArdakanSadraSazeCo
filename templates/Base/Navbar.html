@@ -1,0 +1,71 @@
+
+
+<!-- Navbar Area Start -->
+<div class="navbar-area navbar-style-two">
+    <!-- Menu For Mobile Device -->
+    <div class="mobile-nav">
+        <a href="{% url 'HomePage' %}" class="logo">
+            <img src="/static/assets/logo.png" alt="logo" style="margin-top: 10px">
+        </a>
+    </div>
+
+    <!-- Menu For Desktop Device -->
+    <div class="main-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="{% url 'HomePage' %}">
+                    <img src="/static/assets/logo.png" alt="logo" style="max-width: 100px">
+                </a>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            <a href="{% url 'HomePage' %}" class="nav-link">صفحه اصلی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'HomePage' %}#about" class="nav-link">درباره ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'HomePage' %}#co" class="nav-link">تجربه شرکت</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link dropdown-toggle">خدمات ما</a>
+                            <ul class="dropdown-menu">
+
+                                {% for service in service_web %}
+                                    <li class="nav-item">
+                                        <a href="{% url 'ServiceDetail' slug=service.slug %}" class="nav-link">{{ service.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'HomePage' %}#modir" class="nav-link">سخن مدیرعامل</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link dropdown-toggle">پروژه ها</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{% url 'ProjectsMineView' %}" class="nav-link">پروژه های معدنی درحال اجرا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'ProjectsOpenView' %}" class="nav-link">پروژه های درحال اجرا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'ProjectsClosedView' %}" class="nav-link">پرژه های به اتمام رسیده</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#ّfoter" class="nav-link">تماس با ما</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Navbar Area End -->
