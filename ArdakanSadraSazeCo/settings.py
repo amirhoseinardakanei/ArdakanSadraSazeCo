@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ProjectsApp',
     'BarcodeApp',
     'Cooperate',
+    'PersonnelUserAccounts',
 
 ]
 
