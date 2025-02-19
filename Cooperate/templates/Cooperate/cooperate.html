@@ -1,5 +1,7 @@
 {% extends 'Base/index.html' %}
 
+
+
 {% block title %}همکاری با ما{% endblock %}
 
 
@@ -25,9 +27,6 @@
                                         <input class="form-control" id="first-name" type="text" placeholder="نام" required name="first-name">
                                     </div>
 
-
-
-
                                     <!-- نام خانوادگی -->
                                     <div class="form-group">
                                         <input class="form-control" id="last-name" type="text" placeholder="نام خانوادگی (با پیشوند یا پسوند)" required name="last-name">
@@ -40,9 +39,6 @@
                                             <option value="خیر">خیر</option>
                                         </select>
                                     </div>
-
-
-
                                     <script>
 
                                        function fl_name() {
@@ -85,7 +81,7 @@
                                             const uploadBox = document.getElementById('upload-box');
 
                                             if (input.files.length > 0) {
-                                                fileName.textContent = " ✅فایل با موفقیت انتخاب شد: " + input.files[0].name;
+                                                fileName.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input.files[0].name;
                                                 fileName.style.opacity = "1";
                                                 uploadBox.classList.add("uploaded");
                                             } else {
@@ -135,7 +131,6 @@
                                         </label>
 
                                     </div>
-
                                    <script>
                                         function showFileName1() {
                                             const input1 = document.getElementById('photo1');
@@ -150,6 +145,33 @@
                                                 fileName1.textContent = "تصویر کارت ملی 📂";
                                                 fileName1.style.opacity = "1";
                                                 uploadBox1.classList.remove("uploaded");
+                                            }
+                                        }
+                                    </script>
+
+                                    <div class="form-group">
+
+                                        <label class="file-upload" id="upload-box12">
+
+                                            <div class="selected-file" id="file-name12">تصویر پشت کارت ملی 📂</div>
+                                            <input id="photo12" type="file" name="img-card-national2" required onchange="showFileName12()">
+                                        </label>
+
+                                    </div>
+                                   <script>
+                                        function showFileName12() {
+                                            const input12 = document.getElementById('photo12');
+                                            const fileName12 = document.getElementById('file-name12');
+                                            const uploadBox12 = document.getElementById('upload-box12');
+
+                                            if (input12.files.length > 0) {
+                                                fileName12.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input12.files[0].name;
+                                                fileName12.style.opacity = "1";
+                                                uploadBox12.classList.add("uploaded");
+                                            } else {
+                                                fileName12.textContent = "تصویر پشت کارت ملی 📂";
+                                                fileName12.style.opacity = "1";
+                                                uploadBox12.classList.remove("uploaded");
                                             }
                                         }
                                     </script>
@@ -179,37 +201,123 @@
                                         <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ صدور شناسنامه" required name="birth-cert-date">
                                     </div>
 
-                                    <div class="form-group">
 
-                                        <label class="file-upload" id="upload-box2">
+                                    <div class="container">
+                                            <div class="row d-flex justify-content-between">
+                                                <label class="file-upload col-xl-2" id="upload-box21">
 
-                                            <div class="selected-file" id="file-name2">تصویر شناسنامه 📂</div>
-                                            <input id="photo2" type="file" name="img-card-certificate" required onchange="showFileName2()">
-                                        </label>
+                                                    <div class="selected-file" id="file-name21">تصویر شناسنامه 📂</div>
+                                                    <input id="photo21" type="file" name="img-card-certificate" required onchange="showFileName21()">
+                                                </label>
+                                                <script>
+                                                    function showFileName21() {
+                                                        const input21 = document.getElementById('photo21');
+                                                        const fileName21 = document.getElementById('file-name21');
+                                                        const uploadBox21 = document.getElementById('upload-box21');
 
-                                    </div>
+                                                        if (input21.files.length > 0) {
+                                                            fileName21.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input21.files[0].name;
+                                                            fileName21.style.opacity = "1";
+                                                            uploadBox21.classList.add("uploaded");
+                                                        } else {
+                                                            fileName21.textContent = "تصویر شناسنامه 📂";
+                                                            fileName21.style.opacity = "1";
+                                                            uploadBox21.classList.remove("uploaded");
+                                                        }
+                                                    }
+                                                </script>
+                                                <label class="file-upload col-xl-2" id="upload-box22">
 
-                                   <script>
-                                        function showFileName2() {
-                                            const input2 = document.getElementById('photo2');
-                                            const fileName2 = document.getElementById('file-name2');
-                                            const uploadBox2 = document.getElementById('upload-box2');
+                                                    <div class="selected-file" id="file-name22">صفحه ی دوم 📂</div>
+                                                    <input id="photo22" type="file" name="img-card-certificate2" required onchange="showFileName22()">
+                                                </label>
+                                                <script>
+                                                    function showFileName22() {
+                                                        const input22 = document.getElementById('photo22');
+                                                        const fileName22 = document.getElementById('file-name22');
+                                                        const uploadBox22 = document.getElementById('upload-box22');
 
-                                            if (input2.files.length > 0) {
-                                                fileName2.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input2.files[0].name;
-                                                fileName2.style.opacity = "1";
-                                                uploadBox2.classList.add("uploaded");
-                                            } else {
-                                                fileName2.textContent = "تصویر شناسنامه 📂";
-                                                fileName2.style.opacity = "1";
-                                                uploadBox2.classList.remove("uploaded");
-                                            }
-                                        }
-                                    </script>
+                                                        if (input22.files.length > 0) {
+                                                            fileName22.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input22.files[0].name;
+                                                            fileName22.style.opacity = "1";
+                                                            uploadBox22.classList.add("uploaded");
+                                                        } else {
+                                                            fileName22.textContent = "صفحه ی دوم 📂";
+                                                            fileName22.style.opacity = "1";
+                                                            uploadBox22.classList.remove("uploaded");
+                                                        }
+                                                    }
+                                                </script>
+                                                <label class="file-upload col-xl-2" id="upload-box23">
 
+                                                    <div class="selected-file" id="file-name23">صفحه ی سوم 📂</div>
+                                                    <input id="photo23" type="file" name="img-card-certificate3" required onchange="showFileName23()">
+                                                </label>
+                                                <script>
+                                                    function showFileName23() {
+                                                        const input23 = document.getElementById('photo23');
+                                                        const fileName23 = document.getElementById('file-name23');
+                                                        const uploadBox23 = document.getElementById('upload-box23');
 
+                                                        if (input23.files.length > 0) {
+                                                            fileName23.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input23.files[0].name;
+                                                            fileName23.style.opacity = "1";
+                                                            uploadBox23.classList.add("uploaded");
+                                                        } else {
+                                                            fileName23.textContent = "صفحه ی سوم 📂";
+                                                            fileName23.style.opacity = "1";
+                                                            uploadBox23.classList.remove("uploaded");
+                                                        }
+                                                    }
+                                                </script>
+                                                <label class="file-upload col-xl-2" id="upload-box24">
 
-                                    <div class="col-sm-12" style="text-align: center">
+                                                    <div class="selected-file" id="file-name24">صفحه ی چهارم 📂</div>
+                                                    <input id="photo24" type="file" name="img-card-certificate4" required onchange="showFileName24()">
+                                                </label>
+                                                <script>
+                                                    function showFileName24() {
+                                                        const input24 = document.getElementById('photo24');
+                                                        const fileName24 = document.getElementById('file-name24');
+                                                        const uploadBox24 = document.getElementById('upload-box24');
+
+                                                        if (input24.files.length > 0) {
+                                                            fileName24.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input24.files[0].name;
+                                                            fileName24.style.opacity = "1";
+                                                            uploadBox24.classList.add("uploaded");
+                                                        } else {
+                                                            fileName24.textContent = "صفحه ی چهارم 📂";
+                                                            fileName24.style.opacity = "1";
+                                                            uploadBox24.classList.remove("uploaded");
+                                                        }
+                                                    }
+                                                </script>
+                                                <label class="file-upload col-xl-2" id="upload-box25">
+
+                                                    <div class="selected-file" id="file-name25">صفحه ی پنجم 📂</div>
+                                                    <input id="photo25" type="file" name="img-card-certificate5" required onchange="showFileName25()">
+                                                </label>
+                                                <script>
+                                                    function showFileName25() {
+                                                        const input25 = document.getElementById('photo25');
+                                                        const fileName25 = document.getElementById('file-name25');
+                                                        const uploadBox25 = document.getElementById('upload-box25');
+
+                                                        if (input25.files.length > 0) {
+                                                            fileName25.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input25.files[0].name;
+                                                            fileName25.style.opacity = "1";
+                                                            uploadBox25.classList.add("uploaded");
+                                                        } else {
+                                                            fileName25.textContent = "صفحه ی پنجم 📂";
+                                                            fileName25.style.opacity = "1";
+                                                            uploadBox25.classList.remove("uploaded");
+                                                        }
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                    <div class="col-sm-12" style="text-align: center; padding: 20px">
                                         <button type="button" onclick="nextStep(1)" class="default-btn contact-btn">
                                             مرحله بعدی
                                         </button>
@@ -227,7 +335,6 @@
                                             <option value="متاهل">متاهل</option>
                                         </select>
                                     </div>
-
                                     <script>
 
                                        function storytaahol() {
@@ -261,7 +368,7 @@
                                     <div class="form-group">
 
                                         <select class="form-control" id="military-status" name="military-status" required onchange="toggleMilitaryFields()">
-                                            <option value="0">نظام وظیفه</option>
+                                            <option value="0">وضعیت نظام وظیفه</option>
                                             <option value="exempt">معافیت</option>
                                             <option value="served">پایان خدمت</option>
                                         </select>
@@ -284,15 +391,14 @@
                                         </label>
                                         <div class="form-group">
 
-                                            <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" required name="birth-cert-date">
+                                            <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" required name="start-military-date">
                                         </div>
                                         <div class="form-group">
 
-                                            <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" required name="birth-cert-date">
+                                            <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" required name="end-military-date">
                                         </div>
 
                                     </div>
-
                                    <script>
                                         function showFileName2() {
                                             const input3 = document.getElementById('photo3');
@@ -315,7 +421,7 @@
 
                                     <!-- استان محل تولد -->
                                     <div class="form-group">
-                                        <select class="form-control" id="province2" name="birth-province" required onchange="updateCities2()">
+                                        <select class="form-control" id="province2" name="residence-province" required onchange="updateCities2()">
                                             <option value="0">استان سکونت</option>
                                             <!-- استان‌ها به صورت داینامیک از کد زیر بارگذاری می‌شوند -->
                                         </select>
@@ -324,58 +430,58 @@
                                     <!-- شهرستان محل تولد -->
                                     <div class="form-group">
 
-                                        <select class="form-control" id="city2" name="birth-city" required>
+                                        <select class="form-control" id="city2" name="residence-city" required>
                                             <option value="0">شهر سکونت</option>
                                             <!-- شهرها به صورت داینامیک بعد از انتخاب استان بارگذاری می‌شوند -->
                                         </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <textarea name="message" class="message-field" id="message" rows="5" required="" data-error="آدرس خود را بنویسید" placeholder="آدرس محل سکونت"></textarea>
+                                        <textarea name="residence-address" class="message-field" id="message" rows="5" required="" data-error="آدرس خود را بنویسید" placeholder="آدرس محل سکونت"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <div class="form-group">
-                                        <input class="form-control" id="national-number" type="text" maxlength="10" placeholder="کد پستی محل سکونت" required name="post-number">
+                                        <input class="form-control" id="residence-postcode" type="text" maxlength="10" placeholder="کد پستی محل سکونت" required name="post-number">
                                     </div>
                                     <script>
-                                        document.getElementById("national-number").addEventListener("input", function() {
+                                        document.getElementById("residence-postcode").addEventListener("input", function() {
                                             this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
                                         });
                                     </script>
 
                                     <div class="form-group">
-                                        <input class="form-control" id="national-number" type="text" maxlength="11" placeholder="شماره تلفن همراه" required name="phone-number">
+                                        <input class="form-control" id="phone-number" type="text" maxlength="11" placeholder="شماره تلفن همراه" required name="phone-number">
                                     </div>
                                     <script>
-                                        document.getElementById("national-number").addEventListener("input", function() {
+                                        document.getElementById("phone-number").addEventListener("input", function() {
                                             this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
                                         });
                                     </script>
 
                                     <div class="form-group">
-                                        <input class="form-control" id="national-number" type="text" maxlength="11" placeholder="شماره تلفن اضطراری" required name="phone-number2">
+                                        <input class="form-control" id="phone-number-emergency" type="text" maxlength="11" placeholder="شماره تلفن اضطراری" required name="phone-number2">
                                     </div>
                                     <script>
-                                        document.getElementById("national-number").addEventListener("input", function() {
+                                        document.getElementById("phone-number-emergency").addEventListener("input", function() {
                                             this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
                                         });
                                     </script>
 
                                     <div class="form-group">
-                                        <input class="form-control" id="national-number" type="text" maxlength="11" placeholder="شماره تلفن منزل" required name="phone-number-home">
+                                        <input class="form-control" id="home-number" type="text" maxlength="11" placeholder="شماره تلفن منزل" required name="phone-number-home">
                                     </div>
                                     <script>
-                                        document.getElementById("national-number").addEventListener("input", function() {
+                                        document.getElementById("home-number").addEventListener("input", function() {
                                             this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
                                         });
                                     </script>
 
                                     <div class="form-group">
-                                        <input class="form-control" id="national-number" type="email" maxlength="10" placeholder="ایمیل" required name="email-number">
+                                        <input class="form-control" id="email-number" type="email" maxlength="10" placeholder="ایمیل" name="email-number">
                                     </div>
                                     <script>
-                                        document.getElementById("national-number").addEventListener("input", function() {
+                                        document.getElementById("email-number").addEventListener("input", function() {
                                             this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
                                         });
                                     </script>
@@ -394,6 +500,76 @@
                                 <!-- مرحله سوم: اطلاعات خانوادگی -->
                                 <div class="step active" id="step3">
                                     <h4 style="padding-right: 57.5px; padding-bottom: 20px;">مهارت و رزومه کاری</h4>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label" style="font-size: 20px; color: #000000">عناوین شغل های درخواستی :</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="مالی و حسابداری"> مالی و حسابداری
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="آی تی"> آی تی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="فروش"> فروش
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="خرید"> خرید
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="دفتر فنی"> دفتر فنی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="خدمات"> خدمات
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="ایمنی"> ایمنی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="آتش نشانی"> آتش نشانی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="منابع انسانی"> منابع انسانی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="فضای سبز"> فضای سبز
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="عمران و مهندسی"> عمران و مهندسی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="رستوران"> رستوران
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="راننده خودرو سبک"> راننده خودرو سبک
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="راننده خودرو سنگین"> راننده خودرو سنگین
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="راننده لیفتراک"> راننده لیفتراک
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="اپراتور جرثقیل"> اپراتور جرثقیل
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="نگهداری و تعمیرات ماشین آلات"> نگهداری و تعمیرات ماشین آلات
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        document.querySelectorAll(".checkbox-btn").forEach(btn => {
+                                            btn.addEventListener("click", function () {
+                                                let input = this.querySelector("input");
+                                                input.checked = !input.checked;
+                                                this.classList.toggle("checked", input.checked);
+                                            });
+                                        });
+                                    </script>
+
+
 
                                     <div class="form-group">
                                         <select class="form-control" id="work-like" required name="gender">

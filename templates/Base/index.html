@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="fa">
     <head>
+        {% block style %}{% endblock %}
         <!-- Required Meta Tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,70 @@
             .step.active {
                 display: block;
             }
+
+            .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .checkbox-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid #bebebe;
+            background-color: rgba(255, 234, 0, 0.06);
+            color: #d5c402;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .checkbox-btn input {
+            display: none;
+        }
+
+        .checkbox-btn.checked {
+            background-color: #d5c402;
+            color: #fff;
+        }
+            {#.checkbox-container {#}
+            {#    height: 30%;#}
+            {#    display: flex;#}
+            {#    gap: 15px;#}
+            {#    align-items: center;#}
+            {#    padding: 9px;#}
+            {#    border-radius: 26px;#}
+            {#    background: rgba(255, 234, 0, 0.06);#}
+            {#    border: 1px solid #9e9e9e;#}
+            {##}
+            {#}#}
+            {##}
+            {#.custom-checkbox {#}
+            {#    display: flex;#}
+            {#    align-items: center;#}
+            {#    gap: 5px;#}
+            {#    cursor: pointer;#}
+            {#    font-size: 16px;#}
+            {#    color: #333;#}
+            {#}#}
+            {##}
+            {#.custom-checkbox input {#}
+            {#    appearance: none;#}
+            {#    width: 16px;#}
+            {#    height: 16px;#}
+            {#    border: 2px solid #d5c402;#}
+            {#    border-radius: 26px;#}
+            {#    cursor: pointer;#}
+            {#    position: relative;#}
+            {#}#}
+            {##}
+            {#.custom-checkbox input:checked {#}
+            {#    background: #d5c402;#}
+            {#}#}
+
         </style>
 
         <style>
