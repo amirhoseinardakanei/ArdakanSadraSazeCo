@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'ArdakanSadraSazeCo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+AUTH_USER_MODEL = 'PersonnelUserAccounts.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
