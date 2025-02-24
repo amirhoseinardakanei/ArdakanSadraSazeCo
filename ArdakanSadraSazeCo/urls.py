@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('HomeApp.urls')),
+    path('accounts/', include('PersonnelUserAccounts.urls')),
     path('projects/', include('ProjectsApp.urls')),
     path('barcode/', include('BarcodeApp.urls')),
     path('cooperate/', include('Cooperate.urls')),

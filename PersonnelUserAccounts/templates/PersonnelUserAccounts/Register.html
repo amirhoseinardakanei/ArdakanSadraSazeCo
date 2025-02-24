@@ -1,0 +1,106 @@
+{% extends 'Base/index.html' %}
+
+{% block title %}ثبت نام{% endblock %}
+
+{% block body %}
+	<!-- Page Title Start -->
+        <div class="page-title signup-title-bg">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 text-left">
+                                <h2>ثبت نام</h2>
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <ul>
+                                    <li>
+                                        <a href="index1.html">صفحه اصلی</a>
+                                    </li>
+                                    <li>ثبت نام</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title End -->
+
+        <!-- Sign up Section Start -->
+        <div class="signup-section pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 offset-md-2 offset-lg-3" style="padding: 5px">
+                        {% if error_form != '' %}
+                        	<div class="signup-form" style="border-radius: 30px">
+                                <h3 style="color: #ff0000">{{ error_form }}</h3>
+                            </div>
+                        {% endif %}
+
+                        <div class="signup-form" style="border-radius: 30px">
+                            <i class='bx bx-user'></i>
+                            <h3>ثبت نام</h3>
+                            <form action="{% url 'RegisterPage' %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ register_form.first_name }}
+                                    {{ register_form.first_name.errors }}
+{#                                    <input type="text" class="form-control"  placeholder="نام">#}
+                                </div>
+                                <div class="form-group">
+                                    {{ register_form.last_name }}
+                                    {{ register_form.last_name.errors }}
+{#                                    <input type="text" class="form-control"  placeholder="نام">#}
+                                </div>
+                                <div class="form-group">
+                                    {{ register_form.national_number }}
+                                    {{ register_form.national_number.errors }}
+{#                                    <input type="text" class="form-control"  placeholder="نام">#}
+                                </div>
+                                <div class="form-group">
+                                    {{ register_form.phone_number }}
+                                    {{ register_form.phone_number.errors }}
+{#                                    <input type="text" class="form-control"  placeholder="نام">#}
+                                </div>
+                                <div class="form-group">
+                                    {{ register_form.password }}
+                                    {{ register_form.password.errors }}
+{#                                    <input type="text" class="form-control"  placeholder="نام">#}
+                                </div>
+                                <div class="form-group">
+                                    {{ register_form.password_repeat }}
+                                    {{ register_form.password_repeat.errors }}
+{#                                    <input type="text" class="form-control"  placeholder="نام">#}
+                                </div>
+{#                                <div class="form-group">#}
+{#                                    <input type="text" class="form-control"  placeholder="نام خانوادگی (کامل و با پسوند)">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <input type="text" class="form-control"  placeholder="کد ملی">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <input type="text" class="form-control"  placeholder="شماره تلفن">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="رمز عبور">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="تکرار رمز عبور">#}
+{#                                </div>#}
+
+                                <button type="submit" class="signup-btn">ثبت نام</button>
+                            </form>
+
+                            <span>
+                                حساب کاربری دارید؟
+                                <a href="{% url 'LoginPage' %}">ورود</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sign Up Section End -->
+{% endblock %}

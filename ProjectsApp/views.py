@@ -9,7 +9,7 @@ class ProjectsOpenView(ListView):
     template_name = 'ProjectsApp/ProjectsOpenList.html'
     model = ProjectsOpen
     context_object_name = 'project'
-    paginate_by = 1
+    paginate_by = 6
 
 
 class ProjectsOpenDetail(DetailView):
@@ -21,7 +21,7 @@ class ProjectsMineView(ListView):
     template_name = 'ProjectsApp/ProjectsMineList.html'
     model = ProjectsOpenMine
     context_object_name = 'project'
-    paginate_by = 1
+    paginate_by = 6
 
 
 class ProjectsMineDetail(DetailView):
