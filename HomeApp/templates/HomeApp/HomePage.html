@@ -34,9 +34,9 @@
 
                                 <div class="theme-btn">
                                     <a href="{% url 'HomePage' %}#service" class="default-btn active">خدمات ما</a>
-                                    <a href="{% url 'cooperate-view' %}" class="default-btn">درخواست نقل و قول</a>
-                                    <a href="https://www.youtube.com/watch?v=6gUOzbhtVd4" class="video-btn popup-youtube">
-                                        <i class='bx bx-play'></i>
+
+                                    <a href="/static/MAFM8772.MP4" class="video-btn popup-youtube">
+                                        <i class='bx bx-play' ></i>
                                     </a>
                                 </div>
                             </div>
@@ -55,8 +55,8 @@
 
                                 <div class="theme-btn">
                                     <a href="{% url 'HomePage' %}#service" class="default-btn active">خدمات ما</a>
-                                    <a href="https://www.youtube.com/watch?v=6gUOzbhtVd4" class="video-btn popup-youtube">
-                                        <i class='bx bx-play'></i>
+                                    <a href="/static/MAFM8772.MP4" class="popup-youtube">
+                                        <i class='bx bx-play' ></i>
                                     </a>
                                 </div>
                             </div>
@@ -303,35 +303,35 @@
         </div>
         <!-- Video Section End -->
 
-        <!-- Team Section Start -->
-        <section class="team-section pt-100 pb-70">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span>تیم ما</span>
-                    <h2>کارشناسان با تجربه ما</h2>
-                </div>
-
-                <div class="row">
-                    {% for team in team_co %}
-                        <div class="col-lg-3 col-sm-6">
-                        <div class="team-card">
-                            <div class="team-img">
-                                <img src="{{ team.img_pr }}" alt="team member">
-                            </div>
-                            <div class="team-text">
-                                <h3>{{ team.name_pr }}</h3>
+{#        <!-- Team Section Start -->#}
+{#        <section class="team-section pt-100 pb-70">#}
+{#            <div class="container">#}
+{#                <div class="section-title text-center">#}
+{#                    <span>تیم ما</span>#}
+{#                    <h2>کارشناسان با تجربه ما</h2>#}
+{#                </div>#}
+{##}
+{#                <div class="row">#}
+{#                    {% for team in team_co %}#}
+{#                        <div class="col-lg-3 col-sm-6">#}
+{#                        <div class="team-card">#}
+{#                            <div class="team-img">#}
+{#                                <img src="{{ team.img_pr }}" alt="team member">#}
+{#                            </div>#}
+{#                            <div class="team-text">#}
+{#                                <h3>{{ team.name_pr }}</h3>#}
 {#                                <p>مدیر روابط عمومی</p>#}
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-
-
-                </div>
-            </div>
-        </section>
-        <!-- Team Section End -->
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% endfor %}#}
+{##}
+{##}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
+{#        <!-- Team Section End -->#}
 
         <!-- About Section Start -->
         <section class="about-section pt-100">

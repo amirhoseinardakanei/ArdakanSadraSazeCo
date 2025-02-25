@@ -3,5 +3,8 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', views.Cooperate.as_view(), name='cooperate-view'),
+    path('redirect-step/', views.Redirect_Step, name='Redirect_Step'),
+    path('step1/', views.CooperateStep_1.as_view(), name='CooperateStep_1'),
+    path('step2/', views.CooperateStep_2.as_view(), name='CooperateStep_2'),
+    path('step3/', views.CooperateStep_3.as_view(), name='CooperateStep_3'),
 ]

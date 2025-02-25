@@ -1,0 +1,25 @@
+{% extends 'Base/index.html' %}
+
+
+{% block title %}{% endblock %}
+
+
+{% block body %}
+	<div class="banner-section">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="banner-text">
+                        <h1>ثبت نام شما با موفقیت انجام شد.</h1>
+                        <div class="theme-btn">
+                            <a href="{% url 'LoginPage' %}" class="default-btn active">ورود به پنل کاربری</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-img">
+            <img src="/static/assets/index.jpg" alt="banner image">
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,110 @@
+<!-- Footer Section Start -->
+<footer class="footer-area pt-100" id="ّfoter">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-widget">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="/static/assets/logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <p>حرفه‌ای، قابل اعتماد، نوآورانه</p>
+
+                    <div class="newsletter-area">
+                        <h3>ما را در فضای مجازی دنبال کنید</h3>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/sadrasaze.ardakan/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-widget pl-35">
+                    <h3>خدمات ما</h3>
+                    <ul>
+                        {% for service in service_web %}
+                            <li>
+                               <a href="{% url 'ServiceDetail' slug=service.slug %}">{{ service.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-widget pl-35">
+                    <h3>لینکهای مفید</h3>
+                     <ul>
+                        <li>
+                            <a href="{% url 'GoalsCom' %}">اهداف شرکت</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'ProjectsMineView' %}">پروژه های معدنی درحال اجرا</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'ProjectsOpenView' %}">پروژه های درحال اجرا</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'ProjectsClosedView' %}">پروژه های به پایان رسیده</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Truck' %}">ماشین آلات</a>
+                        </li>
+                         <li>
+                             <a href="{% url 'Barcode' %}">تالع بینی</a>
+                         </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-widget">
+                    <h3>تماس با ما</h3>
+                    <ul>
+                        <li>
+                            <a href="tel:03532239492 ">
+                                <i class='bx bxs-phone'></i>
+                                035-32239492
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:09131513261">
+                                <i class='bx bxs-phone'></i>
+                                09131513261
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:sadrasazehardakan@yahoo.com">
+                                <i class='bx bxs-envelope'></i>
+                                <span style="font-size: 14px">sadrasazehardakan@yahoo.com</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <i class='bx bxs-location-plus'></i>
+
+                            <span style="font-size: 14px">یزد اردکان خیابان صدرآباد کوچه 112</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+
+                    <div class="copyright-text" >
+                        <p>تمامی حقوق این وبسایت برای صدرا سازه میباشد. و هرگونه گپی برداری پیگرد قانونی دارد.</p>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->

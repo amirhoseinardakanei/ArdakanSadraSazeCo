@@ -40,7 +40,7 @@ class Register(View):
                 new_user = User(first_name=first_name, last_name=last_name, national_number=nationality, phone_number=phone_number, username=nationality)
                 new_user.set_password(password)
                 new_user.save()
-                redirect(reverse('LoginPage'))
+                return render(request, 'PersonnelUserAccounts/StatusPage.html')
 
         else:
             error_form = ('تکمیل فرم شما با مشکل مواجه شده است. مشکل ها را اصلاح کنید!!!!!!!')
@@ -50,8 +50,6 @@ class Register(View):
             'error_form': error_form,
         }
         return render(request, 'PersonnelUserAccounts/Register.html', context)
-
-
 class Login(View):
     def get(self, request):
         login_form = LoginForm()
@@ -69,12 +67,14 @@ class Login(View):
             national_number = login_form.cleaned_data['national_number']
             password = login_form.cleaned_data['password']
 
-            user: User = User.objects.get(national_number=national_number)
+            user: User = User.objects.filter(national_number=national_number).first()
             print(user)
             if user is not None:
                 if user.check_password(password):
                     login(request, user)
-                    redirect('http://127.0.0.1:8000/admin/')
+                    if user.is_staff:
+                        return redirect(reverse('admin:index'))
+                    return redirect(reverse('UserPanelPage'))
                 else:
                     login_form.add_error('national_number', 'کاربری با مشخیصات وارد شده پیدا نشد')
             else:
@@ -89,3 +89,30 @@ class Logout(View):
 
     def get(self, request):
         logout(request)
+        return redirect(reverse('LoginPage'))
+
+
+def SidebarComponent(request):
+    status_user = bool(request.user.username)
+    if status_user is False:
+        return redirect(reverse('HomePage'))
+    current_user = User.objects.filter(username=request.user.username).first()
+    context = {
+        'current_user': current_user,
+    }
+
+    return render(request, 'PersonnelUserAccounts/UserPanel/SidebarComponent.html', context)
+
+
+class UserPanel(View):
+    def get(self, request):
+        status_user = bool(request.user.username)
+        if status_user is False:
+            return redirect(reverse('HomePage'))
+        current_user = User.objects.filter(username=request.user.username).first()
+        context = {
+            'current_user': current_user,
+        }
+
+        return render(request, 'PersonnelUserAccounts/UserPanel/IndexPanelPage.html', context)
+

@@ -1,0 +1,612 @@
+{% extends 'Base/index.html' %}
+
+
+
+{% block title %}همکاری با ما{% endblock %}
+
+
+{% block body %}
+    <section class="contact-section pb-100 pt-100">
+            <div class="container">
+                <div class="section-title text-center" style="margin-top: 30px">
+                    <span>فرم همکاری با ما</span>
+                    <h2>مهارت و رزومه کاری</h2>
+                </div>
+
+                <div class="row" style="margin-top: 100px">
+                    <div class="col-lg-12">
+                        <div class="contact-area">
+                            <form id="multiStepForm" action="{% url 'CooperateStep_3' %}" method="post" >
+                                {% csrf_token %}
+                                <!-- مرحله سوم: اطلاعات خانوادگی -->
+                                <div class="step" id="step3">
+
+
+                                    <div class="form-group">
+                                        <label class="form-label" style="font-size: 20px; color: #000000">عناوین شغل های درخواستی :</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="مالی و حسابداری"> مالی و حسابداری
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="آی تی"> آی تی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="فروش"> فروش
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="خرید"> خرید
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="دفتر فنی"> دفتر فنی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="خدمات"> خدمات
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="ایمنی"> ایمنی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="آتش نشانی"> آتش نشانی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="منابع انسانی"> منابع انسانی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="فضای سبز"> فضای سبز
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="عمران و مهندسی"> عمران و مهندسی
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="رستوران"> رستوران
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="راننده خودرو سبک"> راننده خودرو سبک
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="راننده خودرو سنگین"> راننده خودرو سنگین
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="راننده لیفتراک"> راننده لیفتراک
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="اپراتور جرثقیل"> اپراتور جرثقیل
+                                            </label>
+                                            <label class="checkbox-btn">
+                                                <input type="checkbox" name="topics" value="نگهداری و تعمیرات ماشین آلات"> نگهداری و تعمیرات ماشین آلات
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        document.querySelectorAll(".checkbox-btn").forEach(btn => {
+                                            btn.addEventListener("click", function () {
+                                                let input = this.querySelector("input");
+                                                input.checked = !input.checked;
+                                                this.classList.toggle("checked", input.checked);
+                                            });
+                                        });
+                                    </script>
+
+
+
+{#                                    <div class="form-group">#}
+{#                                        <select class="form-control" id="work-like"  name="gender">#}
+{#                                            <option value="0">عنوان شغل درخواستی</option>#}
+{#                                            <option value="مالی و حسابداری">مالی و حسابداری</option>#}
+{#                                            <option value="آی تی">آی تی</option>#}
+{#                                            <option value="فروش">فروش</option>#}
+{#                                            <option value="خرید">خرید</option>#}
+{#                                            <option value="دفتر فنی">دفتر فنی</option>#}
+{#                                            <option value="خدمات">خدمات</option>#}
+{#                                            <option value="ایمنی">ایمنی</option>#}
+{#                                            <option value="آتش نشانی">آتش نشانی</option>#}
+{#                                            <option value="منابع انسانی">منابع انسانی</option>#}
+{#                                            <option value="فضای سبز">فضای سبز</option>#}
+{#                                            <option value="عمران و مهندسی">عمران و مهندسی</option>#}
+{#                                            <option value="رستوران">رستوران</option>#}
+{#                                            <option value="راننده خودرو سبک">راننده خودرو سبک</option>#}
+{#                                            <option value="راننده خودرو سنگین">راننده خودرو سنگین</option>#}
+{#                                            <option value="راننده لیفتراک">راننده لیفتراک</option>#}
+{#                                            <option value="اپراتور جرثقیل">اپراتور جرثقیل</option>#}
+{#                                            <option value="نگهداری و تعمیرات ماشین آلات">نگهداری و تعمیرات ماشین آلات</option>#}
+{#                                            <option value="سایر">سایر</option>#}
+{##}
+{#                                        </select>#}
+{#                                    </div>#}
+
+                                    <div class="form-group">
+                                        <select class="form-control" id="degree"  name="degree" onchange="toggleEducationField2()">
+                                            <option value="0">مدرک تحصیلی</option>
+                                            <option value="سیکل">سیکل</option>
+                                            <option value="دیپلم">دیپلم</option>
+                                            <option value="فوق دیپلم">فوق دیپلم</option>
+                                            <option value="لیسانس">لیسانس</option>
+                                            <option value="فوق لیسانس">فوق لیسانس</option>
+                                            <option value="دکترا">دکترا</option>
+                                        </select>
+                                    </div>
+
+                                    <script>
+                                        function toggleEducationField2() {
+                                            const educationField = document.getElementById('educationField');
+                                            const educationLevel = document.getElementById('degree').value;
+
+                                            // اگر "سیکل" یا مقدار پیش‌فرض (0) انتخاب شده باشد، فیلد را مخفی کنید
+                                            educationField.style.display = (educationLevel === 'سیکل' || educationLevel === '0') ? 'none' : 'block';
+                                        }
+                                    </script>
+
+
+                                    <div class="form-group" style="display: none" id="educationField">
+                                        <input class="form-control" id="fieldـstudy" type="text" placeholder="رشته تحصیلی"  name="">
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form.professional_certificates }}
+                                        {{ form.professional_certificates.erorrs }}
+
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.skills }}
+                                        {{ form.skills.erorrs }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="file-upload" id="upload-box1">
+                                            <div class="selected-file" id="file-name1">تصویر سابقه بیمه ای 📂</div>
+                                            <input id="picture_insurance_history" type="file" name="picture_insurance_history" onchange="showFileName()" value="0">
+
+                                        </label>
+                                        {% if picture_insurance_history == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+
+
+                                    </div>
+                                    <script>
+                                        function showFileName() {
+                                            const input = document.getElementById('picture_insurance_history');
+                                            const fileName = document.getElementById('file-name1');
+                                            const uploadBox = document.getElementById('upload-box1');
+
+
+                                            if (input.files.length > 0) {
+                                                fileName.textContent = "✅ فایل انتخاب شد.";
+                                                fileName.style.opacity = "1";
+                                                uploadBox.classList.add("uploaded");
+
+                                            } else {
+                                                fileName.textContent = "تصویر سابقه بیمه ای 📂";
+                                                fileName.style.opacity = "1";
+                                                uploadBox.classList.remove("uploaded");
+
+                                            }
+
+                                        }
+                                    </script>
+
+                                    <div class="form-group">
+                                        <select class="form-control" id="worklike" onchange="primerycode()"  name="gender">
+                                            <option value="0">نوع گواهینامه رانندگی</option>
+                                            <option value="پایه یک">پایه یک</option>
+                                            <option value="پایه دو">پایه دو</option>
+                                            <option value="پایه سه">پایه سه</option>
+                                            <option value="موتورسیکلت">موتورسیکلت</option>
+                                            <option value="کد ویژه">کد ویژه</option>
+
+                                        </select>
+                                    </div>
+
+                                    <script>
+                                        function primerycode() {
+                                            const select_field = document.getElementById('worklike').value;
+                                            const filed = document.getElementById('codep');
+                                            filed.style.display = (select_field === 'کد ویژه') ? 'block' : 'none';
+                                        }
+
+
+
+                                    </script>
+
+                                    <div class="form-group" style="display: none" id="codep">
+                                        <input class="form-control" id="father-name" type="text" placeholder="کد گواهینامه ویژه"  name="">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="file-upload" id="upload-box2">
+                                            <div class="selected-file" id="file-name2">تصویر گواهینامه 📂</div>
+                                            <input id="acknowledgment_image" type="file" name="acknowledgment_image" onchange="showFileName()" value="0">
+
+                                        </label>
+                                        {% if acknowledgment_image == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+
+
+                                    </div>
+                                    <script>
+                                        function showFileName() {
+                                            const input = document.getElementById('acknowledgment_image');
+                                            const fileName = document.getElementById('file-name2');
+                                            const uploadBox = document.getElementById('upload-box2');
+
+
+                                            if (input.files.length > 0) {
+                                                fileName.textContent = "✅ فایل انتخاب شد.";
+                                                fileName.style.opacity = "1";
+                                                uploadBox.classList.add("uploaded");
+
+                                            } else {
+                                                fileName.textContent = "تصویر گواهینامه 📂";
+                                                fileName.style.opacity = "1";
+                                                uploadBox.classList.remove("uploaded");
+
+                                            }
+
+                                        }
+                                    </script>
+
+                                    <div class="form-group">
+                                        <select class="form-control" id="قبلا با مجموعه ای کار داشتین؟" onchange="togglePreviousWorkFields2()"  name="gender">
+                                            <option value="0">قبلا با مجموعه ای کار داشتین؟</option>
+                                            <option value="بله">بله</option>
+                                            <option value="خیر">خیر</option>
+
+
+                                        </select>
+                                    </div>
+
+                                    <script>
+
+                                        function togglePreviousWorkFields2() {
+                                            const previousWorkFields = document.getElementById('previousWorkFields');
+                                            const hasPreviousWork = document.getElementById('قبلا با مجموعه ای کار داشتین؟').value;
+                                            previousWorkFields.style.display = (hasPreviousWork === 'بله') ? 'block' : 'none';
+                                        }
+                                    </script>
+
+                                    <div style="display:none;" id="previousWorkFields">
+                                        <div class="form-group" style="" id="educationField">
+                                            <input class="form-control" id="father-name" type="text" placeholder="نام شرکت قبلی"  name="">
+                                        </div>
+                                        <div class="form-group" style="" id="educationField">
+                                            <input class="form-control" id="father-name" type="text" placeholder="سمت شما در شرکت قبلی"  name="">
+                                        </div>
+                                        <div class="form-group" style="" id="educationField">
+                                            <input class="form-control" id="father-name" type="text" placeholder="مدت زمان کار شما با شرکت قبلی"  name="">
+                                        </div>
+                                        <div class="form-group" id="military-service-photo" style="">
+
+                                            <label class="file-upload" id="upload-box6">
+
+                                                <div class="selected-file" id="file-name6">تصویر رضایت نامه از شرکت قبلی 📂</div>
+                                                <input id="photo6" type="file" name="img-card-military"  onchange="showFileName3()">
+                                            </label>
+
+                                        </div>
+
+                                       <script>
+                                            function showFileName6() {
+                                                const input6 = document.getElementById('photo4');
+                                                const fileName6 = document.getElementById('file-name4');
+                                                const uploadBox6 = document.getElementById('upload-box4');
+
+                                                if (input6.files.length > 0) {
+                                                    fileName6.textContent = " ✅ فایل با موفقیت انتخاب شد: " + input6.files[0].name;
+                                                    fileName6.style.opacity = "1";
+                                                    uploadBox6.classList.add("uploaded");
+                                                } else {
+                                                    fileName6.textContent = "تصویر رضایت نامه از شرکت قبلی 📂";
+                                                    fileName6.style.opacity = "1";
+                                                    uploadBox6.classList.remove("uploaded");
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="form-control" id="طریقه آشنایی با شرکت ما"  onchange="toggleReferralFields2()" name="gender">
+                                            <option value="0">طریقه آشنایی با شرکت ما</option>
+                                            <option value="شبکه های اجتماعی">شبکه های اجتماعی</option>
+                                            <option value="معرف">معرف</option>
+
+
+                                        </select>
+                                    </div>
+
+                                    <script>
+                                        function toggleReferralFields2() {
+                                            const referralFields = document.getElementById('referralFields');
+                                            const referralType = document.getElementById('طریقه آشنایی با شرکت ما').value;
+                                            referralFields.style.display = (referralType === 'معرف') ? 'block' : 'none';
+                                        }
+                                    </script>
+
+                                    <div style="display:none;" id="referralFields">
+                                        <div class="form-group" style="" id="educationField">
+                                            <input class="form-control" id="father-name" type="text" placeholder="نام معرف"  name="">
+                                        </div>
+                                        <div class="form-group" style="" id="educationField">
+                                            <input class="form-control" id="father-name" type="text" placeholder="شماره تماس معرف"  name="">
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <select class="form-control"  id="company" name="company" onchange="toggleReferralFields4()">
+                                            <option value="0">سابقه کاری مرتبط با صدرا سازه دارید؟</option>
+                                            <option value="بله">بله</option>
+                                            <option value="خیر">خیر</option>
+                                        </select>
+                                    </div>
+
+                                    <script>
+                                        function toggleReferralFields4() {
+                                            const referralFields = document.getElementById('company2');
+                                            const referralType = document.getElementById('company').value;
+                                            referralFields.style.display = (referralType === 'بله') ? 'block' : 'none';
+                                        }
+                                    </script>
+
+
+                                    <div class="form-group" style="display: none" id="company2">
+                                        <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name=""></textarea>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <select class="form-control" id="وضعیت اشتغال"  onchange="toggleEmploymentFields2()" name="gender">
+                                            <option value="0">وضعیت اشتغال</option>
+                                            <option value="شاغل">شاغل</option>
+                                            <option value="فاقد شغل">فاقد شغل</option>
+
+
+                                        </select>
+                                    </div>
+
+                                    <script>
+                                        function toggleEmploymentFields2() {
+                                            const employmentFields = document.getElementById('employmentFields');
+                                            const employmentStatus = document.getElementById('وضعیت اشتغال').value;
+                                            employmentFields.style.display = (employmentStatus === 'شاغل') ? 'block' : 'none';
+                                        }
+                                    </script>
+
+                                    <div style="display:none;" id="employmentFields">
+                                        <div class="form-group" style="" id="educationField">
+                                            <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="">
+                                        </div>
+                                        <div class="form-group" style="" id="educationField">
+                                            <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="">
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="col-sm-12" style="text-align: center">
+                                        <button type="button" onclick="prevStep(3)" class="default-btn contact-btn">
+                                            مرحله قبلی
+                                        </button>
+                                        <button type="submit" class="default-btn contact-btn">
+                                            مرحله بعدی
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <script>
+            // توابع داینامیک برای فیلدهای معافیت و پایان خدمت، رشته تحصیلی و سایر فیلدها
+            function toggleMilitaryFields() {
+                let militaryStatus = document.querySelector('select[name="military-status"]').value;
+                document.getElementById('military-exemption-type').style.display = militaryStatus === 'exempt' ? 'block' : 'none';
+                document.getElementById('military-service-photo').style.display = militaryStatus === 'served' ? 'block' : 'none';
+            }
+
+            function toggleMajorField() {
+                let education = document.querySelector('select[name="education"]').value;
+                document.getElementById('major-field').style.display = education === 'cycle' ? 'none' : 'block';
+            }
+
+            function togglePreviousWorkFields() {
+                let workedBefore = document.querySelector('select[name="worked-before"]').value;
+                document.getElementById('previous-work-fields').style.display = workedBefore === 'yes' ? 'block' : 'none';
+            }
+
+            function toggleReferralFields() {
+                let howHeard = document.querySelector('select[name="how-heard"]').value;
+                document.getElementById('referral-fields').style.display = howHeard === 'referral' ? 'block' : 'none';
+            }
+
+            function nextStep(step) {
+                document.querySelector('.step.active').classList.remove('active');
+                document.getElementById('step' + step).classList.add('active');
+            }
+
+            function prevStep(step) {
+                document.querySelector('.step.active').classList.remove('active');
+                document.getElementById('step' + step).classList.add('active');
+            }
+
+            // لیست استان‌ها و شهرها
+            const iranProvinces = {
+                "آذربایجان شرقی": ["تبریز", "مراغه", "مرند", "اهر", "میانه"],
+                "آذربایجان غربی": ["ارومیه", "خوی", "مهاباد", "بوکان", "سلماس"],
+                "اردبیل": ["اردبیل", "مشگین‌شهر", "خلخال", "پارس‌آباد", "نمین"],
+                "اصفهان": ["اصفهان", "کاشان", "خمینی‌شهر", "نجف‌آباد", "فلاورجان"],
+                "البرز": ["کرج", "فردیس", "نظرآباد", "هشتگرد", "طالقان"],
+                "ایلام": ["ایلام", "دهلران", "مهران", "آبدانان", "سرابله"],
+                "بوشهر": ["بوشهر", "گناوه", "دشتستان", "کنگان", "عسلویه"],
+                "تهران": ["تهران", "ری", "شمیرانات", "ورامین", "دماوند"],
+                "چهارمحال و بختیاری": ["شهرکرد", "بروجن", "فارسان", "لردگان", "کوهرنگ"],
+                "خراسان جنوبی": ["بیرجند", "طبس", "قائن", "فردوس", "نهبندان"],
+                "خراسان رضوی": ["مشهد", "نیشابور", "سبزوار", "تربت‌حیدریه", "قوچان"],
+                "خراسان شمالی": ["بجنورد", "شیروان", "اسفراین", "جاجرم", "فاروج"],
+                "خوزستان": ["اهواز", "آبادان", "دزفول", "خرمشهر", "ماهشهر"],
+                "زنجان": ["زنجان", "ابهر", "خرمدره", "ماه‌نشان", "طارم"],
+                "سمنان": ["سمنان", "شاهرود", "دامغان", "گرمسار", "مهدی‌شهر"],
+                "سیستان و بلوچستان": ["زاهدان", "چابهار", "ایرانشهر", "خاش", "سراوان"],
+                "فارس": ["شیراز", "مرودشت", "کازرون", "فسا", "لار"],
+                "قزوین": ["قزوین", "البرز", "تاکستان", "بوئین‌زهرا", "آبیک"],
+                "قم": ["قم"],
+                "کردستان": ["سنندج", "مریوان", "سقز", "بانه", "بیجار"],
+                "کرمان": ["کرمان", "رفسنجان", "سیرجان", "بم", "جیرفت"],
+                "کرمانشاه": ["کرمانشاه", "اسلام‌آباد غرب", "سرپل ذهاب", "سنقر", "کنگاور"],
+                "کهگیلویه و بویراحمد": ["یاسوج", "دوگنبدان", "دهدشت", "لیکک", "سی‌سخت"],
+                "گلستان": ["گرگان", "گنبد کاووس", "علی‌آباد", "آق‌قلا", "مینودشت"],
+                "گیلان": ["رشت", "لاهیجان", "انزلی", "لنگرود", "آستارا"],
+                "لرستان": ["خرم‌آباد", "بروجرد", "دورود", "کوهدشت", "الیگودرز"],
+                "مازندران": ["ساری", "بابل", "آمل", "قائم‌شهر", "تنکابن"],
+                "مرکزی": ["اراک", "ساوه", "خمین", "محلات", "شازند"],
+                "هرمزگان": ["بندرعباس", "قشم", "کیش", "بندر لنگه", "میناب"],
+                "همدان": ["همدان", "ملایر", "نهاوند", "تویسرکان", "کبودرآهنگ"],
+                "یزد": ["یزد", "میبد", "اردکان", "بافق", "ابرکوه"]
+            };
+
+            // افزودن استان‌ها به select
+            const provinceSelect = document.getElementById("province");
+            const citySelect = document.getElementById("city");
+
+            for (let province in iranProvinces) {
+                let option = document.createElement("option");
+                option.value = province;
+                option.textContent = province;
+                provinceSelect.appendChild(option);
+            }
+
+            // به‌روزرسانی لیست شهرها بر اساس استان انتخاب‌شده
+            function updateCities() {
+                let selectedProvince = provinceSelect.value;
+                citySelect.innerHTML = '<option value="0">شهر</option>'; // پاک کردن لیست قبلی
+
+                if (selectedProvince) {
+                    iranProvinces[selectedProvince].forEach(city => {
+                        let option = document.createElement("option");
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                }
+            }
+
+            // لیست استان‌ها و شهرها
+            const iranProvinces2 = {
+                "آذربایجان شرقی": ["تبریز", "مراغه", "مرند", "اهر", "میانه"],
+                "آذربایجان غربی": ["ارومیه", "خوی", "مهاباد", "بوکان", "سلماس"],
+                "اردبیل": ["اردبیل", "مشگین‌شهر", "خلخال", "پارس‌آباد", "نمین"],
+                "اصفهان": ["اصفهان", "کاشان", "خمینی‌شهر", "نجف‌آباد", "فلاورجان"],
+                "البرز": ["کرج", "فردیس", "نظرآباد", "هشتگرد", "طالقان"],
+                "ایلام": ["ایلام", "دهلران", "مهران", "آبدانان", "سرابله"],
+                "بوشهر": ["بوشهر", "گناوه", "دشتستان", "کنگان", "عسلویه"],
+                "تهران": ["تهران", "ری", "شمیرانات", "ورامین", "دماوند"],
+                "چهارمحال و بختیاری": ["شهرکرد", "بروجن", "فارسان", "لردگان", "کوهرنگ"],
+                "خراسان جنوبی": ["بیرجند", "طبس", "قائن", "فردوس", "نهبندان"],
+                "خراسان رضوی": ["مشهد", "نیشابور", "سبزوار", "تربت‌حیدریه", "قوچان"],
+                "خراسان شمالی": ["بجنورد", "شیروان", "اسفراین", "جاجرم", "فاروج"],
+                "خوزستان": ["اهواز", "آبادان", "دزفول", "خرمشهر", "ماهشهر"],
+                "زنجان": ["زنجان", "ابهر", "خرمدره", "ماه‌نشان", "طارم"],
+                "سمنان": ["سمنان", "شاهرود", "دامغان", "گرمسار", "مهدی‌شهر"],
+                "سیستان و بلوچستان": ["زاهدان", "چابهار", "ایرانشهر", "خاش", "سراوان"],
+                "فارس": ["شیراز", "مرودشت", "کازرون", "فسا", "لار"],
+                "قزوین": ["قزوین", "البرز", "تاکستان", "بوئین‌زهرا", "آبیک"],
+                "قم": ["قم"],
+                "کردستان": ["سنندج", "مریوان", "سقز", "بانه", "بیجار"],
+                "کرمان": ["کرمان", "رفسنجان", "سیرجان", "بم", "جیرفت"],
+                "کرمانشاه": ["کرمانشاه", "اسلام‌آباد غرب", "سرپل ذهاب", "سنقر", "کنگاور"],
+                "کهگیلویه و بویراحمد": ["یاسوج", "دوگنبدان", "دهدشت", "لیکک", "سی‌سخت"],
+                "گلستان": ["گرگان", "گنبد کاووس", "علی‌آباد", "آق‌قلا", "مینودشت"],
+                "گیلان": ["رشت", "لاهیجان", "انزلی", "لنگرود", "آستارا"],
+                "لرستان": ["خرم‌آباد", "بروجرد", "دورود", "کوهدشت", "الیگودرز"],
+                "مازندران": ["ساری", "بابل", "آمل", "قائم‌شهر", "تنکابن"],
+                "مرکزی": ["اراک", "ساوه", "خمین", "محلات", "شازند"],
+                "هرمزگان": ["بندرعباس", "قشم", "کیش", "بندر لنگه", "میناب"],
+                "همدان": ["همدان", "ملایر", "نهاوند", "تویسرکان", "کبودرآهنگ"],
+                "یزد": ["یزد", "میبد", "اردکان", "بافق", "ابرکوه"]
+            };
+
+            // افزودن استان‌ها به select
+            const provinceSelect2 = document.getElementById("province2");
+            const citySelect2 = document.getElementById("city2");
+
+            for (let province in iranProvinces2) {
+                let option = document.createElement("option");
+                option.value = province;
+                option.textContent = province;
+                provinceSelect2.appendChild(option);
+            }
+
+            // به‌روزرسانی لیست شهرها بر اساس استان انتخاب‌شده
+            function updateCities2() {
+                let selectedProvince = provinceSelect2.value;
+                citySelect2.innerHTML = '<option value="0">شهر</option>'; // پاک کردن لیست قبلی
+
+                if (selectedProvince) {
+                    iranProvinces2[selectedProvince].forEach(city => {
+                        let option = document.createElement("option");
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect2.appendChild(option);
+                    });
+                }
+            }
+        </script>
+
+        {# تغیر مرحله #}
+        <script>
+            function nextStep(step) {
+                const currentStep = document.getElementById(`step${step}`);
+                const nextStepElement = document.getElementById(`step${step + 1}`);
+                const inputs = currentStep.querySelectorAll("input[]");
+                let isValid = true;
+
+                // بررسی مقدار ورودی‌ها
+                inputs.forEach(input => {
+                    if (input.value.trim() === "") {
+                        isValid = false;
+                        input.classList.add("is-invalid"); // اضافه کردن کلاس هشدار قرمز
+                    } else {
+                        input.classList.remove("is-invalid");
+                    }
+                });
+
+                if (isValid) {
+                    currentStep.classList.remove("active");
+                    if (nextStepElement) {
+                        nextStepElement.classList.add("active");
+                        nextStepElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                } else {
+                    alert("لطفاً همه فیلدها را پر کنید.");
+                }
+            }
+
+            function prevStep(step) {
+                const currentStep = document.getElementById(`step${step}`);
+                const prevStepElement = document.getElementById(`step${step - 1}`);
+
+                if (prevStepElement) {
+                    currentStep.classList.remove("active");
+                    prevStepElement.classList.add("active");
+                    prevStepElement.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        </script>
+
+        {# تقویم #}
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var dp = jalaliDatepicker;
+                dp.startWatch();
+            });
+        </script>
+{% endblock %}

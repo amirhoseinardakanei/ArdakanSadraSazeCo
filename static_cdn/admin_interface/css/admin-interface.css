@@ -39,6 +39,7 @@
         --object-tools-fg: var(--button-fg);
         --object-tools-bg: var(--close-button-bg);
         --object-tools-hover-bg: var(--close-button-hover-bg);
+        --admin-interface-secondary-font-family: 'Vazir', 'IRANSans', sans-serif;
     }
 }
 

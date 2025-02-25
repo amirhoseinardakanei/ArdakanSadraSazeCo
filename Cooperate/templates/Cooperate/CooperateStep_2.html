@@ -1,0 +1,480 @@
+{% extends 'Base/index.html' %}
+
+
+
+{% block title %}همکاری با ما{% endblock %}
+
+
+{% block body %}
+    <section class="contact-section pb-100 pt-100">
+            <div class="container">
+                <div class="section-title text-center" style="margin-top: 30px">
+                    <span>فرم همکاری با ما</span>
+                    <h2>مشخصات خانوادگی و سکونت </h2>
+                    <p></p>
+                </div>
+
+                <div class="row" style="margin-top: 100px">
+                    <div class="col-lg-12">
+                        <div class="contact-area">
+                            <form id="multiStepForm" method="post" action="{% url 'CooperateStep_2' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <!-- مرحله دوم: اطلاعات هویتی ۲ -->
+                                <div class="step" id="step2">
+
+
+                                    <div class="form-group" >
+                                        <select class="form-control" id="marital-status" name="marital_status"  onchange="storytaahol()">
+                                            {% if marital_status == None %}
+                                            	<option value="0">وضعیت تاهل</option>
+                                                <option value="مجرد">مجرد</option>
+                                                <option value="متاهل">متاهل</option>
+                                            {% elif marital_status == '0' %}
+                                            	<option value="0">وضعیت تاهل</option>
+                                                <option value="مجرد">مجرد</option>
+                                                <option value="متاهل">متاهل</option>
+                                            {% elif marital_status != '0' %}
+                                            	<option value="{{ marital_status }}">{{ marital_status }}</option>
+                                                <option value="مجرد">مجرد</option>
+                                                <option value="متاهل">متاهل</option>
+                                                <option value="0">وضعیت تاهل</option>
+                                            {% endif %}
+
+                                        </select>
+                                        {% if marital_status == '0' %}
+                                        	<ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+                                    </div>
+                                    <script>
+
+                                       function storytaahol() {
+                                            const militaryFields1 = document.getElementById('taaholl');
+                                            const militaryStatus1 = document.getElementById('marital-status').value;
+                                            militaryFields1.style.display = (militaryStatus1 === 'متاهل') ? 'block' : 'none';
+                                        }
+
+                                    </script>
+
+                                    {% if marital_status == 'متاهل' %}
+                                    	<div id="taaholl" style="">
+                                            <div class="form-group">
+                                                <select class="form-control" id="children-count" name="children_count">
+                                                    {% if children_count == None%}
+                                                        <option value="0">تعداد اولاد</option>
+                                                        <option value="ندارد">ندارد</option>
+                                                        <option value="یک">یک</option>
+                                                        <option value="دو">دو</option>
+                                                        <option value="سه">سه</option>
+                                                        <option value="چهار">چهار</option>
+                                                    {% elif children_count == '0' %}
+                                                        <option value="0">تعداد اولاد</option>
+                                                        <option value="ندارد">ندارد</option>
+                                                        <option value="یک">یک</option>
+                                                        <option value="دو">دو</option>
+                                                        <option value="سه">سه</option>
+                                                        <option value="چهار">چهار</option>
+                                                    {% elif children_count != '0' %}
+                                                        <option value="{{ children_count }}">{{ children_count }}</option>
+                                                        <option value="ندارد">ندارد</option>
+                                                        <option value="یک">یک</option>
+                                                        <option value="دو">دو</option>
+                                                        <option value="سه">سه</option>
+                                                        <option value="چهار">چهار</option>
+                                                        <option value="0">تعداد اولاد</option>
+                                                    {% endif %}
+
+                                                </select>
+                                                {% if children_count == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ تاهل" name="birth_cert_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                {% if birth_cert_date == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div id="taaholl" style="display: none">
+                                            <div class="form-group">
+                                                <select class="form-control" id="children-count" name="children_count">
+                                                    {% if children_count == None%}
+                                                        <option value="0">تعداد اولاد</option>
+                                                        <option value="ندارد">ندارد</option>
+                                                        <option value="یک">یک</option>
+                                                        <option value="دو">دو</option>
+                                                        <option value="سه">سه</option>
+                                                        <option value="چهار">چهار</option>
+                                                    {% elif children_count == '0' %}
+                                                        <option value="0">تعداد اولاد</option>
+                                                        <option value="ندارد">ندارد</option>
+                                                        <option value="یک">یک</option>
+                                                        <option value="دو">دو</option>
+                                                        <option value="سه">سه</option>
+                                                        <option value="چهار">چهار</option>
+                                                    {% elif children_count != '0' %}
+                                                        <option value="{{ children_count }}">{{ children_count }}</option>
+                                                        <option value="ندارد">ندارد</option>
+                                                        <option value="یک">یک</option>
+                                                        <option value="دو">دو</option>
+                                                        <option value="سه">سه</option>
+                                                        <option value="چهار">چهار</option>
+                                                        <option value="0">تعداد اولاد</option>
+                                                    {% endif %}
+
+                                                </select>
+                                                {% if children_count == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ تاهل" name="birth_cert_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                {% if birth_cert_date == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    <!-- تعداد اولاد -->
+
+
+                                    <!-- نظام وظیفه -->
+                                    <div class="form-group">
+
+                                        <select class="form-control" id="military-status" name="military_status"  onchange="toggleMilitaryFields()">
+                                            {% if military_status == None %}
+                                            	<option value="0">وضعیت نظام وظیفه</option>
+                                                <option value="معافیت">معافیت</option>
+                                                <option value="پایان خدمت">پایان خدمت</option>
+                                            {% elif military_status == '0' %}
+                                                <option value="0">وضعیت نظام وظیفه</option>
+                                                <option value="معافیت">معافیت</option>
+                                                <option value="پایان خدمت">پایان خدمت</option>
+                                            {% elif military_status != '0' %}
+                                                <option value="{{ military_status }}">{{ military_status }}</option>
+                                                <option value="معافیت">معافیت</option>
+                                                <option value="پایان خدمت">پایان خدمت</option>
+                                            {% endif %}
+
+
+                                        </select>
+                                        {% if military_status == '0' %}
+                                        	<ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+                                    </div>
+
+                                    {% if military_status == 'معافیت' %}
+                                    	<div id="military-exemption-type" style="">
+                                            <div class="form-group">
+                                                {% if exemption_type != '0' %}
+                                                	<input class="form-control" id="exemption-type" type="text" placeholder="نوع معافیت" name="exemption_type" value="{{ exemption_type }}">
+                                                {% else %}
+                                                    <input class="form-control" id="exemption-type" type="text" placeholder="نوع معافیت" name="exemption_type">
+                                                {% endif %}
+
+                                                {% if exemption_type == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div id="military-exemption-type" style="display: none">
+                                            <div class="form-group">
+                                                <input class="form-control" id="exemption-type" type="text" placeholder="نوع معافیت" name="exemption_type">
+                                                {% if exemption_type == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <!-- نوع معافیت یا عکس پایان خدمت -->
+
+
+                                    {% if military_status == 'پایان خدمت' %}
+                                    	<div class="form-group" id="military-service-photo" style="">
+                                            <label class="file-upload" id="upload-box3">
+                                                <div class="selected-file" id="file-name3">تصویر کارت پایان خدمت 📂</div>
+                                                <input id="photo3" type="file" name="img_card_military" onchange="showFileName2()">
+                                                <script>
+                                            function showFileName2() {
+                                                const input3 = document.getElementById('photo3');
+                                                const fileName3 = document.getElementById('file-name3');
+                                                const uploadBox3 = document.getElementById('upload-box3');
+
+                                                if (input3.files.length > 0) {
+                                                    fileName3.textContent = " ✅ فایل انتخاب شد. ";
+                                                    fileName3.style.opacity = "1";
+                                                    uploadBox3.classList.add("uploaded");
+                                                } else {
+                                                    fileName3.textContent = "تصویر کارت پایان خدمت 📂";
+                                                    fileName3.style.opacity = "1";
+                                                    uploadBox3.classList.remove("uploaded");
+                                                }
+                                            }
+                                        </script>
+                                            </label>
+                                            {% if img_card_military == '0' %}
+                                                <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                            {% endif %}
+
+                                            <div class="form-group">
+                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" name="start_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                {% if start_military_date == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" name="end_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                {% if end_military_date == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="form-group" id="military-service-photo" style="display: none">
+
+                                            <label class="file-upload" id="upload-box3">
+                                                <div class="selected-file" id="file-name3">تصویر کارت پایان خدمت 📂</div>
+                                                <input id="photo3" type="file" name="img_card_military" onchange="showFileName2()">
+                                                <script>
+                                            function showFileName2() {
+                                                const input3 = document.getElementById('photo3');
+                                                const fileName3 = document.getElementById('file-name3');
+                                                const uploadBox3 = document.getElementById('upload-box3');
+
+                                                if (input3.files.length > 0) {
+                                                    fileName3.textContent = " ✅ فایل انتخاب شد. ";
+                                                    fileName3.style.opacity = "1";
+                                                    uploadBox3.classList.add("uploaded");
+                                                } else {
+                                                    fileName3.textContent = "تصویر کارت پایان خدمت 📂";
+                                                    fileName3.style.opacity = "1";
+                                                    uploadBox3.classList.remove("uploaded");
+                                                }
+                                            }
+                                        </script>
+                                            </label>
+                                            {% if img_card_military == '0' %}
+                                                <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                            {% endif %}
+
+                                            <div class="form-group">
+                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" name="start_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                {% if start_military_date == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" name="end_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                {% if end_military_date == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                    {% endif %}
+
+
+
+                                    <!--  شهر سکونت -->
+                                   <div class="form-group">
+
+                                        <select class="form-control" id="province" name="province" required onchange="updateCities()">
+                                            {% if province == None %}
+                                                <option value="0">استان سکونت</option>
+                                            {% elif province == "0" %}
+                                                <option value="0">استان سکونت</option>
+                                            {% elif province != "0" %}
+                                                <option value="{{ province }}">{{ province }}</option>
+                                            {% endif %}
+
+
+
+                                            <!-- استان‌ها به صورت داینامیک از کد زیر بارگذاری می‌شوند -->
+                                        </select>
+                                        {% if province == "0" %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+                                   </div>
+
+
+                                    <div class="form-group">
+                                        <select class="form-control" id="city" name="city" required>
+                                            {% if city == None %}
+                                                <option value="0"> شهر سکونت</option>
+                                            {% elif city == "0" %}
+                                                <option value="0">شهر سکونت</option>
+                                            {% elif city != "0" %}
+                                                <option value="{{ city }}">{{ city }}</option>
+                                            {% endif %}
+
+
+
+                                            <!-- شهرها به صورت داینامیک بعد از انتخاب استان بارگذاری می‌شوند -->
+                                        </select>
+
+                                        {% if city == "0" %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        {{ form.residence_address }}
+                                        {{ form.residence_address.errors }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.residence_address_2 }}
+                                        {{ form.residence_address_2.errors }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.residence_work }}
+                                        {{ form.residence_work.errors }}
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        {{ form.residence_postcode }}
+                                        {{ form.residence_postcode.errors }}
+                                    </div>
+                                    <script>
+                                        document.getElementById("id_residence_postcode").addEventListener("input", function() {
+                                            this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
+                                        });
+                                    </script>
+
+                                    <div class="form-group">
+                                        {{ form.phone_number }}
+                                        {{ form.phone_number.errors }}
+                                    </div>
+                                    <script>
+                                        document.getElementById("id_phone_number").addEventListener("input", function() {
+                                            this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
+                                        });
+                                    </script>
+
+                                    <div class="form-group">
+                                        {{ form.emergency_phone_number }}
+                                        {{ form.emergency_phone_number.errors }}
+                                    </div>
+                                    <script>
+                                        document.getElementById("id_emergency_phone_number").addEventListener("input", function() {
+                                            this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
+                                        });
+                                    </script>
+
+                                    <div class="form-group">
+                                        {{ form.home_phone_number }}
+                                        {{ form.home_phone_number.errors }}
+                                    </div>
+                                    <script>
+                                        document.getElementById("id_home_phone_number").addEventListener("input", function() {
+                                            this.value = this.value.replace(/\D/g, ''); // فقط عدد بماند
+                                        });
+                                    </script>
+
+                                    <div class="form-group">
+                                        {{ form.email }}
+                                        {{ form.email.errors }}
+                                    </div>
+
+
+                                    <div class="col-sm-12" style="text-align: center">
+                                        <a class="default-btn contact-btn" href="{% url 'CooperateStep_1' %}">
+                                            مرحله قبلی
+                                        </a>
+                                        <button type="submit" class="default-btn contact-btn">
+                                            مرحله بعدی
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <script>
+            // توابع داینامیک برای فیلدهای معافیت و پایان خدمت، رشته تحصیلی و سایر فیلدها
+            function toggleMilitaryFields() {
+                let militaryStatus = document.querySelector('select[name="military_status"]').value;
+                document.getElementById('military-exemption-type').style.display = militaryStatus === 'معافیت' ? 'block' : 'none';
+                document.getElementById('military-service-photo').style.display = militaryStatus === 'پایان خدمت' ? 'block' : 'none';
+            }
+
+
+            // لیست استان‌ها و شهرها
+            const iranProvinces = {
+                "آذربایجان شرقی": ["تبریز", "مراغه", "مرند", "اهر", "میانه"],
+                "آذربایجان غربی": ["ارومیه", "خوی", "مهاباد", "بوکان", "سلماس"],
+                "اردبیل": ["اردبیل", "مشگین‌شهر", "خلخال", "پارس‌آباد", "نمین"],
+                "اصفهان": ["اصفهان", "کاشان", "خمینی‌شهر", "نجف‌آباد", "فلاورجان"],
+                "البرز": ["کرج", "فردیس", "نظرآباد", "هشتگرد", "طالقان"],
+                "ایلام": ["ایلام", "دهلران", "مهران", "آبدانان", "سرابله"],
+                "بوشهر": ["بوشهر", "گناوه", "دشتستان", "کنگان", "عسلویه"],
+                "تهران": ["تهران", "ری", "شمیرانات", "ورامین", "دماوند"],
+                "چهارمحال و بختیاری": ["شهرکرد", "بروجن", "فارسان", "لردگان", "کوهرنگ"],
+                "خراسان جنوبی": ["بیرجند", "طبس", "قائن", "فردوس", "نهبندان"],
+                "خراسان رضوی": ["مشهد", "نیشابور", "سبزوار", "تربت‌حیدریه", "قوچان"],
+                "خراسان شمالی": ["بجنورد", "شیروان", "اسفراین", "جاجرم", "فاروج"],
+                "خوزستان": ["اهواز", "آبادان", "دزفول", "خرمشهر", "ماهشهر"],
+                "زنجان": ["زنجان", "ابهر", "خرمدره", "ماه‌نشان", "طارم"],
+                "سمنان": ["سمنان", "شاهرود", "دامغان", "گرمسار", "مهدی‌شهر"],
+                "سیستان و بلوچستان": ["زاهدان", "چابهار", "ایرانشهر", "خاش", "سراوان"],
+                "فارس": ["شیراز", "مرودشت", "کازرون", "فسا", "لار"],
+                "قزوین": ["قزوین", "البرز", "تاکستان", "بوئین‌زهرا", "آبیک"],
+                "قم": ["قم"],
+                "کردستان": ["سنندج", "مریوان", "سقز", "بانه", "بیجار"],
+                "کرمان": ["کرمان", "رفسنجان", "سیرجان", "بم", "جیرفت"],
+                "کرمانشاه": ["کرمانشاه", "اسلام‌آباد غرب", "سرپل ذهاب", "سنقر", "کنگاور"],
+                "کهگیلویه و بویراحمد": ["یاسوج", "دوگنبدان", "دهدشت", "لیکک", "سی‌سخت"],
+                "گلستان": ["گرگان", "گنبد کاووس", "علی‌آباد", "آق‌قلا", "مینودشت"],
+                "گیلان": ["رشت", "لاهیجان", "انزلی", "لنگرود", "آستارا"],
+                "لرستان": ["خرم‌آباد", "بروجرد", "دورود", "کوهدشت", "الیگودرز"],
+                "مازندران": ["ساری", "بابل", "آمل", "قائم‌شهر", "تنکابن"],
+                "مرکزی": ["اراک", "ساوه", "خمین", "محلات", "شازند"],
+                "هرمزگان": ["بندرعباس", "قشم", "کیش", "بندر لنگه", "میناب"],
+                "همدان": ["همدان", "ملایر", "نهاوند", "تویسرکان", "کبودرآهنگ"],
+                "یزد": ["یزد", "میبد", "اردکان", "بافق", "ابرکوه"]
+            };
+
+            // افزودن استان‌ها به select
+            const provinceSelect = document.getElementById("province");
+            const citySelect = document.getElementById("city");
+
+            for (let province in iranProvinces) {
+                let option = document.createElement("option");
+                option.value = province;
+                option.textContent = province;
+                provinceSelect.appendChild(option);
+            }
+
+            // به‌روزرسانی لیست شهرها بر اساس استان انتخاب‌شده
+            function updateCities() {
+                let selectedProvince = provinceSelect.value;
+                citySelect.innerHTML = '<option value="0">شهر</option>'; // پاک کردن لیست قبلی
+
+                if (selectedProvince) {
+                    iranProvinces[selectedProvince].forEach(city => {
+                        let option = document.createElement("option");
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                }
+            }
+        </script>
+
+        {# تقویم #}
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var dp = jalaliDatepicker;
+                dp.startWatch();
+            });
+        </script>
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'BasePanelUser/index.html' %}
+
+
+
+{% block title %}پنل کاربری{% endblock %}
+
+{% block main_content %}
+    <div class="sidebar-mobile flex flex-col lg:hidden fixed -right-64 top-0 bottom-0 w-64 bg-white dark:bg-zinc-700 z-50 shadow transition-all duration-300 px-4">
+                    <div class="flex items-center justify-between border-b border-gray-200 dark:border-white/20 py-3">
+                        <div class="flex items-center gap-x-3">
+                            <img src="Images/svg/user.png" class="w-10 h-10 ring-2 ring-gray-400/20 rounded-full" alt="AVATAR">
+                            <span class="flex flex-col gap-y-2">
+                                    <p class="font-DanaMedium">امیرحسین روستایی</p>
+                                    <p class="text-gray-400 text-sm">09903309774</p>
+                                </span>
+                        </div>
+                        <span class="close-sidebar-btn">
+                                <svg class="w-5 h-6 cursor-pointer"><use href="#close"></use></svg>
+                            </span>
+                    </div>
+                    <ul class="relative mt-4 space-y-2 child:duration-300 child:transition-all child:p-2 child:flex child:items-center child:gap-x-2 child:cursor-pointer child:rounded-lg">
+                        <li class="bg-green-500/10 text-green-500">
+                            <svg class="w-5 h-5"><use href="#squares"></use></svg>
+                            <a href="dashboard.html">داشبورد</a>
+                        </li>
+                        <li class="hover:bg-zinc-100 dark:hover:bg-zinc-600">
+                            <svg class="w-5 h-5"><use href="#shopping-bag"></use></svg>
+                            <a href="dashboard-orders.html">سفارش ها</a>
+                        </li>
+                        <li class="hover:bg-zinc-100 dark:hover:bg-zinc-600">
+                            <svg class="w-5 h-5"><use href="#heart"></use></svg>
+                            <a href="dashboard-favorite.html">علاقه‌مندی ها</a>
+                        </li>
+                        <li class="hover:bg-zinc-100 dark:hover:bg-zinc-600">
+                            <svg class="w-5 h-5"><use href="#map"></use></svg>
+                            <a href="dashboard-address.html">آدرس ها</a>
+                        </li>
+                        <li class="hover:bg-zinc-100 dark:hover:bg-zinc-600">
+                            <svg class="w-5 h-5"><use href="#bell"></use></svg>
+                            <a href="dashboard-messages.html">پیام ها</a>
+                        </li>
+                        <li class="hover:bg-zinc-100 dark:hover:bg-zinc-600">
+                            <svg class="w-5 h-5"><use href="#cog"></use></svg>
+                            <a href="dashboard-account.html">اطلاعات حساب</a>
+                        </li>
+                        <li class="hover:bg-zinc-100 dark:hover:bg-zinc-600">
+                            <svg class="w-5 h-5"><use href="#home"></use></svg>
+                            <a href="index.html">صفحه اصلی</a>
+                        </li>
+                        <li class="text-red-500 hover:bg-red-500/20">
+                            <svg class="w-5 h-5"><use href="#arrow-left-start-on-rectangle"></use></svg>
+                            <a href="index.html">خروج از حساب</a>
+                        </li>
+                    </ul>
+                </div>
+    <!-- Main Content -->
+    <div class="lg:w-3/4 xl:w-4/5 lg:m-5 w-full">
+      <div class="bg-white dark:bg-zinc-700 p-5 lg:rounded-lg shadow flex items-center justify-between">
+        <p class="font-DanaMedium text-lg hidden lg:block">سلام, {{ current_user.first_name }} {{ current_user.last_name }} عزیز ✋</p>
+        <button onclick="toggleSidebar()" class="open-sidebar-btn flex lg:hidden items-center gap-x-1">
+          <svg class="w-6 h-6"><use href="#bars"></use></svg>
+          داشبورد
+        </button>
+        <div class="flex items-center gap-x-3">
+
+
+          <a href="{% url 'HomePage' %}" class=" lg:flex items-center gap-x-0.5 text-green-500">
+            صفحه اصلی
+            <svg class="w-4 h-4" style="display: inline"><use href="#chevron-left"></use></svg>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="m-5 lg:m-0">
+        <p class="font-DanaMedium block lg:hidden">{{ current_user.first_name }} {{ current_user.last_name }}</p>
+        <div class="grid grid-cols-1 gap-6 lg:gap-1 mt-12">
+
+
+          <!-- Order Details -->
+          <div class="col-span-12 xl:col-span-7">
+            <p class="text-lg">درخواست همکاری با ما, برای : </p>
+            <div class="w-full grid grid-cols-12 child:col-span-12 child:sm:col-span-6 child:md:col-span-4 gap-5 child:p-2 mt-4 child:rounded-lg child:flex child:gap-x-4 child:items-center child:text-white">
+
+              <a href="{% url 'Redirect_Step' %}" class="bg-amber-500">
+                  <span class="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center">
+                      <svg class="w-6 h-6"><use href="#bars"></use></svg>
+                  </span>
+                <span>
+                      <p> نیروی انسانی</p>
+                  </span>
+              </a>
+              <a href="dashboard.html" class="bg-amber-500">
+                  <span class="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center">
+                      <svg class="w-6 h-6"><use href="#bars"></use></svg>
+                  </span>
+                  <span>
+                      <p>تامین کننده کالا و خدمات</p>
+                  </span>
+              </a>
+
+
+
+
+
+
+
+            </div>
+          </div>
+
+          <!-- Tickets -->
+          <div class="col-span-6 xl:col-span-7">
+            <div class="mt-4 grid grid-cols-12 gap-4 child:bg-white child:dark:bg-zinc-700">
+{#              <div class="col-span-6 shadow sm:col-span-6 p-2 rounded-lg flex gap-x-4 items-center">#}
+{#                <span class="bg-green-500/20 w-12 h-12 rounded-lg flex items-center justify-center">#}
+{#                    <svg class="w-6 h-6 text-green-500"><use href="#user"></use></svg>#}
+{#                </span>#}
+{#                <a href="dashboard-address.html" class="flex w-[75%] justify-between items-center gap-x-2">#}
+{#                  <p>مشخصات من</p>#}
+{#                  <svg class="w-5 h-5"><use href="#arrow-left"></use></svg>#}
+{#                </a>#}
+{#              </div>#}
+
+              <div class="shadow justify-start col-span-6 sm:col-span-2 p-2 rounded-lg flex gap-x-4 items-center sm:justify-center">
+                <a href="{% url 'LogoutPage' %}" style="width: 100%" class="bg-green-500/20 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-green-500"><use href="#arrow-left-start-on-rectangle"></use></svg>
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
+

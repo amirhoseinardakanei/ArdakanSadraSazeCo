@@ -45,8 +45,14 @@ class Truck(View):
 
 def SiteNavbar(request):
     service_web = ServiceWeb.objects.filter().all
+    status_login = bool(request.user.username)
+    status_is_staff = bool(request.user.is_staff)
+
+
     return render(request, 'Base/Navbar.html',{
         'service_web': service_web,
+        'status_login': status_login,
+        'status_is_staff': status_is_staff,
     })
 
 
@@ -55,3 +61,4 @@ def SiteFooter(request):
     return render(request, 'Base/Footer.html',{
         'service_web': service_web,
     })
+

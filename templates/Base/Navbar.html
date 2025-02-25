@@ -18,15 +18,36 @@
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
+
+                        {% if status_login is True %}
+                            <li class="nav-item">
+                                <a href="{% url 'UserPanelPage' %}" class="nav-link">پنل کاربری </a>
+                            </li>
+                        {% endif %}
+
+                        {% if status_is_staff is True %}
+                            <li class="nav-item">
+                                <a href="{% url 'admin:index' %}" class="nav-link">پنل مدیریت وب سایت </a>
+                            </li>
+                        {% endif %}
+
                         <li class="nav-item">
                             <a href="{% url 'HomePage' %}" class="nav-link">صفحه اصلی</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{% url 'LoginPage' %}" class="nav-link">ورود </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{% url 'RegisterPage' %}" class="nav-link"> ثبت نام </a>
-                        </li>
+
+
+                        {% if status_login is False %}
+                            <li class="nav-item">
+                                <a href="{% url 'LoginPage' %}" class="nav-link">ورود </a>
+                            </li>
+                        {% endif %}
+
+                        {% if status_login is False %}
+                            <li class="nav-item">
+                                <a href="{% url 'RegisterPage' %}" class="nav-link"> ثبت نام </a>
+                            </li>
+                        {% endif %}
+
                         <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">خدمات ما</a>
                             <ul class="dropdown-menu">
