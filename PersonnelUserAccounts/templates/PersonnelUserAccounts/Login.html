@@ -36,17 +36,17 @@
                         <div class="signin-form" style="border-radius: 30px">
                             <i class='bx bx-user'></i>
                             <h3>ورود کاربران</h3>
-                            <form>
+                            <form action="{% url 'LoginPage' %}" method="post">
+                                {% csrf_token %}
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ایمیل">
+                                    {{ login_form.national_number }}
+                                    {{ login_form.national_number.errors }}
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="رمز عبور">
+                                    {{ login_form.password }}
+                                    {{ login_form.password.errors }}
                                 </div>
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا به خاطر بسپار</label>
-                                </div>
+
                                 <button type="submit" class="signin-btn">وارد شوید</button>
                             </form>
 

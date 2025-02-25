@@ -24,7 +24,7 @@ urlpatterns = [
     path('projects/', include('ProjectsApp.urls')),
     path('barcode/', include('BarcodeApp.urls')),
     path('cooperate/', include('Cooperate.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='AdminPage'),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

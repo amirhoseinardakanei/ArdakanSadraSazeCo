@@ -80,14 +80,14 @@ class RegistrationForm(forms.Form):
     )
 
     password = forms.CharField(
-        label='کلمه عبور',
+        label='رمز عبور',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'کلمه عبور',
+            'placeholder': 'رمز عبور',
         }),
         min_length=8,  # حداقل ۸ کاراکتر
         error_messages={
-            'min_length': 'کلمه عبور باید حداقل ۸ کاراکتر باشد.'
+            'min_length': 'رمز عبور باید حداقل ۸ کاراکتر باشد.'
         }
     )
     def clean_password(self):
@@ -97,15 +97,15 @@ class RegistrationForm(forms.Form):
         weak_patterns = [r'12345678', r'87654321', r'11111111']
         for pattern in weak_patterns:
             if re.search(pattern, password):
-                raise ValidationError('کلمه عبور نباید شامل یک رمز ساده مانند "12345678" باشد.')
+                raise ValidationError('رمز عبور نباید شامل یک رمز ساده مانند "12345678" باشد.')
 
         return password
 
     password_repeat = forms.CharField(
-        label='تکرار کلمه عبور',
+        label='رمز رمز عبور',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'تکرار کلمه عبور',
+            'placeholder': 'تکرار رمز عبور',
         })
     )
     def clean_password_repeat(self):
@@ -114,7 +114,7 @@ class RegistrationForm(forms.Form):
         password_repeat = self.cleaned_data.get('password_repeat')
 
         if password and password_repeat and password != password_repeat:
-            self.add_error('password_repeat', 'کلمه‌های عبور مطابقت ندارند.')
+            self.add_error('password_repeat', 'رمز‌های عبور مطابقت ندارند.')
 
         return self.cleaned_data
 
@@ -135,13 +135,13 @@ class LoginForm(forms.Form):
     )
 
     password = forms.CharField(
-        label='کلمه عبور',
+        label='رمز عبور',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'کلمه عبور',
+            'placeholder': 'رمز عبور',
         }),
-        min_length=8,  # حداقل ۸ کاراکتر
+
         error_messages={
-            'min_length': 'کلمه عبور باید حداقل ۸ کاراکتر باشد.'
+            'min_length': 'رمز عبور باید حداقل ۸ کاراکتر باشد.'
         }
     )

@@ -1,7 +1,8 @@
+from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
-from .forms import RegistrationForm
+from .forms import RegistrationForm, LoginForm
 from .models import User
 
 # Create your views here.
@@ -50,10 +51,41 @@ class Register(View):
         }
         return render(request, 'PersonnelUserAccounts/Register.html', context)
 
+
 class Login(View):
     def get(self, request):
+        login_form = LoginForm()
+
 
         context = {
-
+            'login_form': login_form,
         }
         return render(request, 'PersonnelUserAccounts/Login.html', context)
+
+    def post(self, request):
+        login_form = LoginForm(request.POST)
+
+        if login_form.is_valid():
+            national_number = login_form.cleaned_data['national_number']
+            password = login_form.cleaned_data['password']
+
+            user: User = User.objects.get(national_number=national_number)
+            print(user)
+            if user is not None:
+                if user.check_password(password):
+                    login(request, user)
+                    redirect('http://127.0.0.1:8000/admin/')
+                else:
+                    login_form.add_error('national_number', 'کاربری با مشخیصات وارد شده پیدا نشد')
+            else:
+                login_form.add_error('national_number', 'کاربری با مشخیصات وارد شده پیدا نشد')
+
+        context = {
+            'login_form': login_form,
+        }
+        return render(request, 'PersonnelUserAccounts/Login.html', context)
+
+class Logout(View):
+
+    def get(self, request):
+        logout(request)
