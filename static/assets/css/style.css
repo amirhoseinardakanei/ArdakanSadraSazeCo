@@ -889,7 +889,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Project CSS End */
 /* Video CSS Start */
 .video-section {
-  background-image: url(../img/video-bg.jpg);
+  background-image: url(/static/assets/IMG_7729.jpeg);
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -1157,7 +1157,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .blog-section .blog-link p a:hover {
-  color: red;
+  color: #d5c402;
 }
 
 /* Blog CSS End */

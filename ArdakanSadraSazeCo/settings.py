@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'BarcodeApp',
     'Cooperate',
     'PersonnelUserAccounts',
-    'UserPanel'
+
 
 ]
 

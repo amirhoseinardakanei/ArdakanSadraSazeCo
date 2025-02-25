@@ -21,10 +21,11 @@ from django.conf import settings
 urlpatterns = [
     path('', include('HomeApp.urls')),
     path('accounts/', include('PersonnelUserAccounts.urls')),
+
     path('projects/', include('ProjectsApp.urls')),
     path('barcode/', include('BarcodeApp.urls')),
     path('cooperate/', include('Cooperate.urls')),
-    path('admin/', admin.site.urls, name='AdminPage'),
+    path('admin/', admin.site.urls),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

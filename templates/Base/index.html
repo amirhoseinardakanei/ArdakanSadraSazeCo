@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="fa">
     <head>
-
+        {% block head %}{% endblock %}
         <!-- Required Meta Tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,8 @@
         <meta name="author" content="Barat Hadian">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
@@ -40,7 +41,9 @@
         <!-- Title -->
         <title>{% block title %}شرکت فنی و مهندسی صدرا سازه اردکان{% endblock %}</title>
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="/static/assets/logo.png">
+        <link rel="icon" type="image/png" href="/static/assets/favicon_io/favicon.ico">
+
+
         <style>
             .errorlist {
                 color: #ff0000;
@@ -48,12 +51,7 @@
                 margin-top: 5px;
             }
 
-            .step {
-                display: none;
-            }
-            .step.active {
-                display: block;
-            }
+
 
             .checkbox-group {
             display: flex;
@@ -69,7 +67,7 @@
             border-radius: 20px;
             border: 1px solid #bebebe;
             background-color: rgba(255, 234, 0, 0.06);
-            color: #d5c402;
+            color: #1f1c0b;
             cursor: pointer;
             transition: 0.3s;
             font-size: 14px;
@@ -80,46 +78,11 @@
         }
 
         .checkbox-btn.checked {
-            background-color: #d5c402;
-            color: #fff;
+            background-color: #1f1c0b;
+            color: #eae17a;
         }
-            {#.checkbox-container {#}
-            {#    height: 30%;#}
-            {#    display: flex;#}
-            {#    gap: 15px;#}
-            {#    align-items: center;#}
-            {#    padding: 9px;#}
-            {#    border-radius: 26px;#}
-            {#    background: rgba(255, 234, 0, 0.06);#}
-            {#    border: 1px solid #9e9e9e;#}
-            {##}
-            {#}#}
-            {##}
-            {#.custom-checkbox {#}
-            {#    display: flex;#}
-            {#    align-items: center;#}
-            {#    gap: 5px;#}
-            {#    cursor: pointer;#}
-            {#    font-size: 16px;#}
-            {#    color: #333;#}
-            {#}#}
-            {##}
-            {#.custom-checkbox input {#}
-            {#    appearance: none;#}
-            {#    width: 16px;#}
-            {#    height: 16px;#}
-            {#    border: 2px solid #d5c402;#}
-            {#    border-radius: 26px;#}
-            {#    cursor: pointer;#}
-            {#    position: relative;#}
-            {#}#}
-            {##}
-            {#.custom-checkbox input:checked {#}
-            {#    background: #d5c402;#}
-            {#}#}
 
         </style>
-
         <style>
 
             .file-upload {
