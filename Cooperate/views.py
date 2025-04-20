@@ -480,6 +480,12 @@ class CooperateStep_3(View):
                 employmentـstatus_status = True
         # هندل کردن داینامیک فیلد وضعیت اشتغال
 
+        if topicses != '0' and degree != '0' and fieldـstudy_status == True and picture_insurance_history != '0' and type_driver_license != '0' and codep_status == True and acknowledgment_image != '0' and work_history != '0' and work_history_status == True and know_our_company != '0' and know_our_company_status == True and relatedـworkـexperience != '0' and relatedـworkـexperience_status == True and employmentـstatus != '0' and employmentـstatus_status == True:
+            if form.is_valid():
+                form.save()
+                print('ok')
+        else:
+            print('no')
 
 
 

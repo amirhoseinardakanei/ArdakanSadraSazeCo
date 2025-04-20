@@ -166,17 +166,19 @@
 
                                     {% if degree == "دیپلم" or degree == "فوق دیپلم" or degree == 'لیسانس' or degree == 'فوق لیسانس' or degree == 'دکترا' %}
                                     	<div class="form-group" style="" id="educationField">
+
                                             <input class="form-control" id="fieldـstudy" type="text" placeholder="رشته تحصیلی" value="{{ fieldـstudy }}"  name="fieldـstudy">
                                             {% if fieldـstudy == '' %}
                                                 <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                             {% endif %}
                                         </div>
-
+                                    {% else %}
+                                        <div class="form-group" style="display: none" id="educationField">
+                                            <input class="form-control" id="fieldـstudy" type="text" placeholder="رشته تحصیلی"  name="fieldـstudy">
+                                        </div>
                                     {% endif %}
 
-                                    <div class="form-group" style="display: none" id="educationField">
-                                        <input class="form-control" id="fieldـstudy" type="text" placeholder="رشته تحصیلی"  name="fieldـstudy">
-                                    </div>
+
 
                                     <div class="form-group">
                                         {{ form.professional_certificates }}
@@ -272,11 +274,12 @@
                                                 <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                             {% endif %}
                                         </div>
-
+                                    {% else %}
+                                        <div class="form-group" style="display: none" id="codep">
+                                            <input class="form-control" id="" type="text" placeholder="کد گواهینامه ویژه"  name="codep">
+                                        </div>
                                     {% endif %}
-                                    <div class="form-group" style="display: none" id="codep">
-                                        <input class="form-control" id="" type="text" placeholder="کد گواهینامه ویژه"  name="codep">
-                                    </div>
+
 
 
                                     <div class="form-group">
@@ -400,50 +403,52 @@
                                                 }
                                             </script>
                                         </div>
-                                    {% endif %}
+                                    {% else %}
+                                        <div style="display:none;" id="previousWorkFields">
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="نام شرکت قبلی"  name="name_company">
+                                            </div>
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="سمت شما در شرکت قبلی"  name="semat_work">
+                                            </div>
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="مدت زمان کار شما با شرکت قبلی"  name="time_work_history">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="file-upload" id="upload-box5">
+                                                    <div class="selected-file" id="file-name5">تصویر رضایت نامه از شرکت قبلی 📂</div>
+                                                    <input id="img_certificate_work" type="file" name="img_certificate_work" onchange="showFileName5()" value="0">
 
-                                    <div style="display:none;" id="previousWorkFields">
-                                        <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="نام شرکت قبلی"  name="name_company">
-                                        </div>
-                                        <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="سمت شما در شرکت قبلی"  name="semat_work">
-                                        </div>
-                                        <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="مدت زمان کار شما با شرکت قبلی"  name="time_work_history">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="file-upload" id="upload-box5">
-                                                <div class="selected-file" id="file-name5">تصویر رضایت نامه از شرکت قبلی 📂</div>
-                                                <input id="img_certificate_work" type="file" name="img_certificate_work" onchange="showFileName5()" value="0">
-
-                                            </label>
-                                            {% if img_certificate_work == '0' %}
-                                                <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
-                                            {% endif %}
-                                        </div>
-                                        <script>
-                                            function showFileName5() {
-                                                const input = document.getElementById('img_certificate_work');
-                                                const fileName = document.getElementById('file-name5');
-                                                const uploadBox = document.getElementById('upload-box5');
+                                                </label>
+                                                {% if img_certificate_work == '0' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                            <script>
+                                                function showFileName5() {
+                                                    const input = document.getElementById('img_certificate_work');
+                                                    const fileName = document.getElementById('file-name5');
+                                                    const uploadBox = document.getElementById('upload-box5');
 
 
-                                                if (input.files.length > 0) {
-                                                    fileName.textContent = "✅ فایل انتخاب شد.";
-                                                    fileName.style.opacity = "1";
-                                                    uploadBox.classList.add("uploaded");
+                                                    if (input.files.length > 0) {
+                                                        fileName.textContent = "✅ فایل انتخاب شد.";
+                                                        fileName.style.opacity = "1";
+                                                        uploadBox.classList.add("uploaded");
 
-                                                } else {
-                                                    fileName.textContent = "تصویر رضایت نامه از شرکت قبلی 📂";
-                                                    fileName.style.opacity = "1";
-                                                    uploadBox.classList.remove("uploaded");
+                                                    } else {
+                                                        fileName.textContent = "تصویر رضایت نامه از شرکت قبلی 📂";
+                                                        fileName.style.opacity = "1";
+                                                        uploadBox.classList.remove("uploaded");
+
+                                                    }
 
                                                 }
+                                            </script>
+                                        </div>
+                                    {% endif %}
 
-                                            }
-                                        </script>
-                                    </div>
+
 
                                     <div class="form-group">
                                         <select class="form-control" id="طریقه آشنایی با شرکت ما"  onchange="toggleReferralFields2()" name="know_our_company">
@@ -542,10 +547,12 @@
                                                 <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                             {% endif %}
                                         </div>
+                                    {% else %}
+                                        <div class="form-group" style="display: none" id="company2">
+                                            <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name="descriptionـrelatedـwork"></textarea>
+                                        </div>
                                     {% endif %}
-                                    <div class="form-group" style="display: none" id="company2">
-                                        <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name="descriptionـrelatedـwork"></textarea>
-                                    </div>
+
 
 
                                     <div class="form-group">
@@ -597,17 +604,19 @@
                                             </div>
 
                                         </div>
+                                    {% else %}
+                                        <div style="display:none;" id="employmentFields">
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="online_company">
+                                            </div>
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="semat_online_company">
+                                            </div>
+
+                                        </div>
                                     {% endif %}
 
-                                    <div style="display:none;" id="employmentFields">
-                                        <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="online_company">
-                                        </div>
-                                        <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="semat_online_company">
-                                        </div>
 
-                                    </div>
 
 
 
