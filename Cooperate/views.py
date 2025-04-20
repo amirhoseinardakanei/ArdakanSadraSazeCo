@@ -413,18 +413,18 @@ class CooperateStep_3(View):
                     codep_status = False
             else:
                 codep_status = True
-        acknowledgment_image = '0' if request.FILES.get('acknowledgment_image') == None else request.FILES.get('acknowledgment_image')
+        acknowledgment_image = '0' if request.FILES.get('acknowledgment_image') == None else request.FILES.get('acknowledgment_image') # تصویر گواهینامه
         # هندل کردن داینامیک فیلد گواهینامه
 
 
         # هندل کردن داینامیک فیلد قبلا با مجموعه ای کار داشتین
-        work_history = '0' if request.POST.get('work_history') == '0' else request.POST.get('work_history')
+        work_history = '0' if request.POST.get('work_history') == '0' else request.POST.get('work_history') # وضعیت کار با مجموعه ی دیگر
         work_history_status = False
 
-        name_company = '' if request.POST.get('name_company') == None else request.POST.get('name_company')
-        semat_work = '' if request.POST.get('semat_work') == None else request.POST.get('semat_work')
-        time_work_history = '' if request.POST.get('time_work_history') == None else request.POST.get('time_work_history')
-        img_certificate_work = '0' if request.FILES.get('img_certificate_work') == None else request.FILES.get('img_certificate_work')
+        name_company = '' if request.POST.get('name_company') == None else request.POST.get('name_company') # نام شرکت قبلی
+        semat_work = '' if request.POST.get('semat_work') == None else request.POST.get('semat_work') # سمت کاربر در شرکت قبلی
+        time_work_history = '' if request.POST.get('time_work_history') == None else request.POST.get('time_work_history') # مدت زمان کار با شرکت قبلی
+        img_certificate_work = '0' if request.FILES.get('img_certificate_work') == None else request.FILES.get('img_certificate_work') # تصویر رضایت نامه از شرکت قبلی
 
         if work_history != '0':
             if work_history == 'بله':
@@ -436,9 +436,53 @@ class CooperateStep_3(View):
                 work_history_status = True
         # هندل کردن داینامیک فیلد قبلا با مجموعه ای کار داشتین
 
-        know_our_company = '0' if request.POST.get('know_our_company') == '0' else request.POST.get('know_our_company')
-        representative_name = '' if request.POST.get('representative_name') == None else request.POST.get('representative_name')
-        representative_phone_number = '' if request.POST.get('representative_phone_number') == None else request.POST.get('representative_phone_number')
+        # هندل کردن داینامیک فیلد طریقه آشنایی با شرکت ما
+        know_our_company = '0' if request.POST.get('know_our_company') == '0' else request.POST.get('know_our_company') # نحوه آشنایی با شرکت ما
+        know_our_company_status = False
+        representative_name = '' if request.POST.get('representative_name') == None else request.POST.get('representative_name') # نام معرف
+        representative_phone_number = '' if request.POST.get('representative_phone_number') == None else request.POST.get('representative_phone_number') # شماره تلفن معرف
+        if know_our_company != '0':
+            if know_our_company == 'معرف':
+                if representative_name != '' and representative_phone_number != '':
+                    know_our_company_status = True
+                else:
+                    know_our_company_status = False
+            else:
+                know_our_company_status = True
+        # هندل کردن داینامیک فیلد طریقه آشنایی با شرکت ما
+
+        # هندل کردن داینامیک فیلد داری سابقه کاری با حوزه مرتبط با صدرا سازه هستم
+        relatedـworkـexperience = '0' if request.POST.get('relatedـworkـexperience') == '0' else request.POST.get('relatedـworkـexperience') # وضعیت سابقه کاریی با حوره مرتبط با صدرا سازه
+        relatedـworkـexperience_status = False
+        descriptionـrelatedـwork = '' if request.POST.get('descriptionـrelatedـwork') == '' else request.POST.get('descriptionـrelatedـwork') # توضیح درباره حوزه کاری مرتبط
+        if relatedـworkـexperience != '0':
+            if relatedـworkـexperience == 'بله':
+                if descriptionـrelatedـwork != '':
+                    relatedـworkـexperience_status = True
+                else:
+                    relatedـworkـexperience_status = False
+            else:
+                relatedـworkـexperience_status = True
+        # هندل کردن داینامیک فیلد داری سابقه کاری با حوزه مرتبط با صدرا سازه هستم
+
+        # هندل کردن داینامیک فیلد وضعیت اشتغال
+        employmentـstatus = '0' if request.POST.get('employmentـstatus') == '0' else request.POST.get('employmentـstatus')
+        employmentـstatus_status = False
+        online_company = '' if request.POST.get('online_company') == '' else request.POST.get('online_company')
+        semat_online_company = '' if request.POST.get('semat_online_company') == '' else request.POST.get('semat_online_company')
+        if employmentـstatus != '0':
+            if employmentـstatus == 'شاغل':
+                if online_company != '' and semat_online_company != '':
+                    employmentـstatus_status = True
+                else:
+                    employmentـstatus_status = False
+            else:
+                employmentـstatus_status = True
+        # هندل کردن داینامیک فیلد وضعیت اشتغال
+
+
+
+
 
         context_post = {
             'form': form,
@@ -457,6 +501,11 @@ class CooperateStep_3(View):
             'know_our_company' : know_our_company,
             'representative_name': representative_name,
             'representative_phone_number': representative_phone_number,
+            'relatedـworkـexperience': relatedـworkـexperience,
+            'descriptionـrelatedـwork': descriptionـrelatedـwork,
+            'employmentـstatus': employmentـstatus,
+            'online_company': online_company,
+            'semat_online_company': semat_online_company,
         }
 
         return render(request, 'Cooperate/CooperateStep_3.html', context_post)

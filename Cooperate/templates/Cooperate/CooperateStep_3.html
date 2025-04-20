@@ -505,11 +505,26 @@
 
 
                                     <div class="form-group">
-                                        <select class="form-control"  id="company" name="company" onchange="toggleReferralFields4()">
-                                            <option value="0">سابقه کاری مرتبط با صدرا سازه دارید؟</option>
-                                            <option value="بله">بله</option>
-                                            <option value="خیر">خیر</option>
+                                        <select class="form-control"  id="company" name="relatedـworkـexperience" onchange="toggleReferralFields4()">
+                                            {% if relatedـworkـexperience == None %}
+                                            	<option value="0">سابقه کاری مرتبط با صدرا سازه دارید؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% elif relatedـworkـexperience == '0' %}
+                                                <option value="0">سابقه کاری مرتبط با صدرا سازه دارید؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% elif relatedـworkـexperience != '0' %}
+                                                <option value="{{ relatedـworkـexperience }}">{{ relatedـworkـexperience }}</option>
+                                                <option value="0">سابقه کاری مرتبط با صدرا سازه دارید؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% endif %}
+
                                         </select>
+                                        {% if relatedـworkـexperience == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
                                     </div>
 
                                     <script>
@@ -520,20 +535,42 @@
                                         }
                                     </script>
 
-
+                                    {% if relatedـworkـexperience == 'بله' %}
+                                    	<div class="form-group" style="" id="company2">
+                                            <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name="descriptionـrelatedـwork"></textarea>
+                                            {% if descriptionـrelatedـwork == '' %}
+                                                <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
                                     <div class="form-group" style="display: none" id="company2">
-                                        <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name=""></textarea>
+                                        <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name="descriptionـrelatedـwork"></textarea>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <select class="form-control" id="وضعیت اشتغال"  onchange="toggleEmploymentFields2()" name="gender">
-                                            <option value="0">وضعیت اشتغال</option>
-                                            <option value="شاغل">شاغل</option>
-                                            <option value="فاقد شغل">فاقد شغل</option>
+                                        <select class="form-control" id="وضعیت اشتغال"  onchange="toggleEmploymentFields2()" name="employmentـstatus">
+                                            {% if employmentـstatus == None %}
+                                                <option value="0">وضعیت اشتغال</option>
+                                                <option value="شاغل">شاغل</option>
+                                                <option value="فاقد شغل">فاقد شغل</option>
+                                            {% elif employmentـstatus == '0' %}
+                                                <option value="0">وضعیت اشتغال</option>
+                                                <option value="شاغل">شاغل</option>
+                                                <option value="فاقد شغل">فاقد شغل</option>
+                                            {% elif employmentـstatus != '0' %}
+                                                <option value="{{ employmentـstatus }}">{{ employmentـstatus }}</option>
+                                                <option value="0">وضعیت اشتغال</option>
+                                                <option value="شاغل">شاغل</option>
+                                                <option value="فاقد شغل">فاقد شغل</option>
+                                            {% endif %}
+
 
 
                                         </select>
+                                        {% if employmentـstatus == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
                                     </div>
 
                                     <script>
@@ -544,12 +581,30 @@
                                         }
                                     </script>
 
+                                    {% if employmentـstatus == 'شاغل' %}
+                                    	<div style="" id="employmentFields">
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="online_company" value="{{ online_company }}">
+                                                {% if online_company == '' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="semat_online_company" value="{{ semat_online_company }}">
+                                                {% if semat_online_company == '' %}
+                                                    <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                    {% endif %}
+
                                     <div style="display:none;" id="employmentFields">
                                         <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="">
+                                            <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="online_company">
                                         </div>
                                         <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="">
+                                            <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="semat_online_company">
                                         </div>
 
                                     </div>
