@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from django.views.generic.base import TemplateView
-from .forms import CooperationFormStep1, CooperationFormStep2, CooperationFormStep3
+from .forms import CooperationFormStep1, CooperationFormStep2, CooperationFormStep3, CooperationFormStep4
 from .models import Cooperate
 from PersonnelUserAccounts.models import User
 
@@ -260,7 +260,6 @@ class CooperateStep_1(View):
 
         return render(request, 'Cooperate/CooperateStep_1.html', context_post)
 
-
 class CooperateStep_2(View):
     def get(self, request):
         status_user = bool(request.user.username)
@@ -337,7 +336,7 @@ class CooperateStep_2(View):
                 cooperate.step_2 = True
                 cooperate.save()
 
-                return redirect(reverse('HomePage'))
+                return redirect(reverse('CooperateStep_3'))
 
 
 
@@ -357,7 +356,6 @@ class CooperateStep_2(View):
         }
 
         return render(request, 'Cooperate/CooperateStep_2.html', context_post)
-
 
 class CooperateStep_3(View):
     def get(self, request):
@@ -483,9 +481,30 @@ class CooperateStep_3(View):
         if topicses != '0' and degree != '0' and fieldـstudy_status == True and picture_insurance_history != '0' and type_driver_license != '0' and codep_status == True and acknowledgment_image != '0' and work_history != '0' and work_history_status == True and know_our_company != '0' and know_our_company_status == True and relatedـworkـexperience != '0' and relatedـworkـexperience_status == True and employmentـstatus != '0' and employmentـstatus_status == True:
             if form.is_valid():
                 form.save()
-                print('ok')
-        else:
-            print('no')
+                cooperate = Cooperate.objects.get(national_number=request.user.national_number)
+
+                cooperate.desired_job_titles = topicses
+                cooperate.education_level = degree
+                cooperate.field_of_study = fieldـstudy
+                cooperate.insurance_record_image = picture_insurance_history
+                cooperate.driving_license_type = type_driver_license
+                cooperate.special_license_code = codep
+                cooperate.driving_license_image = acknowledgment_image
+                cooperate.previous_work_experience = work_history
+                cooperate.previous_company_name = name_company
+                cooperate.previous_position = semat_work
+                cooperate.previous_work_duration = time_work_history
+                cooperate.previous_work_reference_image = img_certificate_work
+                cooperate.referral_source = know_our_company
+                cooperate.referral_name = representative_name
+                cooperate.referral_phone = representative_phone_number
+                cooperate.related_work_experience = descriptionـrelatedـwork
+                cooperate.employment_status = employmentـstatus
+                cooperate.current_company_name = online_company
+                cooperate.current_position = semat_online_company
+                cooperate.save()
+                return redirect(reverse('CooperateStep_4'))
+
 
 
 
@@ -515,3 +534,31 @@ class CooperateStep_3(View):
         }
 
         return render(request, 'Cooperate/CooperateStep_3.html', context_post)
+
+class CooperateStep_4(View):
+    def get(self, request):
+        form = CooperationFormStep4()
+        context_get = {
+            'form': form,
+        }
+        return render(request, 'Cooperate/CooperateStep_4.html', context_get)
+
+    def post(self, request):
+        form = CooperationFormStep4(request.POST)
+
+        img_certificate = '0' if request.FILES.get('certificate') == None else request.FILES.get('certificate')
+
+        if img_certificate != '0':
+            if form.is_valid():
+                form.save()
+                cooperate = Cooperate.objects.get(national_number=request.user.national_number)
+                cooperate.resume = img_certificate
+                cooperate.save()
+                return redirect(reverse('CooperateStep_4'))
+
+        context_post = {
+            'form': form,
+            'img_certificate': img_certificate,
+        }
+
+        return render(request, 'Cooperate/CooperateStep_4.html', context_post)

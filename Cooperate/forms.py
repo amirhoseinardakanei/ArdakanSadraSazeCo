@@ -92,7 +92,6 @@ class CooperationFormStep2(forms.ModelForm):
             'emergency_phone_number',
             'home_phone_number',
             'email',
-
         ]
         widgets = {
 
@@ -162,8 +161,6 @@ class CooperationFormStep3(forms.ModelForm):
         fields = [
             'professional_certificates',
             'skills',
-
-
         ]
         widgets = {
 
@@ -182,3 +179,29 @@ class CooperationFormStep3(forms.ModelForm):
         if not skills:
             raise forms.ValidationError("این فیلد اجباری است.")
         return skills
+
+
+class CooperationFormStep4(forms.ModelForm):
+    class Meta:
+        model = Cooperate
+        fields = [
+            'mental_physical_status',
+            'requested_salary',
+        ]
+        widgets = {
+
+            'mental_physical_status': forms.Textarea(attrs={'class': 'message-field', 'placeholder': 'وضعیت روحی و جسمانی خود را تعریف کنید', 'rows' : '3'}),
+            'requested_salary': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'حقوق درخواستی', 'maxlength': '10'}),
+
+        }
+    def clean_mental_physical_status(self):
+        mental_physical_status = self.cleaned_data.get('mental_physical_status')
+        if not mental_physical_status:
+            raise forms.ValidationError("این فیلد اجباری است.")
+        return mental_physical_status
+
+    def clean_requested_salary(self):
+        requested_salary = self.cleaned_data.get('requested_salary')
+        if not requested_salary:
+            raise forms.ValidationError("این فیلد اجباری است.")
+        return requested_salary

@@ -1,10 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'Base/index.html' %}
 
-</body>
-</html>
+
+
+{% block title %}همکاری با ما{% endblock %}
+
+
+{% block body %}
+    <section class="contact-section pb-100 pt-100">
+            <div class="container">
+                <div class="section-title text-center" style="margin-top: 30px">
+                    <span>فرم همکاری با ما</span>
+                    <h2>اطلاعات تکمیلی</h2>
+                </div>
+
+                <div class="row" style="margin-top: 100px">
+                    <div class="col-lg-12">
+                        <div class="contact-area">
+                            <form id="multiStepForm" method="post" action="{% url 'CooperateStep_4' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <!-- مرحله چهارم: اطلاعات تحصیلی و سابقه -->
+                                <div class="step" id="step4">
+
+
+                                    <div class="form-group" id="military-service-photo" style="">
+
+                                        <label class="file-upload" id="upload-box4">
+
+                                            <div class="selected-file" id="file-name3">رزومه خود را بارگزاری کنید 📂</div>
+                                            <input id="photo4" type="file" name="certificate" onchange="showFileName4()">
+
+                                        </label>
+                                        {% if img_certificate == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+                                    </div>
+
+                                   <script>
+                                        function showFileName4() {
+                                            const input4 = document.getElementById('photo4');
+                                            const fileName4 = document.getElementById('file-name4');
+                                            const uploadBox4 = document.getElementById('upload-box4');
+
+                                            if (input4.files.length > 0) {
+                                                fileName4.textContent = " ✅ فایل انتخاب شد. ";
+                                                fileName4.style.opacity = "1";
+                                                uploadBox4.classList.add("uploaded");
+                                            } else {
+                                                fileName4.textContent = "رزومه خود را بارگزاری کنید 📂";
+                                                fileName4.style.opacity = "1";
+                                                uploadBox4.classList.remove("uploaded");
+                                            }
+                                        }
+                                    </script>
+                                    <!-- وضعیت روحی و جسمانی -->
+                                    <div class="form-group">
+                                        {{ form.mental_physical_status }}
+                                        {{ form.mental_physical_status.errors }}
+                                    </div>
+
+                                    <!-- حقوق درخواستی -->
+                                    <div class="form-group">
+                                        {{ form.requested_salary }}
+                                        {{ form.requested_salary.errors }}
+                                    </div>
+
+                                    <div class="col-sm-12 text-center">
+                                        <button type="button" onclick="prevStep(4)" class="default-btn contact-btn">مرحله قبلی</button>
+                                        <button type="submit" class="default-btn contact-btn">ارسال</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}
