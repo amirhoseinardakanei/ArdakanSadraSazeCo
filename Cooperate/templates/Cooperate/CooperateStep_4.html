@@ -25,10 +25,10 @@
 
                                     <div class="form-group" id="military-service-photo" style="">
 
-                                        <label class="file-upload" id="upload-box4">
+                                        <label class="file-upload" id="upload-box3">
 
                                             <div class="selected-file" id="file-name3">رزومه خود را بارگزاری کنید 📂</div>
-                                            <input id="photo4" type="file" name="certificate" onchange="showFileName4()">
+                                            <input id="certificate" type="file" name="certificate" onchange="showFileName4()">
 
                                         </label>
                                         {% if img_certificate == '0' %}
@@ -38,9 +38,9 @@
 
                                    <script>
                                         function showFileName4() {
-                                            const input4 = document.getElementById('photo4');
-                                            const fileName4 = document.getElementById('file-name4');
-                                            const uploadBox4 = document.getElementById('upload-box4');
+                                            const input4 = document.getElementById('certificate');
+                                            const fileName4 = document.getElementById('file-name3');
+                                            const uploadBox4 = document.getElementById('upload-box3');
 
                                             if (input4.files.length > 0) {
                                                 fileName4.textContent = " ✅ فایل انتخاب شد. ";
@@ -66,8 +66,12 @@
                                     </div>
 
                                     <div class="col-sm-12 text-center">
-                                        <button type="button" onclick="prevStep(4)" class="default-btn contact-btn">مرحله قبلی</button>
-                                        <button type="submit" class="default-btn contact-btn">ارسال</button>
+                                        <a class="default-btn contact-btn" href="{% url 'CooperateStep_2' %}">
+                                            مرحله قبلی
+                                        </a>
+                                        <button type="submit" class="default-btn contact-btn">
+                                            ارسال
+                                        </button>
                                     </div>
                                 </div>
                             </form>

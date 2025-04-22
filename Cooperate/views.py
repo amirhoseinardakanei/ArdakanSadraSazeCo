@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from .forms import CooperationFormStep1, CooperationFormStep2, CooperationFormStep3, CooperationFormStep4
 from .models import Cooperate
 from PersonnelUserAccounts.models import User
+import ast
 
 
 # Create your views here.
@@ -46,7 +47,6 @@ class CooperateStep_1(View):
                 gender = cooperate_test_initial.gender
                 birth_province = cooperate_test_initial.birth_province
                 birth_city = cooperate_test_initial.birth_city
-                print(previous_name)
                 return render(request, 'Cooperate/CooperateStep_1.html', {
                     'form': form,
                     'name_change': name_change,
@@ -266,6 +266,37 @@ class CooperateStep_2(View):
         if status_user is False:
             return redirect(reverse('HomePage'))
 
+        if Cooperate.objects.filter(national_number=request.user.national_number).exists():
+            cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+
+            if cooperate_test_initial.step_2 is True:
+                form = CooperationFormStep2(
+                    instance=cooperate_test_initial
+                )
+                marital_status = cooperate_test_initial.marital_status
+                children_count = cooperate_test_initial.children_count
+                birth_cert_date = cooperate_test_initial.marriage_date
+                military_status = cooperate_test_initial.military_status
+                exemption_type = cooperate_test_initial.exemption_type
+                start_military_date = cooperate_test_initial.military_service_start_date
+                end_military_date = cooperate_test_initial.military_service_end_date
+                province = cooperate_test_initial.residence_province
+                city = cooperate_test_initial.residence_city
+
+                return render(request, 'Cooperate/CooperateStep_2.html', {
+                    'form': form,
+                    'marital_status': marital_status,
+                    'children_count': children_count,
+                    'birth_cert_date': birth_cert_date,
+                    'military_status': military_status,
+                    'exemption_type': exemption_type,
+                    'start_military_date': start_military_date,
+                    'end_military_date': end_military_date,
+                    'province': province,
+                    'city': city,
+                    'status_step': bool(cooperate_test_initial.step_2),
+            })
+
         form = CooperationFormStep2()
 
         context_get = {
@@ -286,7 +317,7 @@ class CooperateStep_2(View):
         children_count = '0' if request.POST.get('children_count') == None else request.POST.get('children_count')
         birth_cert_date = '0000-00-00' if request.POST.get('birth_cert_date') == '' else request.POST.get('birth_cert_date')
         military_status = '0' if request.POST.get('military_status') == None else request.POST.get('military_status')
-        exemption_type = '0' if request.POST.get('exemption_type') == '' else request.POST.get('exemption_type')
+        exemption_type = '' if request.POST.get('exemption_type') == '' else request.POST.get('exemption_type')
         img_card_military = '0' if request.FILES.get('img_card_military') == None else request.FILES.get('img_card_military')
         start_military_date = '0000-00-00' if request.POST.get('start_military_date') == '' else request.POST.get('start_military_date')
         end_military_date = '0000-00-00' if request.POST.get('end_military_date') == '' else request.POST.get('end_military_date')
@@ -301,6 +332,8 @@ class CooperateStep_2(View):
             else:
                 marital = False
         elif marital_status == 'مجرد':
+            children_count = ''
+            birth_cert_date = '0000-00-00'
             marital = True
 
         if military_status == 'معافیت':
@@ -363,6 +396,60 @@ class CooperateStep_3(View):
         if status_user is False:
             return redirect(reverse('HomePage'))
 
+        if Cooperate.objects.filter(national_number=request.user.national_number).exists():
+            cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+
+            if cooperate_test_initial.step_3 is True:
+                form = CooperationFormStep3(
+                    instance=cooperate_test_initial
+                )
+
+                topicses = cooperate_test_initial.desired_job_titles
+                degree = cooperate_test_initial.education_level
+                fieldـstudy = cooperate_test_initial.field_of_study
+                picture_insurance_history = cooperate_test_initial.insurance_record_image
+                type_driver_license = cooperate_test_initial.driving_license_type
+                codep = cooperate_test_initial.special_license_code
+                acknowledgment_image = cooperate_test_initial.driving_license_image
+                work_history = cooperate_test_initial.previous_work_experience
+                name_company = cooperate_test_initial.previous_company_name
+                semat_work = cooperate_test_initial.previous_position
+                time_work_history = cooperate_test_initial.previous_work_duration
+                img_certificate_work = cooperate_test_initial.previous_work_reference_image
+                know_our_company = cooperate_test_initial.referral_source
+                representative_name = cooperate_test_initial.referral_name
+                representative_phone_number = cooperate_test_initial.referral_phone
+                relatedـworkـexperience = cooperate_test_initial.relatedـworkـexperience
+                descriptionـrelatedـwork = cooperate_test_initial.descriptionـrelatedـwork
+                employmentـstatus = cooperate_test_initial.employment_status
+                online_company = cooperate_test_initial.current_company_name
+                semat_online_company = cooperate_test_initial.current_position
+
+                return render(request, 'Cooperate/CooperateStep_3.html', {
+                    'form': form,
+                    'topicses': ast.literal_eval(topicses),
+                    'degree': degree,
+                    'fieldـstudy': fieldـstudy,
+                    'picture_insurance_history': picture_insurance_history,
+                    'type_driver_license': type_driver_license,
+                    'codep': codep,
+                    'acknowledgment_image': acknowledgment_image,
+                    'work_history': work_history,
+                    'name_company': name_company,
+                    'semat_work': semat_work,
+                    'time_work_history': time_work_history,
+                    'img_certificate_work': img_certificate_work,
+                    'know_our_company': know_our_company,
+                    'representative_name': representative_name,
+                    'representative_phone_number': representative_phone_number,
+                    'relatedـworkـexperience': relatedـworkـexperience,
+                    'descriptionـrelatedـwork': descriptionـrelatedـwork,
+                    'employmentـstatus': employmentـstatus,
+                    'online_company': online_company,
+                    'semat_online_company': semat_online_company,
+                    'status_step': bool(cooperate_test_initial.step_3),
+                })
+
         form = CooperationFormStep3()
 
         context_get = {
@@ -373,6 +460,8 @@ class CooperateStep_3(View):
 
     def post(self, request):
         cooperate_instance = Cooperate.objects.get(national_number=request.user.national_number)
+
+
 
         form = CooperationFormStep3(request.POST, instance=cooperate_instance)
 
@@ -437,8 +526,8 @@ class CooperateStep_3(View):
         # هندل کردن داینامیک فیلد طریقه آشنایی با شرکت ما
         know_our_company = '0' if request.POST.get('know_our_company') == '0' else request.POST.get('know_our_company') # نحوه آشنایی با شرکت ما
         know_our_company_status = False
-        representative_name = '' if request.POST.get('representative_name') == None else request.POST.get('representative_name') # نام معرف
-        representative_phone_number = '' if request.POST.get('representative_phone_number') == None else request.POST.get('representative_phone_number') # شماره تلفن معرف
+        representative_name = '' if request.POST.get('representative_name') == '' else request.POST.get('representative_name') # نام معرف
+        representative_phone_number = '' if request.POST.get('representative_phone_number') == '' else request.POST.get('representative_phone_number') # شماره تلفن معرف
         if know_our_company != '0':
             if know_our_company == 'معرف':
                 if representative_name != '' and representative_phone_number != '':
@@ -498,10 +587,12 @@ class CooperateStep_3(View):
                 cooperate.referral_source = know_our_company
                 cooperate.referral_name = representative_name
                 cooperate.referral_phone = representative_phone_number
-                cooperate.related_work_experience = descriptionـrelatedـwork
+                cooperate.related_work_experience = relatedـworkـexperience
+                cooperate.descriptionـrelatedـwork = descriptionـrelatedـwork
                 cooperate.employment_status = employmentـstatus
                 cooperate.current_company_name = online_company
                 cooperate.current_position = semat_online_company
+                cooperate.step_3 = True
                 cooperate.save()
                 return redirect(reverse('CooperateStep_4'))
 
@@ -544,7 +635,9 @@ class CooperateStep_4(View):
         return render(request, 'Cooperate/CooperateStep_4.html', context_get)
 
     def post(self, request):
-        form = CooperationFormStep4(request.POST)
+        cooperate_instance = Cooperate.objects.get(national_number=request.user.national_number)
+
+        form = CooperationFormStep4(request.POST, instance=cooperate_instance)
 
         img_certificate = '0' if request.FILES.get('certificate') == None else request.FILES.get('certificate')
 
@@ -553,8 +646,9 @@ class CooperateStep_4(View):
                 form.save()
                 cooperate = Cooperate.objects.get(national_number=request.user.national_number)
                 cooperate.resume = img_certificate
+                cooperate.step_4 = True
                 cooperate.save()
-                return redirect(reverse('CooperateStep_4'))
+                return redirect(reverse('UserPanelPage'))
 
         context_post = {
             'form': form,

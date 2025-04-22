@@ -26,7 +26,7 @@
                                         <label class="form-label" style="font-size: 20px; color: #000000">عناوین شغل های درخواستی :</label>
                                         <div class="checkbox-group">
                                             <label class="checkbox-btn">
-                                                <input type="checkbox" name="topics" value="مالی و حسابداری"> مالی و حسابداری
+                                                <input type="checkbox" name="topics" value="مالی و حسابداری" checked="true"> مالی و حسابداری
                                             </label>
                                             <label class="checkbox-btn">
                                                 <input type="checkbox" name="topics" value="آی تی"> آی تی
@@ -81,6 +81,24 @@
                                         	<ul class="errorlist" id="error-message" style=""><li>حداقل باید یک شغل را انتخاب کنید.</li></ul>
                                         {% endif %}
                                     </div>
+
+                                    {% if status_step %}
+                                    	<div class="form-group">
+                                            <label class="form-label" style="font-size: 20px; color: #000000">انتخاب های قبلی شما :</label>
+                                            <div class="checkbox-group">
+                                                {% for topics in topicses %}
+                                                    <label class="checkbox-btn">
+                                                        <input type="checkbox" value="" checked disabled>{{ topics }}
+                                                    </label>
+                                                {% endfor %}
+
+                                            </div>
+                                            {% if topicses == '0' %}
+                                                <ul class="errorlist" id="error-message" style=""><li>حداقل باید یک شغل را انتخاب کنید.</li></ul>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+
 
                                     <script>
                                         document.querySelectorAll(".checkbox-btn").forEach(btn => {
@@ -496,16 +514,18 @@
                                             </div>
 
                                         </div>
-                                    {% endif %}
-                                    <div style="display:none;" id="referralFields">
-                                        <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="نام معرف"  name="representative_name">
-                                        </div>
-                                        <div class="form-group" style="" id="educationField">
-                                            <input class="form-control" id="father-name" type="text" placeholder="شماره تماس معرف"  name="representative_phone_number">
-                                        </div>
+                                    {% else %}
+                                        <div style="display:none;" id="referralFields">
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="نام معرف"  name="representative_name">
+                                            </div>
+                                            <div class="form-group" style="" id="educationField">
+                                                <input class="form-control" id="father-name" type="text" placeholder="شماره تماس معرف"  name="representative_phone_number">
+                                            </div>
 
-                                    </div>
+                                        </div>
+                                    {% endif %}
+
 
 
 
@@ -542,7 +562,7 @@
 
                                     {% if relatedـworkـexperience == 'بله' %}
                                     	<div class="form-group" style="" id="company2">
-                                            <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name="descriptionـrelatedـwork"></textarea>
+                                            <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما" name="descriptionـrelatedـwork">{{ descriptionـrelatedـwork }}</textarea>
                                             {% if descriptionـrelatedـwork == '' %}
                                                 <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                             {% endif %}
@@ -622,9 +642,9 @@
 
 
                                     <div class="col-sm-12" style="text-align: center">
-                                        <button type="button" onclick="prevStep(3)" class="default-btn contact-btn">
+                                        <a class="default-btn contact-btn" href="{% url 'CooperateStep_2' %}">
                                             مرحله قبلی
-                                        </button>
+                                        </a>
                                         <button type="submit" class="default-btn contact-btn">
                                             مرحله بعدی
                                         </button>
@@ -794,46 +814,7 @@
             }
         </script>
 
-        {# تغیر مرحله #}
-        <script>
-            function nextStep(step) {
-                const currentStep = document.getElementById(`step${step}`);
-                const nextStepElement = document.getElementById(`step${step + 1}`);
-                const inputs = currentStep.querySelectorAll("input[]");
-                let isValid = true;
 
-                // بررسی مقدار ورودی‌ها
-                inputs.forEach(input => {
-                    if (input.value.trim() === "") {
-                        isValid = false;
-                        input.classList.add("is-invalid"); // اضافه کردن کلاس هشدار قرمز
-                    } else {
-                        input.classList.remove("is-invalid");
-                    }
-                });
-
-                if (isValid) {
-                    currentStep.classList.remove("active");
-                    if (nextStepElement) {
-                        nextStepElement.classList.add("active");
-                        nextStepElement.scrollIntoView({ behavior: "smooth" });
-                    }
-                } else {
-                    alert("لطفاً همه فیلدها را پر کنید.");
-                }
-            }
-
-            function prevStep(step) {
-                const currentStep = document.getElementById(`step${step}`);
-                const prevStepElement = document.getElementById(`step${step - 1}`);
-
-                if (prevStepElement) {
-                    currentStep.classList.remove("active");
-                    prevStepElement.classList.add("active");
-                    prevStepElement.scrollIntoView({ behavior: "smooth" });
-                }
-            }
-        </script>
 
         {# تقویم #}
         <script>

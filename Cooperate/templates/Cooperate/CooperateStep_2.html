@@ -89,7 +89,7 @@
                                                 {% endif %}
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ تاهل" name="birth_cert_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ تاهل" name="birth_cert_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false" value="{{ birth_cert_date }}">
                                                 {% if birth_cert_date == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
@@ -174,7 +174,7 @@
                                                     <input class="form-control" id="exemption-type" type="text" placeholder="نوع معافیت" name="exemption_type">
                                                 {% endif %}
 
-                                                {% if exemption_type == '0' %}
+                                                {% if exemption_type == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
@@ -198,36 +198,36 @@
                                                 <div class="selected-file" id="file-name3">تصویر کارت پایان خدمت 📂</div>
                                                 <input id="photo3" type="file" name="img_card_military" onchange="showFileName2()">
                                                 <script>
-                                            function showFileName2() {
-                                                const input3 = document.getElementById('photo3');
-                                                const fileName3 = document.getElementById('file-name3');
-                                                const uploadBox3 = document.getElementById('upload-box3');
+                                                    function showFileName2() {
+                                                        const input3 = document.getElementById('photo3');
+                                                        const fileName3 = document.getElementById('file-name3');
+                                                        const uploadBox3 = document.getElementById('upload-box3');
 
-                                                if (input3.files.length > 0) {
-                                                    fileName3.textContent = " ✅ فایل انتخاب شد. ";
-                                                    fileName3.style.opacity = "1";
-                                                    uploadBox3.classList.add("uploaded");
-                                                } else {
-                                                    fileName3.textContent = "تصویر کارت پایان خدمت 📂";
-                                                    fileName3.style.opacity = "1";
-                                                    uploadBox3.classList.remove("uploaded");
-                                                }
-                                            }
-                                        </script>
+                                                        if (input3.files.length > 0) {
+                                                            fileName3.textContent = " ✅ فایل انتخاب شد. ";
+                                                            fileName3.style.opacity = "1";
+                                                            uploadBox3.classList.add("uploaded");
+                                                        } else {
+                                                            fileName3.textContent = "تصویر کارت پایان خدمت 📂";
+                                                            fileName3.style.opacity = "1";
+                                                            uploadBox3.classList.remove("uploaded");
+                                                        }
+                                                    }
+                                                </script>
                                             </label>
                                             {% if img_card_military == '0' %}
                                                 <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                             {% endif %}
 
                                             <div class="form-group">
-                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" name="start_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                <input class="form-control" value="{{ start_military_date }}" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" name="start_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
                                                 {% if start_military_date == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
 
                                             <div class="form-group">
-                                                <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" name="end_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
+                                                <input class="form-control" value="{{ end_military_date }}" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" name="end_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
                                                 {% if end_military_date == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
