@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views import View
 from .forms import RegistrationForm, LoginForm
 from .models import User
+from Cooperate.models import Cooperate
 
 # Create your views here.
 
@@ -110,8 +111,24 @@ class UserPanel(View):
         if status_user is False:
             return redirect(reverse('HomePage'))
         current_user = User.objects.filter(username=request.user.username).first()
+
+
+        if Cooperate.objects.filter(national_number=request.user.national_number).exists():
+            cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+            if cooperate_test_initial.step_4:
+                status_step_cooperate = 'تکمیل فرم, درحال برسی'
+            elif cooperate_test_initial.step_3:
+                status_step_cooperate = 'تکمیل مرحله سوم'
+            elif cooperate_test_initial.step_2:
+                status_step_cooperate = 'تکمیل مرحله دوم'
+            elif cooperate_test_initial.step_1:
+                status_step_cooperate = 'تکمیل مرحله اول'
+        else:
+            status_step_cooperate = ''
+
         context = {
             'current_user': current_user,
+            'status_step_cooperate': status_step_cooperate,
         }
 
         return render(request, 'PersonnelUserAccounts/UserPanel/IndexPanelPage.html', context)

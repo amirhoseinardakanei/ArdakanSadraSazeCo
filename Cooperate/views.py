@@ -35,6 +35,7 @@ class CooperateStep_1(View):
             return redirect(reverse('HomePage'))
 
 
+
         if Cooperate.objects.filter(national_number=request.user.national_number).exists():
             cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
 
@@ -266,6 +267,10 @@ class CooperateStep_2(View):
         if status_user is False:
             return redirect(reverse('HomePage'))
 
+        cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+        if cooperate_test_initial.step_1 == False:
+            return redirect(reverse('CooperateStep_1'))
+
         if Cooperate.objects.filter(national_number=request.user.national_number).exists():
             cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
 
@@ -395,6 +400,10 @@ class CooperateStep_3(View):
         status_user = bool(request.user.username)
         if status_user is False:
             return redirect(reverse('HomePage'))
+
+        cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+        if cooperate_test_initial.step_2 == False:
+            return redirect(reverse('CooperateStep_2'))
 
         if Cooperate.objects.filter(national_number=request.user.national_number).exists():
             cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
@@ -628,6 +637,14 @@ class CooperateStep_3(View):
 
 class CooperateStep_4(View):
     def get(self, request):
+        status_user = bool(request.user.username)
+        if status_user is False:
+            return redirect(reverse('HomePage'))
+
+        cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+        if cooperate_test_initial.step_3 == False:
+            return redirect(reverse('CooperateStep_3'))
+
         form = CooperationFormStep4()
         context_get = {
             'form': form,
