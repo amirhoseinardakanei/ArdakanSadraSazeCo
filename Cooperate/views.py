@@ -266,10 +266,12 @@ class CooperateStep_2(View):
         status_user = bool(request.user.username)
         if status_user is False:
             return redirect(reverse('HomePage'))
-
-        cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
-        if cooperate_test_initial.step_1 == False:
-            return redirect(reverse('CooperateStep_1'))
+        if Cooperate.objects.filter(national_number=request.user.national_number).exists():
+            cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+            if cooperate_test_initial.step_1 == False:
+                return redirect(reverse('CooperateStep_1'))
+        else:
+            return redirect(reverse('UserPanelPage'))
 
         if Cooperate.objects.filter(national_number=request.user.national_number).exists():
             cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
@@ -401,9 +403,12 @@ class CooperateStep_3(View):
         if status_user is False:
             return redirect(reverse('HomePage'))
 
-        cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
-        if cooperate_test_initial.step_2 == False:
-            return redirect(reverse('CooperateStep_2'))
+        if Cooperate.objects.filter(national_number=request.user.national_number).exists():
+            cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+            if cooperate_test_initial.step_2 == False:
+                return redirect(reverse('CooperateStep_2'))
+        else:
+            return redirect(reverse('UserPanelPage'))
 
         if Cooperate.objects.filter(national_number=request.user.national_number).exists():
             cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
@@ -641,9 +646,12 @@ class CooperateStep_4(View):
         if status_user is False:
             return redirect(reverse('HomePage'))
 
-        cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
-        if cooperate_test_initial.step_3 == False:
-            return redirect(reverse('CooperateStep_3'))
+        if Cooperate.objects.filter(national_number=request.user.national_number).exists():
+            cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+            if cooperate_test_initial.step_3 == False:
+                return redirect(reverse('CooperateStep_3'))
+        else:
+            return redirect(reverse('UserPanelPage'))
 
         form = CooperationFormStep4()
         context_get = {

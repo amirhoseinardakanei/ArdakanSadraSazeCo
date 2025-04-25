@@ -110,9 +110,10 @@ class UserPanel(View):
         status_user = bool(request.user.username)
         if status_user is False:
             return redirect(reverse('HomePage'))
+
         current_user = User.objects.filter(username=request.user.username).first()
 
-
+        status_step_cooperate = ''
         if Cooperate.objects.filter(national_number=request.user.national_number).exists():
             cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
             if cooperate_test_initial.step_4:
