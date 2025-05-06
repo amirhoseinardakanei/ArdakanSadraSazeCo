@@ -8,4 +8,5 @@ urlpatterns = [
     path('step2/', views.CooperateStep_2.as_view(), name='CooperateStep_2'),
     path('step3/', views.CooperateStep_3.as_view(), name='CooperateStep_3'),
     path('step4/', views.CooperateStep_4.as_view(), name='CooperateStep_4'),
+    path('check/', views.CooperateCheck.as_view(), name='Cooperate_check'),
 ]

@@ -22,6 +22,9 @@
                                 <div class="step" id="step3">
 
 
+
+
+
                                     <div class="form-group">
                                         <label class="form-label" style="font-size: 20px; color: #000000">عناوین شغل های درخواستی :</label>
                                         <div class="checkbox-group">
@@ -138,6 +141,7 @@
 {#                                    </div>#}
 
                                     <div class="form-group">
+                                        <label class="input-label"> مدرک تحصیلی :</label>
                                         <select class="form-control" id="degree"  name="degree" onchange="toggleEducationField2()">
                                             {% if degree == None %}
                                             	<option value="0">مدرک تحصیلی</option>
@@ -184,7 +188,7 @@
 
                                     {% if degree == "دیپلم" or degree == "فوق دیپلم" or degree == 'لیسانس' or degree == 'فوق لیسانس' or degree == 'دکترا' %}
                                     	<div class="form-group" style="" id="educationField">
-
+                                            <label class="input-label"> رشته تحصیلی :</label>
                                             <input class="form-control" id="fieldـstudy" type="text" placeholder="رشته تحصیلی" value="{{ fieldـstudy }}"  name="fieldـstudy">
                                             {% if fieldـstudy == '' %}
                                                 <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -192,6 +196,7 @@
                                         </div>
                                     {% else %}
                                         <div class="form-group" style="display: none" id="educationField">
+                                            <label class="input-label"> رشته تحصیلی :</label>
                                             <input class="form-control" id="fieldـstudy" type="text" placeholder="رشته تحصیلی"  name="fieldـstudy">
                                         </div>
                                     {% endif %}
@@ -199,15 +204,18 @@
 
 
                                     <div class="form-group">
+                                        <label class="input-label"> اگر گواهینامه فنی حرفه ای خاصی دارید توضیح دهید :</label>
                                         {{ form.professional_certificates }}
                                         {{ form.professional_certificates.errors }}
 
                                     </div>
                                     <div class="form-group">
+                                        <label class="input-label"> اگر مهارت خاصی دارید توضیح دهید :</label>
                                         {{ form.skills }}
                                         {{ form.skills.errors }}
                                     </div>
                                     <div class="form-group">
+                                        <label class="input-label"> تصویر سابقه بیمه ای :</label>
                                         <label class="file-upload" id="upload-box1">
                                             <div class="selected-file" id="file-name1">تصویر سابقه بیمه ای 📂</div>
                                             <input id="picture-insurance-history" type="file" name="picture_insurance_history" onchange="showFileName1()" value="0">
@@ -242,29 +250,25 @@
                                     </script>
 
                                     <div class="form-group">
+                                        <label class="input-label"> نوع گواهینامه رانندگی :</label>
                                         <select class="form-control" id="worklike" onchange="primerycode()"  name="type_driver_license">
                                             {% if type_driver_license == None %}
                                             	<option value="0">نوع گواهینامه رانندگی</option>
                                                 <option value="پایه یک">پایه یک</option>
                                                 <option value="پایه دو">پایه دو</option>
                                                 <option value="پایه سه">پایه سه</option>
-                                                <option value="موتورسیکلت">موتورسیکلت</option>
-                                                <option value="کد ویژه">کد ویژه</option>
+
                                             {% elif type_driver_license == '0' %}
                                                 <option value="0">نوع گواهینامه رانندگی</option>
                                                 <option value="پایه یک">پایه یک</option>
                                                 <option value="پایه دو">پایه دو</option>
                                                 <option value="پایه سه">پایه سه</option>
-                                                <option value="موتورسیکلت">موتورسیکلت</option>
-                                                <option value="کد ویژه">کد ویژه</option>
                                             {% elif type_driver_license != '0' %}
                                                 <option value="{{ type_driver_license }}">{{ type_driver_license }}</option>
                                                 <option value="0">نوع گواهینامه رانندگی</option>
                                                 <option value="پایه یک">پایه یک</option>
                                                 <option value="پایه دو">پایه دو</option>
                                                 <option value="پایه سه">پایه سه</option>
-                                                <option value="موتورسیکلت">موتورسیکلت</option>
-                                                <option value="کد ویژه">کد ویژه</option>
                                             {% endif %}
 
 
@@ -275,32 +279,144 @@
 
                                     </div>
 
-                                    <script>
-                                        function primerycode() {
-                                            const select_field = document.getElementById('worklike').value;
-                                            const filed = document.getElementById('codep');
-                                            filed.style.display = (select_field === 'کد ویژه') ? 'block' : 'none';
-                                        }
+                                    <div class="form-group">
+                                        <label class="input-label"> آیا گواهینامه موتور سیکت دارید ؟ </label>
+                                        <select class="form-control" id="worklike" onchange="primerycode()"  name="driving_motor">
+                                            {% if driving_motor == None %}
+                                            	<option value="0">آیا گواهینامه موتور سیکت دارید ؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% elif driving_motor == '0' %}
+                                                <option value="0">آیا گواهینامه موتور سیکت دارید ؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% elif driving_motor != '0' %}
+                                                <option value="{{ driving_motor }}">{{ driving_motor }}</option>
+                                                <option value="0">آیا گواهینامه موتور سیکت دارید ؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% endif %}
 
 
+                                        </select>
+                                        {% if driving_motor == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
 
-                                    </script>
-                                    {% if type_driver_license == 'کد ویژه' %}
-                                    	<div class="form-group" style="" id="codep">
-                                            <input class="form-control" id="father-name" type="text" placeholder="کد گواهینامه ویژه"  name="codep" value="{{ codep }}">
-                                            {% if codep == '' %}
-                                                <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="input-label"> آیا کد ویژه دارید؟ </label>
+                                        <select class="form-control" id="has_special_license" onchange="toggleSpecialLicenseFields()" name="has_special_license">
+                                            {% if has_special_license == None %}
+                                                <option value="0">آیا کد ویژه دارید؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% elif has_special_license == '0' %}
+                                                <option value="0">آیا کد ویژه دارید؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% elif has_special_license != '0' %}
+                                                <option value="{{ has_special_license }}">{{ has_special_license }}</option>
+                                                <option value="0">آیا کد ویژه دارید؟</option>
+                                                <option value="بله">بله</option>
+                                                <option value="خیر">خیر</option>
+                                            {% endif %}
+                                        </select>
+                                        {% if has_special_license == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+                                    </div>
+
+                                    {% if has_special_license == 'بله' %}
+                                        <div class="form-group" style="" id="specialLicenseContainer">
+                                            <button type="button" class="default-btn contact-btn" onclick="addSpecialLicenseField()" style="margin-bottom: 15px;">
+                                                افزودن کد ویژه
+                                            </button>
+
+                                            <div id="specialLicenseFields">
+                                                {% if special_license != '0' %}
+                                                    {% for code in special_license %}
+                                                        <div class="license-code-field" style="margin-bottom: 15px; padding: 10px; border: 1px solid rgb(201 200 200); border-radius: 25px; background-color: #FFFEF4FF;">
+                                                            <input class="form-control" type="text" name="special_license" placeholder="کد گواهینامه ویژه" value="{{ code }}">
+                                                            <button type="button" onclick="removeLicenseField(this)" class="default-btn contact-btn" style=" margin-top: 10px; padding: 5px 10px; font-size: 15px">
+                                                                حذف این کد
+                                                            </button>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+
+                                            {% if special_license == '0' %}
+                                                <ul class="errorlist" id="error-message" style=""><li>حداقل یک کد ویژه باید وارد شود.</li></ul>
                                             {% endif %}
                                         </div>
                                     {% else %}
-                                        <div class="form-group" style="display: none" id="codep">
-                                            <input class="form-control" id="" type="text" placeholder="کد گواهینامه ویژه"  name="codep">
+                                        <div class="form-group" style="display: none;" id="specialLicenseContainer">
+                                            <button type="button" class="default-btn contact-btn" onclick="addSpecialLicenseField()" style="margin-bottom: 15px;">
+                                                افزودن کد ویژه
+                                            </button>
+
+                                            <div id="specialLicenseFields">
+                                                <!-- فیلدهای کد ویژه اینجا اضافه می شوند -->
+                                            </div>
                                         </div>
                                     {% endif %}
+
+                                    <script>
+                                        function toggleSpecialLicenseFields() {
+                                            const selectValue = document.getElementById('has_special_license').value;
+                                            const container = document.getElementById('specialLicenseContainer');
+                                            container.style.display = (selectValue === 'بله') ? 'block' : 'none';
+
+                                            // اگر کاربر "خیر" را انتخاب کرد، تمام فیلدهای کد ویژه را پاک کنید
+                                            if (selectValue === 'خیر') {
+                                                document.getElementById('specialLicenseFields').innerHTML = '';
+                                            }
+                                        }
+
+                                        function addSpecialLicenseField() {
+                                            const container = document.getElementById('specialLicenseFields');
+                                            const fieldCount = container.querySelectorAll('.license-code-field').length + 1;
+
+                                            const fieldDiv = document.createElement('div');
+                                            fieldDiv.className = 'license-code-field';
+                                            fieldDiv.style.marginBottom = '15px';
+                                            fieldDiv.style.padding = '10px';
+                                            fieldDiv.style.border = '1px solid rgb(201 200 200)';
+                                            fieldDiv.style.borderRadius = '25px';
+                                            fieldDiv.style.backgroundColor = 'rgb(255 254 244)';
+
+                                            fieldDiv.innerHTML = `
+                                                <input class="form-control" type="text" name="special_license" placeholder="کد گواهینامه ویژه" required>
+                                                <button type="button" onclick="removeLicenseField(this)" class="default-btn contact-btn" style="margin-top: 10px; padding: 5px 10px; font-size: 15px">
+                                                    حذف این کد
+                                                </button>
+                                            `;
+
+                                            container.appendChild(fieldDiv);
+                                        }
+
+                                        function removeLicenseField(button) {
+                                            const fieldToRemove = button.closest('.license-code-field');
+                                            if (fieldToRemove) {
+                                                fieldToRemove.remove();
+
+                                                // اگر همه فیلدها حذف شدند، پیام خطا نمایش دهید
+                                                const fields = document.querySelectorAll('.license-code-field');
+                                                if (fields.length === 0) {
+                                                    const errorDiv = document.createElement('div');
+                                                    errorDiv.innerHTML = '<ul class="errorlist" id="error-message" style=""><li>حداقل یک کد ویژه باید وارد شود.</li></ul>';
+                                                    document.getElementById('specialLicenseContainer').appendChild(errorDiv);
+                                                }
+                                            }
+                                        }
+                                    </script>
 
 
 
                                     <div class="form-group">
+                                        <label class="input-label"> تصویر گواهینامه :</label>
                                         <label class="file-upload" id="upload-box2">
                                             <div class="selected-file" id="file-name2">تصویر گواهینامه 📂</div>
                                             <input id="acknowledgment_image" type="file" name="acknowledgment_image" onchange="showFileName()" value="0">
@@ -335,6 +451,42 @@
                                     </script>
 
                                     <div class="form-group">
+                                        <label class="input-label"> تصویر پشت گواهینامه :</label>
+                                        <label class="file-upload" id="upload-box23">
+                                            <div class="selected-file" id="file-name23">تصویر پشت گواهینامه 📂</div>
+                                            <input id="acknowledgment_image2" type="file" name="acknowledgment_image2" onchange="showFileName2()" value="0">
+
+                                        </label>
+                                        {% if acknowledgment_image == '0' %}
+                                            <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
+                                        {% endif %}
+
+
+                                    </div>
+                                    <script>
+                                        function showFileName2() {
+                                            const input = document.getElementById('acknowledgment_image2');
+                                            const fileName = document.getElementById('file-name23');
+                                            const uploadBox = document.getElementById('upload-box23');
+
+
+                                            if (input.files.length > 0) {
+                                                fileName.textContent = "✅ فایل انتخاب شد.";
+                                                fileName.style.opacity = "1";
+                                                uploadBox.classList.add("uploaded");
+
+                                            } else {
+                                                fileName.textContent = "تصویر گواهینامه 📂";
+                                                fileName.style.opacity = "1";
+                                                uploadBox.classList.remove("uploaded");
+
+                                            }
+
+                                        }
+                                    </script>
+
+                                    <div class="form-group">
+                                        <label class="input-label"> قبلا با مجموعه ای کار داشتین؟ </label>
                                         <select class="form-control" id="قبلا با مجموعه ای کار داشتین؟" onchange="togglePreviousWorkFields2()"  name="work_history">
                                             {% if work_history == None %}
                                             	<option value="0">قبلا با مجموعه ای کار داشتین؟</option>
@@ -370,24 +522,28 @@
 
                                     	<div style="" id="previousWorkFields">
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> نام شرکت قبلی :</label>
                                                 <input class="form-control" id="" type="text" placeholder="نام شرکت قبلی" name="name_company" value="{{ name_company }}">
                                                 {% if name_company == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> سمت شما در شرکت قبلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="سمت شما در شرکت قبلی"  name="semat_work" value="{{ semat_work }}">
                                                 {% if semat_work == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> مدت زمان کار شما با شرکت قبلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="مدت زمان کار شما با شرکت قبلی"  name="time_work_history" value="{{ time_work_history }}">
                                                 {% if time_work_history == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
                                             <div class="form-group">
+                                                <label class="input-label"> تصویر رضایت نامه از شرکت قبلی :</label>
                                                 <label class="file-upload" id="upload-box5">
                                                     <div class="selected-file" id="file-name5">تصویر رضایت نامه از شرکت قبلی 📂</div>
                                                     <input id="img_certificate_work" type="file" name="img_certificate_work" onchange="showFileName5()" value="0">
@@ -424,15 +580,19 @@
                                     {% else %}
                                         <div style="display:none;" id="previousWorkFields">
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> نام شرکت قبلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="نام شرکت قبلی"  name="name_company">
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> سمت شما در شرکت قبلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="سمت شما در شرکت قبلی"  name="semat_work">
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> مدت زمان کار شما با شرکت قبلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="مدت زمان کار شما با شرکت قبلی"  name="time_work_history">
                                             </div>
                                             <div class="form-group">
+                                                <label class="input-label"> تصویر رضایت نامه از شرکت قبلی :</label>
                                                 <label class="file-upload" id="upload-box5">
                                                     <div class="selected-file" id="file-name5">تصویر رضایت نامه از شرکت قبلی 📂</div>
                                                     <input id="img_certificate_work" type="file" name="img_certificate_work" onchange="showFileName5()" value="0">
@@ -469,6 +629,7 @@
 
 
                                     <div class="form-group">
+                                        <label class="input-label"> طریقه آشنایی با شرکت ما :</label>
                                         <select class="form-control" id="طریقه آشنایی با شرکت ما"  onchange="toggleReferralFields2()" name="know_our_company">
                                             {% if know_our_company == None %}
                                             	<option value="0">طریقه آشنایی با شرکت ما</option>
@@ -501,12 +662,14 @@
                                     {% if know_our_company == 'معرف' %}
                                     	<div style="" id="referralFields">
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> نام معرف :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="نام معرف"  name="representative_name" value="{{ representative_name }}">
                                                 {% if representative_name == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> شماره تماس معرف :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="شماره تماس معرف"  name="representative_phone_number" value="{{ representative_phone_number }}">
                                                 {% if representative_name == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -517,9 +680,11 @@
                                     {% else %}
                                         <div style="display:none;" id="referralFields">
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> نام معرف :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="نام معرف"  name="representative_name">
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> شماره تماس معرف :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="شماره تماس معرف"  name="representative_phone_number">
                                             </div>
 
@@ -530,6 +695,7 @@
 
 
                                     <div class="form-group">
+                                        <label class="input-label"> سابقه کاری مرتبط با صدرا سازه دارید؟ </label>
                                         <select class="form-control"  id="company" name="relatedـworkـexperience" onchange="toggleReferralFields4()">
                                             {% if relatedـworkـexperience == None %}
                                             	<option value="0">سابقه کاری مرتبط با صدرا سازه دارید؟</option>
@@ -562,6 +728,7 @@
 
                                     {% if relatedـworkـexperience == 'بله' %}
                                     	<div class="form-group" style="" id="company2">
+                                            <label class="input-label"> توضیحی درباره کار مرتبط با حوزه کاری ما :</label>
                                             <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما" name="descriptionـrelatedـwork">{{ descriptionـrelatedـwork }}</textarea>
                                             {% if descriptionـrelatedـwork == '' %}
                                                 <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -569,6 +736,7 @@
                                         </div>
                                     {% else %}
                                         <div class="form-group" style="display: none" id="company2">
+                                            <label class="input-label"> توضیحی درباره کار مرتبط با حوزه کاری ما :</label>
                                             <textarea class="message-field" id="father-name" type="text" placeholder="توضیحی درباره کار مرتبط با حوزه کاری ما"  name="descriptionـrelatedـwork"></textarea>
                                         </div>
                                     {% endif %}
@@ -576,6 +744,7 @@
 
 
                                     <div class="form-group">
+                                        <label class="input-label"> وضعیت اشتغال :</label>
                                         <select class="form-control" id="وضعیت اشتغال"  onchange="toggleEmploymentFields2()" name="employmentـstatus">
                                             {% if employmentـstatus == None %}
                                                 <option value="0">وضعیت اشتغال</option>
@@ -611,12 +780,14 @@
                                     {% if employmentـstatus == 'شاغل' %}
                                     	<div style="" id="employmentFields">
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> نام شرکت فعلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="online_company" value="{{ online_company }}">
                                                 {% if online_company == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> سمت فعلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="semat_online_company" value="{{ semat_online_company }}">
                                                 {% if semat_online_company == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -627,9 +798,11 @@
                                     {% else %}
                                         <div style="display:none;" id="employmentFields">
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> نام شرکت فعلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="نام شرکت فعلی"  name="online_company">
                                             </div>
                                             <div class="form-group" style="" id="educationField">
+                                                <label class="input-label"> سمت فعلی :</label>
                                                 <input class="form-control" id="father-name" type="text" placeholder="سمت فعلی"  name="semat_online_company">
                                             </div>
 

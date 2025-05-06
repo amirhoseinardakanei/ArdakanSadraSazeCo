@@ -322,12 +322,12 @@ class CooperateStep_2(View):
 
         marital_status = '0' if request.POST.get('marital_status') == None else request.POST.get('marital_status')
         children_count = '0' if request.POST.get('children_count') == None else request.POST.get('children_count')
-        birth_cert_date = '0000-00-00' if request.POST.get('birth_cert_date') == '' else request.POST.get('birth_cert_date')
+        birth_cert_date = '' if request.POST.get('birth_cert_date') == '' else request.POST.get('birth_cert_date')
         military_status = '0' if request.POST.get('military_status') == None else request.POST.get('military_status')
         exemption_type = '' if request.POST.get('exemption_type') == '' else request.POST.get('exemption_type')
         img_card_military = '0' if request.FILES.get('img_card_military') == None else request.FILES.get('img_card_military')
-        start_military_date = '0000-00-00' if request.POST.get('start_military_date') == '' else request.POST.get('start_military_date')
-        end_military_date = '0000-00-00' if request.POST.get('end_military_date') == '' else request.POST.get('end_military_date')
+        start_military_date = '' if request.POST.get('start_military_date') == '' else request.POST.get('start_military_date')
+        end_military_date = '' if request.POST.get('end_military_date') == '' else request.POST.get('end_military_date')
         province = request.POST.get('province')
         city = request.POST.get('city')
         marital = False
@@ -340,7 +340,7 @@ class CooperateStep_2(View):
                 marital = False
         elif marital_status == 'مجرد':
             children_count = ''
-            birth_cert_date = '0000-00-00'
+            birth_cert_date = ''
             marital = True
 
         if military_status == 'معافیت':
@@ -418,12 +418,21 @@ class CooperateStep_3(View):
                     instance=cooperate_test_initial
                 )
 
+                driving_motor = '0' if request.POST.get('driving_motor') == '0' else request.POST.get(
+                    'driving_motor')  # نوع گواهینامه رانندگی
+                has_special_license = '0' if request.POST.get('has_special_license') == '0' else request.POST.get(
+                    'has_special_license')  # وضعیت کد ویژه
+                special_license = '0' if request.POST.getlist('special_license') == [] else request.POST.getlist(
+                    'special_license')  # لیست کد های ویژه
+
                 topicses = cooperate_test_initial.desired_job_titles
                 degree = cooperate_test_initial.education_level
                 fieldـstudy = cooperate_test_initial.field_of_study
                 picture_insurance_history = cooperate_test_initial.insurance_record_image
                 type_driver_license = cooperate_test_initial.driving_license_type
-                codep = cooperate_test_initial.special_license_code
+                driving_motor = cooperate_test_initial.driving_motor
+                has_special_license = cooperate_test_initial.has_special_license
+                special_license = cooperate_test_initial.special_license_code
                 acknowledgment_image = cooperate_test_initial.driving_license_image
                 work_history = cooperate_test_initial.previous_work_experience
                 name_company = cooperate_test_initial.previous_company_name
@@ -439,6 +448,7 @@ class CooperateStep_3(View):
                 online_company = cooperate_test_initial.current_company_name
                 semat_online_company = cooperate_test_initial.current_position
 
+
                 return render(request, 'Cooperate/CooperateStep_3.html', {
                     'form': form,
                     'topicses': ast.literal_eval(topicses),
@@ -446,7 +456,9 @@ class CooperateStep_3(View):
                     'fieldـstudy': fieldـstudy,
                     'picture_insurance_history': picture_insurance_history,
                     'type_driver_license': type_driver_license,
-                    'codep': codep,
+                    'driving_motor': driving_motor,
+                    'has_special_license': has_special_license,
+                    'special_license': ast.literal_eval(special_license),
                     'acknowledgment_image': acknowledgment_image,
                     'work_history': work_history,
                     'name_company': name_company,
@@ -504,17 +516,22 @@ class CooperateStep_3(View):
 
         # هندل کردن داینامیک فیلد گواهینامه
         type_driver_license = '0' if request.POST.get('type_driver_license') == '0' else request.POST.get('type_driver_license')  # نوع گواهینامه رانندگی
+        driving_motor = '0' if request.POST.get('driving_motor') == '0' else request.POST.get('driving_motor')  # نوع گواهینامه رانندگی
+        has_special_license = '0' if request.POST.get('has_special_license') == '0' else request.POST.get('has_special_license')  # وضعیت کد ویژه
+        special_license = '0' if request.POST.getlist('special_license') == [] else request.POST.getlist('special_license')  # لیست کد های ویژه
+        print(special_license)
         codep = '' if request.POST.get('codep') == '' else request.POST.get('codep')  # کد ویژه
         codep_status = False
-        if type_driver_license != '0':
-            if type_driver_license == 'کد ویژه':
-                if codep != '':
+        if has_special_license != '0':
+            if type_driver_license == 'بله':
+                if special_license != '0':
                     codep_status = True
                 else:
                     codep_status = False
             else:
                 codep_status = True
         acknowledgment_image = '0' if request.FILES.get('acknowledgment_image') == None else request.FILES.get('acknowledgment_image') # تصویر گواهینامه
+        acknowledgment_image2 = '0' if request.FILES.get('acknowledgment_image2') == None else request.FILES.get('acknowledgment_image2') # تصویر پشت گواهینامه
         # هندل کردن داینامیک فیلد گواهینامه
 
 
@@ -581,7 +598,7 @@ class CooperateStep_3(View):
                 employmentـstatus_status = True
         # هندل کردن داینامیک فیلد وضعیت اشتغال
 
-        if topicses != '0' and degree != '0' and fieldـstudy_status == True and picture_insurance_history != '0' and type_driver_license != '0' and codep_status == True and acknowledgment_image != '0' and work_history != '0' and work_history_status == True and know_our_company != '0' and know_our_company_status == True and relatedـworkـexperience != '0' and relatedـworkـexperience_status == True and employmentـstatus != '0' and employmentـstatus_status == True:
+        if topicses != '0' and degree != '0' and fieldـstudy_status == True and picture_insurance_history != '0' and type_driver_license != '0' and codep_status == True and acknowledgment_image != '0' and acknowledgment_image2 != '0' and work_history != '0' and work_history_status == True and know_our_company != '0' and know_our_company_status == True and relatedـworkـexperience != '0' and relatedـworkـexperience_status == True and employmentـstatus != '0' and employmentـstatus_status == True and driving_motor != '0':
             if form.is_valid():
                 form.save()
                 cooperate = Cooperate.objects.get(national_number=request.user.national_number)
@@ -591,8 +608,10 @@ class CooperateStep_3(View):
                 cooperate.field_of_study = fieldـstudy
                 cooperate.insurance_record_image = picture_insurance_history
                 cooperate.driving_license_type = type_driver_license
-                cooperate.special_license_code = codep
+                cooperate.driving_motor = driving_motor
+                cooperate.special_license_code = special_license
                 cooperate.driving_license_image = acknowledgment_image
+                cooperate.driving_license_image2 = acknowledgment_image2
                 cooperate.previous_work_experience = work_history
                 cooperate.previous_company_name = name_company
                 cooperate.previous_position = semat_work
@@ -621,6 +640,9 @@ class CooperateStep_3(View):
             'fieldـstudy': fieldـstudy,
             'picture_insurance_history': picture_insurance_history,
             'type_driver_license': type_driver_license,
+            'driving_motor': driving_motor,
+            'has_special_license': has_special_license,
+            'special_license': special_license,
             'codep': codep,
             'acknowledgment_image': acknowledgment_image,
             'work_history': work_history,
@@ -641,6 +663,7 @@ class CooperateStep_3(View):
         return render(request, 'Cooperate/CooperateStep_3.html', context_post)
 
 class CooperateStep_4(View):
+
     def get(self, request):
         status_user = bool(request.user.username)
         if status_user is False:
@@ -681,3 +704,34 @@ class CooperateStep_4(View):
         }
 
         return render(request, 'Cooperate/CooperateStep_4.html', context_post)
+
+class CooperateCheck(View):
+    def get(self, request):
+
+        status_user = bool(request.user.national_number)
+        if status_user is False:
+            return redirect(reverse('HomePage'))
+
+        if Cooperate.objects.filter(national_number=request.user.national_number).exists():
+            cooperate_test_initial = Cooperate.objects.get(national_number=request.user.national_number)
+
+            if cooperate_test_initial.step_1 is True:
+                form = CooperationFormStep1(
+                    instance=cooperate_test_initial
+                )
+                name_change = cooperate_test_initial.name_changed
+                previous_name = cooperate_test_initial.previous_name
+                gender = cooperate_test_initial.gender
+                birth_province = cooperate_test_initial.birth_province
+                birth_city = cooperate_test_initial.birth_city
+                return render(request, 'Cooperate/CooperateStep_1.html', {
+                    'form': form,
+                    'name_change': name_change,
+                    'previous_name': previous_name,
+                    'gender_intial': gender,
+                    'birth_province': birth_province,
+                    'birth_city': birth_city,
+                    'status_step': bool(cooperate_test_initial.step_1),
+                })
+
+        return render(request, 'Cooperate/Cooperate.html')

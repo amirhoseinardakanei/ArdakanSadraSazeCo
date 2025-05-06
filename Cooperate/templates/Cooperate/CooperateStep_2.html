@@ -6,6 +6,23 @@
 
 
 {% block body %}
+    <style>
+        .form-field {
+            margin-bottom: 1rem;
+        }
+        .input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+        }
+    </style>
     <section class="contact-section pb-100 pt-100">
             <div class="container">
                 <div class="section-title text-center" style="margin-top: 30px">
@@ -24,6 +41,7 @@
 
 
                                     <div class="form-group" >
+                                        <label class="input-label">وضعیت تاهل :</label>
                                         <select class="form-control" id="marital-status" name="marital_status"  onchange="storytaahol()">
                                             {% if marital_status == None %}
                                             	<option value="0">وضعیت تاهل</option>
@@ -58,6 +76,7 @@
                                     {% if marital_status == 'متاهل' %}
                                     	<div id="taaholl" style="">
                                             <div class="form-group">
+                                                <label class="input-label">تعداد اولاد :</label>
                                                 <select class="form-control" id="children-count" name="children_count">
                                                     {% if children_count == None%}
                                                         <option value="0">تعداد اولاد</option>
@@ -89,8 +108,9 @@
                                                 {% endif %}
                                             </div>
                                             <div class="form-group">
+                                                <label class="input-label">تاریخ تاهل :</label>
                                                 <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ تاهل" name="birth_cert_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false" value="{{ birth_cert_date }}">
-                                                {% if birth_cert_date == '0' %}
+                                                {% if birth_cert_date == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
@@ -98,6 +118,7 @@
                                     {% else %}
                                         <div id="taaholl" style="display: none">
                                             <div class="form-group">
+                                                <label class="input-label">تعداد اولاد :</label>
                                                 <select class="form-control" id="children-count" name="children_count">
                                                     {% if children_count == None%}
                                                         <option value="0">تعداد اولاد</option>
@@ -129,8 +150,9 @@
                                                 {% endif %}
                                             </div>
                                             <div class="form-group">
+                                                <label class="input-label">تاریخ تاهل :</label>
                                                 <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ تاهل" name="birth_cert_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
-                                                {% if birth_cert_date == '0' %}
+                                                {% if birth_cert_date == '' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
                                                 {% endif %}
                                             </div>
@@ -142,7 +164,7 @@
 
                                     <!-- نظام وظیفه -->
                                     <div class="form-group">
-
+                                        <label class="input-label">وضعیت نظام وظیفه :</label>
                                         <select class="form-control" id="military-status" name="military_status"  onchange="toggleMilitaryFields()">
                                             {% if military_status == None %}
                                             	<option value="0">وضعیت نظام وظیفه</option>
@@ -169,8 +191,10 @@
                                     	<div id="military-exemption-type" style="">
                                             <div class="form-group">
                                                 {% if exemption_type != '0' %}
+                                                    <label class="input-label">نوع معافیت :</label>
                                                 	<input class="form-control" id="exemption-type" type="text" placeholder="نوع معافیت" name="exemption_type" value="{{ exemption_type }}">
                                                 {% else %}
+                                                    <label class="input-label">نوع معافیت :</label>
                                                     <input class="form-control" id="exemption-type" type="text" placeholder="نوع معافیت" name="exemption_type">
                                                 {% endif %}
 
@@ -182,6 +206,7 @@
                                     {% else %}
                                         <div id="military-exemption-type" style="display: none">
                                             <div class="form-group">
+                                                <label class="input-label">نوع معافیت :</label>
                                                 <input class="form-control" id="exemption-type" type="text" placeholder="نوع معافیت" name="exemption_type">
                                                 {% if exemption_type == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -194,6 +219,7 @@
 
                                     {% if military_status == 'پایان خدمت' %}
                                     	<div class="form-group" id="military-service-photo" style="">
+                                            <label class="input-label">تصویر کارت پایان خدمت :</label>
                                             <label class="file-upload" id="upload-box3">
                                                 <div class="selected-file" id="file-name3">تصویر کارت پایان خدمت 📂</div>
                                                 <input id="photo3" type="file" name="img_card_military" onchange="showFileName2()">
@@ -220,6 +246,7 @@
                                             {% endif %}
 
                                             <div class="form-group">
+                                                <label class="input-label">تاریخ شروع خدمت :</label>
                                                 <input class="form-control" value="{{ start_military_date }}" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" name="start_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
                                                 {% if start_military_date == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -227,6 +254,7 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label class="input-label">تاریخ پایان خدمت :</label>
                                                 <input class="form-control" value="{{ end_military_date }}" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" name="end_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
                                                 {% if end_military_date == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -235,7 +263,7 @@
                                         </div>
                                     {% else %}
                                         <div class="form-group" id="military-service-photo" style="display: none">
-
+                                            <label class="input-label">تصویر کارت پایان خدمت :</label>
                                             <label class="file-upload" id="upload-box3">
                                                 <div class="selected-file" id="file-name3">تصویر کارت پایان خدمت 📂</div>
                                                 <input id="photo3" type="file" name="img_card_military" onchange="showFileName2()">
@@ -262,6 +290,7 @@
                                             {% endif %}
 
                                             <div class="form-group">
+                                                <label class="input-label">تاریخ شروع خدمت :</label>
                                                 <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ شروع خدمت" name="start_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
                                                 {% if start_military_date == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -269,6 +298,7 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label class="input-label">تاریخ پایان خدمت :</label>
                                                 <input class="form-control" id="birth-cert-date" data-jdp type="text" placeholder="تاریخ پایان خدمت" name="end_military_date" autocomplete="off" onclick="this.removeAttribute('readonly')" onkeydown="return false">
                                                 {% if end_military_date == '0' %}
                                                     <ul class="errorlist" id="error-message" style=""><li>این فیلد اجباری است.</li></ul>
@@ -282,7 +312,7 @@
 
                                     <!--  شهر سکونت -->
                                    <div class="form-group">
-
+                                        <label class="input-label">استان سکونت :</label>
                                         <select class="form-control" id="province" name="province" required onchange="updateCities()">
                                             {% if province == None %}
                                                 <option value="0">استان سکونت</option>
@@ -303,6 +333,7 @@
 
 
                                     <div class="form-group">
+                                        <label class="input-label"> شهر سکونت :</label>
                                         <select class="form-control" id="city" name="city" required>
                                             {% if city == None %}
                                                 <option value="0"> شهر سکونت</option>
@@ -324,20 +355,24 @@
 
 
                                     <div class="form-group">
+                                        <label class="input-label">آدرس محل سکونت :</label>
                                         {{ form.residence_address }}
                                         {{ form.residence_address.errors }}
                                     </div>
                                     <div class="form-group">
+                                        <label class="input-label">آدرس دوم محل سکونت :</label>
                                         {{ form.residence_address_2 }}
                                         {{ form.residence_address_2.errors }}
                                     </div>
                                     <div class="form-group">
+                                        <label class="input-label">آدرس محل کار :</label>
                                         {{ form.residence_work }}
                                         {{ form.residence_work.errors }}
                                     </div>
 
 
                                     <div class="form-group">
+                                        <label class="input-label">کد پستی محل سکونت :</label>
                                         {{ form.residence_postcode }}
                                         {{ form.residence_postcode.errors }}
                                     </div>
@@ -348,6 +383,7 @@
                                     </script>
 
                                     <div class="form-group">
+                                        <label class="input-label">شماره تلفن :</label>
                                         {{ form.phone_number }}
                                         {{ form.phone_number.errors }}
                                     </div>
@@ -358,6 +394,7 @@
                                     </script>
 
                                     <div class="form-group">
+                                        <label class="input-label">شماره تلفن اظطراری :</label>
                                         {{ form.emergency_phone_number }}
                                         {{ form.emergency_phone_number.errors }}
                                     </div>
@@ -368,6 +405,7 @@
                                     </script>
 
                                     <div class="form-group">
+                                        <label class="input-label">شماره تلفن منزل :</label>
                                         {{ form.home_phone_number }}
                                         {{ form.home_phone_number.errors }}
                                     </div>
@@ -378,6 +416,7 @@
                                     </script>
 
                                     <div class="form-group">
+                                        <label class="input-label">ایمیل :</label>
                                         {{ form.email }}
                                         {{ form.email.errors }}
                                     </div>

@@ -24,7 +24,7 @@
 
 
                                     <div class="form-group" id="military-service-photo" style="">
-
+                                        <label class="input-label"> رزومه :</label>
                                         <label class="file-upload" id="upload-box3">
 
                                             <div class="selected-file" id="file-name3">رزومه خود را بارگزاری کنید 📂</div>
@@ -55,18 +55,20 @@
                                     </script>
                                     <!-- وضعیت روحی و جسمانی -->
                                     <div class="form-group">
+                                        <label class="input-label"> وضعیت روحی و جسمانی :</label>
                                         {{ form.mental_physical_status }}
                                         {{ form.mental_physical_status.errors }}
                                     </div>
 
                                     <!-- حقوق درخواستی -->
                                     <div class="form-group">
+                                        <label class="input-label"> حقوق درخواستی :</label>
                                         {{ form.requested_salary }}
                                         {{ form.requested_salary.errors }}
                                     </div>
 
                                     <div class="col-sm-12 text-center">
-                                        <a class="default-btn contact-btn" href="{% url 'CooperateStep_2' %}">
+                                        <a class="default-btn contact-btn" href="{% url 'CooperateStep_3' %}">
                                             مرحله قبلی
                                         </a>
                                         <button type="submit" class="default-btn contact-btn">
